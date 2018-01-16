@@ -2,12 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>VolunteerNow uses your location in order to find volunteer events near you automatically. We also use your location to display nearby events on a map.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>VolunteerNow uses your location in order to find volunteer events near you automatically. We also use your location to display nearby events on a map.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Sofia Pro Black.otf</string>
+		<string>Sofia Pro Black Italic.otf</string>
+		<string>Sofia Pro Bold.otf</string>
+		<string>Sofia Pro Bold Italic.otf</string>
+		<string>Sofia Pro Extra Light.otf</string>
+		<string>Sofia Pro Extra Light Italic.otf</string>
+		<string>Sofia Pro Italic.otf</string>
+		<string>Sofia Pro Light.otf</string>
+		<string>Sofia Pro Light Italic.otf</string>
+		<string>Sofia Pro Medium.otf</string>
+		<string>Sofia Pro Medium Italic.otf</string>
+		<string>Sofia Pro Regular.otf</string>
+		<string>Sofia Pro Semi Bold.otf</string>
+		<string>Sofia Pro Semi Bold Italic.otf</string>
+		<string>Sofia Pro Ultra Light.otf</string>
+		<string>Sofia Pro Ultra Light Italic.otf</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>VolunteerNow</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,10 +42,27 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.167925135381-mr7l884boau1etqufubqhi0ril7sabjv</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>VolunteerNow requires access to the camera in order to scan QR codes.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>VolunteerNow uses your location in order to find volunteer events near you automatically. We also use your location to display nearby events on a map.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>VolunteerNow uses your location in order to find volunteer events near you automatically. We also use your location to display nearby events on a map.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -35,8 +74,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

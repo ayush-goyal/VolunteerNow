@@ -7,25 +7,32 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class WelcomeController: UIViewController {
+class WelcomeController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var signupButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         welcomeLabel.font = UIFont(name: "Nunito-Bold", size: 42.0)
-        signupButton.titleLabel?.font = UIFont(name: "Nunito-SemiBold", size: 19.0)
-        loginButton.titleLabel?.font = UIFont(name: "Nunito-SemiBold", size: 19.0)
-
-        let defaults = UserDefaults.standard
-        defaults.set("Ayush Goyal", forKey: "name")
         
-        let userID = Int(drand48() * 1000000)
-        defaults.set(userID, forKey: "id")
+        //GIDSignIn.sharedInstance().signIn()
+        setupGoogleSignIn()
+        
+    }
+    
+    func setupGoogleSignIn() {
+        let googleButton = GIDSignInButton()
+        view.addSubview(googleButton)
+        googleButton.translatesAutoresizingMaskIntoConstraints = false
+        googleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        googleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+        googleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
 
     

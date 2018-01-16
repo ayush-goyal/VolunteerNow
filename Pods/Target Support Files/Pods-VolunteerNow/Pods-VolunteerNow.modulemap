@@ -1,0 +1,6 @@
+framework module Pods_VolunteerNow {
+  umbrella header "Pods-VolunteerNow-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,23 +7,108 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A099ECF2003D19F007B519F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A099ECE2003D19F007B519F /* GoogleService-Info.plist */; };
+		2A099ED12004575A007B519F /* BarFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED02004575A007B519F /* BarFilterController.swift */; };
+		2A099ED3200460F9007B519F /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED2200460F9007B519F /* EventCell.swift */; };
+		2A099ED520046333007B519F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED420046333007B519F /* APIManager.swift */; };
+		2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325C7B200CFE4000EAEF52 /* Extensions.swift */; };
+		2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325C7D200D164300EAEF52 /* SignInController.swift */; };
+		2A325CB5200D1C1600EAEF52 /* BrandonText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CB0200D1C0F00EAEF52 /* BrandonText-Bold.otf */; };
+		2A325CB6200D1C1600EAEF52 /* BrandonText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CB1200D1C1100EAEF52 /* BrandonText-RegularItalic.otf */; };
+		2A325CB7200D1C1600EAEF52 /* BrandonText-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CB2200D1C1200EAEF52 /* BrandonText-Thin.otf */; };
+		2A325CB8200D1C1600EAEF52 /* BrandonText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CB3200D1C1300EAEF52 /* BrandonText-Light.otf */; };
+		2A325CB9200D1C1600EAEF52 /* BrandonText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CB4200D1C1500EAEF52 /* BrandonText-Regular.otf */; };
+		2A325CCA200D206500EAEF52 /* Sofia Pro Extra Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CBA200D204F00EAEF52 /* Sofia Pro Extra Light.otf */; };
+		2A325CCB200D206500EAEF52 /* Sofia Pro Medium Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CBB200D205000EAEF52 /* Sofia Pro Medium Italic.otf */; };
+		2A325CCC200D206500EAEF52 /* Sofia Pro Ultra Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CBC200D205100EAEF52 /* Sofia Pro Ultra Light.otf */; };
+		2A325CCD200D206500EAEF52 /* Sofia Pro Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CBD200D205300EAEF52 /* Sofia Pro Italic.otf */; };
+		2A325CCE200D206500EAEF52 /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CBE200D205400EAEF52 /* Sofia Pro Regular.otf */; };
+		2A325CCF200D206500EAEF52 /* Sofia Pro Extra Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CBF200D205500EAEF52 /* Sofia Pro Extra Light Italic.otf */; };
+		2A325CD0200D206500EAEF52 /* Sofia Pro Semi Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC0200D205700EAEF52 /* Sofia Pro Semi Bold.otf */; };
+		2A325CD1200D206500EAEF52 /* Sofia Pro Semi Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC1200D205800EAEF52 /* Sofia Pro Semi Bold Italic.otf */; };
+		2A325CD2200D206500EAEF52 /* Sofia Pro Ultra Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC2200D205900EAEF52 /* Sofia Pro Ultra Light Italic.otf */; };
+		2A325CD3200D206500EAEF52 /* Sofia Pro Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC3200D205B00EAEF52 /* Sofia Pro Light Italic.otf */; };
+		2A325CD4200D206500EAEF52 /* Sofia Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC4200D205C00EAEF52 /* Sofia Pro Light.otf */; };
+		2A325CD5200D206500EAEF52 /* Sofia Pro Black Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC5200D205D00EAEF52 /* Sofia Pro Black Italic.otf */; };
+		2A325CD6200D206500EAEF52 /* Sofia Pro Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC6200D205F00EAEF52 /* Sofia Pro Bold Italic.otf */; };
+		2A325CD7200D206500EAEF52 /* Sofia Pro Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC7200D206100EAEF52 /* Sofia Pro Black.otf */; };
+		2A325CD8200D206500EAEF52 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC8200D206200EAEF52 /* Sofia Pro Bold.otf */; };
+		2A325CD9200D206500EAEF52 /* Sofia Pro Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC9200D206400EAEF52 /* Sofia Pro Medium.otf */; };
+		2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */; };
+		2A325CDD200D8AC800EAEF52 /* SearchListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */; };
+		2A325CE1200D99D900EAEF52 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */; };
+		2A325CE3200D9A2B00EAEF52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE2200D9A2B00EAEF52 /* TabBarController.swift */; };
+		2AC6388F2001520B00144AD6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6388E2001520B00144AD6 /* MapKit.framework */; };
+		2AC638912001560800144AD6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638902001560800144AD6 /* Event.swift */; };
+		2AC638932001588600144AD6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638922001588600144AD6 /* ProfileController.swift */; };
+		2AC63895200160B900144AD6 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC63894200160B900144AD6 /* WelcomeController.swift */; };
+		2AC6389D200165E900144AD6 /* SignupInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6389C200165E900144AD6 /* SignupInformationController.swift */; };
+		2AC638A42001687D00144AD6 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638A32001687D00144AD6 /* QRScannerController.swift */; };
+		2AC638A62001710700144AD6 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638A52001710700144AD6 /* CameraController.swift */; };
 		2AEDBD19200146EB00756696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD18200146EB00756696 /* AppDelegate.swift */; };
-		2AEDBD1B200146EB00756696 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD1A200146EB00756696 /* ViewController.swift */; };
 		2AEDBD1E200146EB00756696 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD1C200146EB00756696 /* Main.storyboard */; };
 		2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD1F200146EB00756696 /* VolunteerNow.xcdatamodeld */; };
 		2AEDBD23200146EB00756696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD22200146EB00756696 /* Assets.xcassets */; };
 		2AEDBD26200146EB00756696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD24200146EB00756696 /* LaunchScreen.storyboard */; };
+		2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */; };
+		2AEDBD3020014B5F00756696 /* SearchListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD2F20014B5F00756696 /* SearchListController.swift */; };
+		2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD3120014B6A00756696 /* SearchMapController.swift */; };
+		81DE77ED67D23CBA34113DB2 /* Pods_VolunteerNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A099ECE2003D19F007B519F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2A099ED02004575A007B519F /* BarFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarFilterController.swift; sourceTree = "<group>"; };
+		2A099ED2200460F9007B519F /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		2A099ED420046333007B519F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		2A325C7B200CFE4000EAEF52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2A325C7D200D164300EAEF52 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		2A325CB0200D1C0F00EAEF52 /* BrandonText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Bold.otf"; sourceTree = "<group>"; };
+		2A325CB1200D1C1100EAEF52 /* BrandonText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-RegularItalic.otf"; sourceTree = "<group>"; };
+		2A325CB2200D1C1200EAEF52 /* BrandonText-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Thin.otf"; sourceTree = "<group>"; };
+		2A325CB3200D1C1300EAEF52 /* BrandonText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Light.otf"; sourceTree = "<group>"; };
+		2A325CB4200D1C1500EAEF52 /* BrandonText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Regular.otf"; sourceTree = "<group>"; };
+		2A325CBA200D204F00EAEF52 /* Sofia Pro Extra Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Extra Light.otf"; sourceTree = "<group>"; };
+		2A325CBB200D205000EAEF52 /* Sofia Pro Medium Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Medium Italic.otf"; sourceTree = "<group>"; };
+		2A325CBC200D205100EAEF52 /* Sofia Pro Ultra Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Ultra Light.otf"; sourceTree = "<group>"; };
+		2A325CBD200D205300EAEF52 /* Sofia Pro Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Italic.otf"; sourceTree = "<group>"; };
+		2A325CBE200D205400EAEF52 /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Regular.otf"; sourceTree = "<group>"; };
+		2A325CBF200D205500EAEF52 /* Sofia Pro Extra Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Extra Light Italic.otf"; sourceTree = "<group>"; };
+		2A325CC0200D205700EAEF52 /* Sofia Pro Semi Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Semi Bold.otf"; sourceTree = "<group>"; };
+		2A325CC1200D205800EAEF52 /* Sofia Pro Semi Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Semi Bold Italic.otf"; sourceTree = "<group>"; };
+		2A325CC2200D205900EAEF52 /* Sofia Pro Ultra Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Ultra Light Italic.otf"; sourceTree = "<group>"; };
+		2A325CC3200D205B00EAEF52 /* Sofia Pro Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Light Italic.otf"; sourceTree = "<group>"; };
+		2A325CC4200D205C00EAEF52 /* Sofia Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Light.otf"; sourceTree = "<group>"; };
+		2A325CC5200D205D00EAEF52 /* Sofia Pro Black Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Black Italic.otf"; sourceTree = "<group>"; };
+		2A325CC6200D205F00EAEF52 /* Sofia Pro Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Bold Italic.otf"; sourceTree = "<group>"; };
+		2A325CC7200D206100EAEF52 /* Sofia Pro Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Black.otf"; sourceTree = "<group>"; };
+		2A325CC8200D206200EAEF52 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Bold.otf"; sourceTree = "<group>"; };
+		2A325CC9200D206400EAEF52 /* Sofia Pro Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Medium.otf"; sourceTree = "<group>"; };
+		2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorSegmentedView.swift; sourceTree = "<group>"; };
+		2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCollectionViewController.swift; sourceTree = "<group>"; };
+		2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
+		2A325CE2200D9A2B00EAEF52 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VolunteerNow.entitlements; sourceTree = "<group>"; };
+		2AC6388E2001520B00144AD6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2AC638902001560800144AD6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		2AC638922001588600144AD6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		2AC63894200160B900144AD6 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		2AC6389C200165E900144AD6 /* SignupInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInformationController.swift; sourceTree = "<group>"; };
+		2AC638A32001687D00144AD6 /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
+		2AC638A52001710700144AD6 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		2AEDBD15200146EB00756696 /* VolunteerNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolunteerNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEDBD18200146EB00756696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AEDBD1A200146EB00756696 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2AEDBD1D200146EB00756696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2AEDBD20200146EB00756696 /* VolunteerNow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VolunteerNow.xcdatamodel; sourceTree = "<group>"; };
 		2AEDBD22200146EB00756696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AEDBD25200146EB00756696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AEDBD27200146EB00756696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerSearchController.swift; sourceTree = "<group>"; };
+		2AEDBD2F20014B5F00756696 /* SearchListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListController.swift; sourceTree = "<group>"; };
+		2AEDBD3120014B6A00756696 /* SearchMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
+		5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.release.xcconfig"; sourceTree = "<group>"; };
+		9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VolunteerNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90FD5BD541A839F16584DA4 /* Pods-VolunteerNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +116,131 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC6388F2001520B00144AD6 /* MapKit.framework in Frameworks */,
+				81DE77ED67D23CBA34113DB2 /* Pods_VolunteerNow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A325C7F200D199100EAEF52 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2A325CC7200D206100EAEF52 /* Sofia Pro Black.otf */,
+				2A325CC5200D205D00EAEF52 /* Sofia Pro Black Italic.otf */,
+				2A325CC8200D206200EAEF52 /* Sofia Pro Bold.otf */,
+				2A325CC6200D205F00EAEF52 /* Sofia Pro Bold Italic.otf */,
+				2A325CBA200D204F00EAEF52 /* Sofia Pro Extra Light.otf */,
+				2A325CBF200D205500EAEF52 /* Sofia Pro Extra Light Italic.otf */,
+				2A325CBD200D205300EAEF52 /* Sofia Pro Italic.otf */,
+				2A325CC4200D205C00EAEF52 /* Sofia Pro Light.otf */,
+				2A325CC3200D205B00EAEF52 /* Sofia Pro Light Italic.otf */,
+				2A325CC9200D206400EAEF52 /* Sofia Pro Medium.otf */,
+				2A325CBB200D205000EAEF52 /* Sofia Pro Medium Italic.otf */,
+				2A325CBE200D205400EAEF52 /* Sofia Pro Regular.otf */,
+				2A325CC0200D205700EAEF52 /* Sofia Pro Semi Bold.otf */,
+				2A325CC1200D205800EAEF52 /* Sofia Pro Semi Bold Italic.otf */,
+				2A325CBC200D205100EAEF52 /* Sofia Pro Ultra Light.otf */,
+				2A325CC2200D205900EAEF52 /* Sofia Pro Ultra Light Italic.otf */,
+				2A325CB0200D1C0F00EAEF52 /* BrandonText-Bold.otf */,
+				2A325CB3200D1C1300EAEF52 /* BrandonText-Light.otf */,
+				2A325CB4200D1C1500EAEF52 /* BrandonText-Regular.otf */,
+				2A325CB1200D1C1100EAEF52 /* BrandonText-RegularItalic.otf */,
+				2A325CB2200D1C1200EAEF52 /* BrandonText-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2A325CDE200D997500EAEF52 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */,
+				2AC638A52001710700144AD6 /* CameraController.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		2A325CDF200D998C00EAEF52 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AC638A32001687D00144AD6 /* QRScannerController.swift */,
+				2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */,
+				2AC638922001588600144AD6 /* ProfileController.swift */,
+				2A325CE2200D9A2B00EAEF52 /* TabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2AC6388D2001520B00144AD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6388E2001520B00144AD6 /* MapKit.framework */,
+				9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2AC6389E200167B900144AD6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2AC63894200160B900144AD6 /* WelcomeController.swift */,
+				2A325C7D200D164300EAEF52 /* SignInController.swift */,
+				2AC6389C200165E900144AD6 /* SignupInformationController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2AC6389F200167BD00144AD6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */,
+				2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */,
+				2AEDBD2F20014B5F00756696 /* SearchListController.swift */,
+				2AEDBD3120014B6A00756696 /* SearchMapController.swift */,
+				2A099ED02004575A007B519F /* BarFilterController.swift */,
+				2A099ED2200460F9007B519F /* EventCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2AC638A0200167C400144AD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2AEDBD1F200146EB00756696 /* VolunteerNow.xcdatamodeld */,
+				2AC638902001560800144AD6 /* Event.swift */,
+				2A099ED420046333007B519F /* APIManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2AC638A1200167E900144AD6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A099ECE2003D19F007B519F /* GoogleService-Info.plist */,
+				2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */,
+				2AEDBD27200146EB00756696 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2AC638A22001680100144AD6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2AEDBD1C200146EB00756696 /* Main.storyboard */,
+				2AEDBD24200146EB00756696 /* LaunchScreen.storyboard */,
+				2AEDBD22200146EB00756696 /* Assets.xcassets */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		2AEDBD0C200146EB00756696 = {
 			isa = PBXGroup;
 			children = (
 				2AEDBD17200146EB00756696 /* VolunteerNow */,
 				2AEDBD16200146EB00756696 /* Products */,
+				2AC6388D2001520B00144AD6 /* Frameworks */,
+				DEC9F269B8E042CF9D228BD3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +256,26 @@
 			isa = PBXGroup;
 			children = (
 				2AEDBD18200146EB00756696 /* AppDelegate.swift */,
-				2AEDBD1A200146EB00756696 /* ViewController.swift */,
-				2AEDBD1C200146EB00756696 /* Main.storyboard */,
-				2AEDBD22200146EB00756696 /* Assets.xcassets */,
-				2AEDBD24200146EB00756696 /* LaunchScreen.storyboard */,
-				2AEDBD27200146EB00756696 /* Info.plist */,
-				2AEDBD1F200146EB00756696 /* VolunteerNow.xcdatamodeld */,
+				2A325C7B200CFE4000EAEF52 /* Extensions.swift */,
+				2AC6389F200167BD00144AD6 /* Search */,
+				2A325CDF200D998C00EAEF52 /* Controllers */,
+				2AC6389E200167B900144AD6 /* Login */,
+				2AC638A0200167C400144AD6 /* Model */,
+				2A325CDE200D997500EAEF52 /* Custom */,
+				2AC638A22001680100144AD6 /* UI */,
+				2AC638A1200167E900144AD6 /* Resources */,
+				2A325C7F200D199100EAEF52 /* Fonts */,
 			);
 			path = VolunteerNow;
+			sourceTree = "<group>";
+		};
+		DEC9F269B8E042CF9D228BD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E90FD5BD541A839F16584DA4 /* Pods-VolunteerNow.debug.xcconfig */,
+				5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +285,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AEDBD2A200146EB00756696 /* Build configuration list for PBXNativeTarget "VolunteerNow" */;
 			buildPhases = (
+				448A1B750983D1737FB3E6BD /* [CP] Check Pods Manifest.lock */,
 				2AEDBD11200146EB00756696 /* Sources */,
 				2AEDBD12200146EB00756696 /* Frameworks */,
 				2AEDBD13200146EB00756696 /* Resources */,
+				A560417ADAF08F977CE53CAB /* [CP] Embed Pods Frameworks */,
+				391E39FFA93800F3C094600C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -100,6 +314,14 @@
 					2AEDBD14200146EB00756696 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -126,22 +348,126 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A325CCC200D206500EAEF52 /* Sofia Pro Ultra Light.otf in Resources */,
+				2A325CD0200D206500EAEF52 /* Sofia Pro Semi Bold.otf in Resources */,
+				2A325CB7200D1C1600EAEF52 /* BrandonText-Thin.otf in Resources */,
+				2A325CD6200D206500EAEF52 /* Sofia Pro Bold Italic.otf in Resources */,
+				2A325CCE200D206500EAEF52 /* Sofia Pro Regular.otf in Resources */,
+				2A325CB6200D1C1600EAEF52 /* BrandonText-RegularItalic.otf in Resources */,
+				2A325CD5200D206500EAEF52 /* Sofia Pro Black Italic.otf in Resources */,
+				2A325CD1200D206500EAEF52 /* Sofia Pro Semi Bold Italic.otf in Resources */,
+				2A325CCF200D206500EAEF52 /* Sofia Pro Extra Light Italic.otf in Resources */,
+				2A325CB9200D1C1600EAEF52 /* BrandonText-Regular.otf in Resources */,
+				2A325CB8200D1C1600EAEF52 /* BrandonText-Light.otf in Resources */,
+				2A325CD3200D206500EAEF52 /* Sofia Pro Light Italic.otf in Resources */,
+				2A325CD7200D206500EAEF52 /* Sofia Pro Black.otf in Resources */,
 				2AEDBD26200146EB00756696 /* LaunchScreen.storyboard in Resources */,
+				2A325CB5200D1C1600EAEF52 /* BrandonText-Bold.otf in Resources */,
+				2A099ECF2003D19F007B519F /* GoogleService-Info.plist in Resources */,
 				2AEDBD23200146EB00756696 /* Assets.xcassets in Resources */,
+				2A325CCA200D206500EAEF52 /* Sofia Pro Extra Light.otf in Resources */,
+				2A325CCB200D206500EAEF52 /* Sofia Pro Medium Italic.otf in Resources */,
 				2AEDBD1E200146EB00756696 /* Main.storyboard in Resources */,
+				2A325CCD200D206500EAEF52 /* Sofia Pro Italic.otf in Resources */,
+				2A325CD4200D206500EAEF52 /* Sofia Pro Light.otf in Resources */,
+				2A325CD8200D206500EAEF52 /* Sofia Pro Bold.otf in Resources */,
+				2A325CD9200D206500EAEF52 /* Sofia Pro Medium.otf in Resources */,
+				2A325CD2200D206500EAEF52 /* Sofia Pro Ultra Light Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		391E39FFA93800F3C094600C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		448A1B750983D1737FB3E6BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VolunteerNow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A560417ADAF08F977CE53CAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2AEDBD11200146EB00756696 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AEDBD1B200146EB00756696 /* ViewController.swift in Sources */,
+				2AC638912001560800144AD6 /* Event.swift in Sources */,
+				2AC638A62001710700144AD6 /* CameraController.swift in Sources */,
 				2AEDBD19200146EB00756696 /* AppDelegate.swift in Sources */,
+				2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */,
+				2AC6389D200165E900144AD6 /* SignupInformationController.swift in Sources */,
+				2AEDBD3020014B5F00756696 /* SearchListController.swift in Sources */,
+				2A099ED3200460F9007B519F /* EventCell.swift in Sources */,
+				2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */,
+				2AC638932001588600144AD6 /* ProfileController.swift in Sources */,
+				2AC63895200160B900144AD6 /* WelcomeController.swift in Sources */,
+				2A099ED12004575A007B519F /* BarFilterController.swift in Sources */,
+				2A325CDD200D8AC800EAEF52 /* SearchListCollectionViewController.swift in Sources */,
+				2A325CE1200D99D900EAEF52 /* UpcomingViewController.swift in Sources */,
+				2A325CE3200D9A2B00EAEF52 /* TabBarController.swift in Sources */,
 				2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */,
+				2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */,
+				2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */,
+				2A099ED520046333007B519F /* APIManager.swift in Sources */,
+				2AC638A42001687D00144AD6 /* QRScannerController.swift in Sources */,
+				2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,11 +602,14 @@
 		};
 		2AEDBD2B200146EB00756696 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E90FD5BD541A839F16584DA4 /* Pods-VolunteerNow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VolunteerNow/Resources/VolunteerNow.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NE2WWC249;
-				INFOPLIST_FILE = VolunteerNow/Info.plist;
+				INFOPLIST_FILE = VolunteerNow/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.summitLabs.VolunteerNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,11 +620,14 @@
 		};
 		2AEDBD2C200146EB00756696 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VolunteerNow/Resources/VolunteerNow.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NE2WWC249;
-				INFOPLIST_FILE = VolunteerNow/Info.plist;
+				INFOPLIST_FILE = VolunteerNow/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.summitLabs.VolunteerNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
