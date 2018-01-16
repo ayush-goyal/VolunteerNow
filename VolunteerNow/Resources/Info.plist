@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>VolunteerNow uses your location in order to find volunteer events near you automatically. We also use your location to display nearby events on a map.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>VolunteerNow uses your location in order to find volunteer events near you automatically. We also use your location to display nearby events on a map.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
