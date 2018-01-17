@@ -37,7 +37,15 @@
 		2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */; };
 		2A325CDD200D8AC800EAEF52 /* SearchListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */; };
 		2A325CE1200D99D900EAEF52 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */; };
-		2A325CE3200D9A2B00EAEF52 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE2200D9A2B00EAEF52 /* TabBarController.swift */; };
+		2A325CE5200DA3E900EAEF52 /* ProfileContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */; };
+		2A325CE9200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE6200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		2A325CEA200E569D00EAEF52 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE7200E569D00EAEF52 /* SkyFloatingLabelTextField.swift */; };
+		2A325CED200EA9FE00EAEF52 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */; };
+		2A325CEF200EBC5700EAEF52 /* BarSearchContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */; };
+		2A325CF1200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */; };
+		2A325CF4200EC2D600EAEF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF3200EC2D600EAEF52 /* ViewController.swift */; };
+		2A325CF6200ED20800EAEF52 /* EventDetailContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF5200ED20800EAEF52 /* EventDetailContainerController.swift */; };
+		2A325CF8200ED26F00EAEF52 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF7200ED26F00EAEF52 /* EventDetailController.swift */; };
 		2AC6388F2001520B00144AD6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6388E2001520B00144AD6 /* MapKit.framework */; };
 		2AC638912001560800144AD6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638902001560800144AD6 /* Event.swift */; };
 		2AC638932001588600144AD6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638922001588600144AD6 /* ProfileController.swift */; };
@@ -51,7 +59,6 @@
 		2AEDBD23200146EB00756696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD22200146EB00756696 /* Assets.xcassets */; };
 		2AEDBD26200146EB00756696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD24200146EB00756696 /* LaunchScreen.storyboard */; };
 		2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */; };
-		2AEDBD3020014B5F00756696 /* SearchListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD2F20014B5F00756696 /* SearchListController.swift */; };
 		2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD3120014B6A00756696 /* SearchMapController.swift */; };
 		81DE77ED67D23CBA34113DB2 /* Pods_VolunteerNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */; };
 /* End PBXBuildFile section */
@@ -87,7 +94,15 @@
 		2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorSegmentedView.swift; sourceTree = "<group>"; };
 		2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCollectionViewController.swift; sourceTree = "<group>"; };
 		2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
-		2A325CE2200D9A2B00EAEF52 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContainerController.swift; sourceTree = "<group>"; };
+		2A325CE6200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		2A325CE7200E569D00EAEF52 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSearchContainerController.swift; sourceTree = "<group>"; };
+		2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCollectionViewControllerWithSearchDelegate.swift; sourceTree = "<group>"; };
+		2A325CF3200EC2D600EAEF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2A325CF5200ED20800EAEF52 /* EventDetailContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailContainerController.swift; sourceTree = "<group>"; };
+		2A325CF7200ED26F00EAEF52 /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
 		2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VolunteerNow.entitlements; sourceTree = "<group>"; };
 		2AC6388E2001520B00144AD6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AC638902001560800144AD6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -104,7 +119,6 @@
 		2AEDBD25200146EB00756696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AEDBD27200146EB00756696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerSearchController.swift; sourceTree = "<group>"; };
-		2AEDBD2F20014B5F00756696 /* SearchListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListController.swift; sourceTree = "<group>"; };
 		2AEDBD3120014B6A00756696 /* SearchMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
 		5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.release.xcconfig"; sourceTree = "<group>"; };
 		9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VolunteerNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +169,8 @@
 		2A325CDE200D997500EAEF52 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				2A325CE7200E569D00EAEF52 /* SkyFloatingLabelTextField.swift */,
+				2A325CE6200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift */,
 				2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */,
 				2AC638A52001710700144AD6 /* CameraController.swift */,
 			);
@@ -166,8 +182,10 @@
 			children = (
 				2AC638A32001687D00144AD6 /* QRScannerController.swift */,
 				2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */,
+				2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */,
 				2AC638922001588600144AD6 /* ProfileController.swift */,
-				2A325CE2200D9A2B00EAEF52 /* TabBarController.swift */,
+				2A325CF5200ED20800EAEF52 /* EventDetailContainerController.swift */,
+				2A325CF7200ED26F00EAEF52 /* EventDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +205,7 @@
 				2AC63894200160B900144AD6 /* WelcomeController.swift */,
 				2A325C7D200D164300EAEF52 /* SignInController.swift */,
 				2AC6389C200165E900144AD6 /* SignupInformationController.swift */,
+				2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -196,10 +215,11 @@
 			children = (
 				2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */,
 				2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */,
-				2AEDBD2F20014B5F00756696 /* SearchListController.swift */,
 				2AEDBD3120014B6A00756696 /* SearchMapController.swift */,
 				2A099ED02004575A007B519F /* BarFilterController.swift */,
 				2A099ED2200460F9007B519F /* EventCell.swift */,
+				2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */,
+				2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -265,6 +285,7 @@
 				2AC638A22001680100144AD6 /* UI */,
 				2AC638A1200167E900144AD6 /* Resources */,
 				2A325C7F200D199100EAEF52 /* Fonts */,
+				2A325CF3200EC2D600EAEF52 /* ViewController.swift */,
 			);
 			path = VolunteerNow;
 			sourceTree = "<group>";
@@ -448,26 +469,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A325CE5200DA3E900EAEF52 /* ProfileContainerController.swift in Sources */,
 				2AC638912001560800144AD6 /* Event.swift in Sources */,
 				2AC638A62001710700144AD6 /* CameraController.swift in Sources */,
+				2A325CEF200EBC5700EAEF52 /* BarSearchContainerController.swift in Sources */,
 				2AEDBD19200146EB00756696 /* AppDelegate.swift in Sources */,
 				2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */,
 				2AC6389D200165E900144AD6 /* SignupInformationController.swift in Sources */,
-				2AEDBD3020014B5F00756696 /* SearchListController.swift in Sources */,
+				2A325CF4200EC2D600EAEF52 /* ViewController.swift in Sources */,
+				2A325CED200EA9FE00EAEF52 /* ForgotPasswordController.swift in Sources */,
 				2A099ED3200460F9007B519F /* EventCell.swift in Sources */,
 				2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */,
 				2AC638932001588600144AD6 /* ProfileController.swift in Sources */,
 				2AC63895200160B900144AD6 /* WelcomeController.swift in Sources */,
+				2A325CF1200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift in Sources */,
 				2A099ED12004575A007B519F /* BarFilterController.swift in Sources */,
+				2A325CEA200E569D00EAEF52 /* SkyFloatingLabelTextField.swift in Sources */,
 				2A325CDD200D8AC800EAEF52 /* SearchListCollectionViewController.swift in Sources */,
 				2A325CE1200D99D900EAEF52 /* UpcomingViewController.swift in Sources */,
-				2A325CE3200D9A2B00EAEF52 /* TabBarController.swift in Sources */,
 				2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */,
 				2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */,
+				2A325CE9200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				2A325CF6200ED20800EAEF52 /* EventDetailContainerController.swift in Sources */,
 				2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */,
 				2A099ED520046333007B519F /* APIManager.swift in Sources */,
 				2AC638A42001687D00144AD6 /* QRScannerController.swift in Sources */,
 				2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */,
+				2A325CF8200ED26F00EAEF52 /* EventDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

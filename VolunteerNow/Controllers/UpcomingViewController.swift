@@ -14,6 +14,7 @@ class UpcomingViewController: UIViewController {
         super.viewDidLoad()
 
         addShadowToBar()
+        addShadowToTabBar()
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,5 +1,5 @@
 //
-//  TabBarController.swift
+//  ProfileContainerController.swift
 //  VolunteerNow
 //
 //  Created by Ayush Goyal on 1/15/18.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class ProfileContainerController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-        
+        addShadowToBar()
+        addShadowToTabBar()
     }
 
     override func didReceiveMemoryWarning() {

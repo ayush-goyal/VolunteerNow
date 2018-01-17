@@ -42,6 +42,8 @@ class ContainerSearchController: UIViewController {
         
         addSelectorSegmentedView()
         addShadowToBar()
+        addShadowToTabBar()
+        changeBackNavigationButton()
     }
     
     func addSelectorSegmentedView() {
@@ -107,6 +109,10 @@ class ContainerSearchController: UIViewController {
         
     }
 }
+
+
+
+
 
 extension ContainerSearchController: CLLocationManagerDelegate {
     func checkLocationServicesAuthorization() {

@@ -13,34 +13,35 @@ let eventImageCache = NSCache<AnyObject, AnyObject>()
 extension UIImageView {
     func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFill) {
         self.image = nil // Prevents images from flashing when scrolling
+        contentMode = mode
         
         guard let url = NSURL(string: link) else { return }
         
+        func addImage(image: UIImage) {
+            self.image = image
+            self.addImageTint(withColor: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 0.4))
+            self.superview?.sendSubview(toBack: self) // Prevents image from covering text
+        }
+        
         // Check for cached image first
         if let cachedImage = eventImageCache.object(forKey: url) as? UIImage {
-            self.image = cachedImage
+            addImage(image: cachedImage)
             return
         }
         
         // Otherwise request image
         let urlRequest = URLRequest(url: url as URL)
-        contentMode = mode
 
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            print("RETRIEVING IMAGE\n")
-            print(error?.localizedDescription)
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
                 else { return }
-            print("SETTING IMAGE\n")
             DispatchQueue.main.async() {
                 eventImageCache.setObject(image, forKey: url)
-                self.image = image
-                self.addImageTint(withColor: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 0.4))
-                self.superview?.sendSubview(toBack: self)
+                addImage(image: image)
                 return
             }
         }
@@ -48,7 +49,7 @@ extension UIImageView {
     }
     
     func addImageTint(withColor tintColor: UIColor) {
-        let tintOverlayView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        let tintOverlayView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-20, height: 200))
         tintOverlayView.backgroundColor = tintColor
         self.addSubview(tintOverlayView)
     }
@@ -79,28 +80,61 @@ extension UIColor {
 
 extension UIViewController {
     func addShadowToBar() {
-        print(self.navigationController!.navigationBar.frame.height)
-        print(self.navigationController!.navigationBar.frame)
         let shadowView = UIView(frame: CGRect.init(x: CGFloat(0), y: CGFloat(0), width: self.navigationController!.navigationBar.frame.width, height: self.navigationController!.navigationBar.frame.height + 20))
         shadowView.backgroundColor = UIColor.white
         shadowView.layer.masksToBounds = false
-        shadowView.layer.shadowOpacity = 0.1 // your opacity
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 2) // your offset
-        shadowView.layer.shadowRadius =  4 //your radius
+        shadowView.layer.shadowOpacity = 0.1
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        shadowView.layer.shadowRadius =  4
         shadowView.layer.shadowColor = UIColor.black.cgColor
         self.view.addSubview(shadowView)
-        //self.navigationController!.navigationBar.sendSubview(toBack: shadowView)
-        /*
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4.0
-        self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowPath = UIBezierPath(rect: self.navigationController!.navigationBar.bounds).cgPath
-        self.navigationController?.navigationBar.layer.shouldRasterize = true
-        self.navigationController?.navigationBar.layer.rasterizationScale = UIScreen.main.scale*/
     }
     
+    func addShadowToTabBar() {
+        let shadowView = UIView(frame: CGRect.init(x: CGFloat(0), y: CGFloat(UIScreen.main.bounds.height-self.tabBarController!.tabBar.frame.height), width: self.tabBarController!.tabBar.frame.width, height: self.tabBarController!.tabBar.frame.height))
+        shadowView.backgroundColor = UIColor.white
+        shadowView.layer.masksToBounds = false
+        shadowView.layer.shadowOpacity = 0.2
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: -2)
+        shadowView.layer.shadowRadius =  4
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        self.view.addSubview(shadowView)
+    }
+    
+}
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func changeBackNavigationButton() {
+        let backImage = UIImage(named: "backArrow")!
+        self.navigationController?.navigationBar.backIndicatorImage = backImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+    }
+}
+
+// Extension for SkyFloatingLabelTextField
+extension UITextField {
+    /// Moves the caret to the correct position by removing the trailing whitespace
+    func fixCaretPosition() {
+        // Moving the caret to the correct position by removing the trailing whitespace
+        // http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
+        
+        let beginning = beginningOfDocument
+        selectedTextRange = textRange(from: beginning, to: beginning)
+        let end = endOfDocument
+        selectedTextRange = textRange(from: end, to: end)
+    }
 }
 
 

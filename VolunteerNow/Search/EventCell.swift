@@ -72,7 +72,7 @@ class EventCell: UICollectionViewCell {
         
         contentView.addSubview(organizerLabel)
         NSLayoutConstraint.activate([
-            organizerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            organizerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             organizerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
             organizerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             organizerLabel.heightAnchor.constraint(equalToConstant: 25)

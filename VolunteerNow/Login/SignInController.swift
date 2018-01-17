@@ -12,16 +12,12 @@ class SignInController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var welcomeSubLabel: UILabel!
-    @IBOutlet weak var emailInputLabel: UILabel!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var emailBorderView: UIView!
-    @IBOutlet weak var passwordInputLabel: UILabel!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var passwordBorderView: UIView!
-    @IBOutlet weak var forgotPasswordLabel: UILabel!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var newUserLabel: UILabel!
-    @IBOutlet weak var signupLabel: UILabel!
+    @IBOutlet weak var signupButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,27 +25,34 @@ class SignInController: UIViewController {
         loginButton.layer.cornerRadius = 5
         loginButton.layer.masksToBounds = true
         
+        emailTextField.iconType = .image
+        emailTextField.titleFont = UIFont.init(name: "SofiaPro-Medium", size: 15)!
+        passwordTextField.iconType = .image
+        passwordTextField.titleFont = UIFont.init(name: "SofiaPro-Medium", size: 15)!
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        hideKeyboardWhenTappedAround()
+        
+        addShadowToBar()
+        changeBackNavigationButton()
         setupViews()
     }
+
     
     
     func setupViews() {
-    
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         welcomeSubLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailInputLabel.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        emailBorderView.translatesAutoresizingMaskIntoConstraints = false
-        passwordInputLabel.translatesAutoresizingMaskIntoConstraints = false
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordBorderView.translatesAutoresizingMaskIntoConstraints = false
-        forgotPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         newUserLabel.translatesAutoresizingMaskIntoConstraints = false
-        signupLabel.translatesAutoresizingMaskIntoConstraints = false
+        signupButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+            welcomeLabel.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 120), // Variable
             welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             welcomeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             welcomeLabel.heightAnchor.constraint(equalToConstant: 40),
@@ -58,52 +61,52 @@ class SignInController: UIViewController {
             welcomeSubLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             welcomeSubLabel.heightAnchor.constraint(equalToConstant: 27),
             
-            emailInputLabel.topAnchor.constraint(equalTo: welcomeSubLabel.bottomAnchor, constant: 75),
-            emailInputLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emailInputLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailInputLabel.heightAnchor.constraint(equalToConstant: 23),
-            emailTextField.topAnchor.constraint(equalTo: emailInputLabel.bottomAnchor, constant: 6),
+            emailTextField.topAnchor.constraint(lessThanOrEqualTo: welcomeSubLabel.bottomAnchor, constant: 80),
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailTextField.heightAnchor.constraint(equalToConstant: 30),
-            emailBorderView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 3),
-            emailBorderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emailBorderView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailBorderView.heightAnchor.constraint(equalToConstant: 1),
+            emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            passwordInputLabel.topAnchor.constraint(equalTo: emailBorderView.bottomAnchor, constant: 50),
-            passwordInputLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            passwordInputLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            passwordInputLabel.heightAnchor.constraint(equalToConstant: 23),
-            passwordTextField.topAnchor.constraint(equalTo: passwordInputLabel.bottomAnchor, constant: 6),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 60),
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 30),
-            passwordBorderView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 3),
-            passwordBorderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            passwordBorderView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            passwordBorderView.heightAnchor.constraint(equalToConstant: 1),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            forgotPasswordLabel.topAnchor.constraint(equalTo: passwordBorderView.bottomAnchor, constant: 20),
-            forgotPasswordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            forgotPasswordLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            forgotPasswordLabel.heightAnchor.constraint(equalToConstant: 23),
+            forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 23),
             
-            loginButton.topAnchor.constraint(equalTo: forgotPasswordLabel.bottomAnchor, constant: 40),
+            loginButton.bottomAnchor.constraint(equalTo: newUserLabel.topAnchor, constant: -30),
+            loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 80),
             loginButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: -125),
             loginButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: 125),
             loginButton.heightAnchor.constraint(equalToConstant: 60),
             
-            newUserLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 25),
+            newUserLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
             newUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             newUserLabel.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -6),
             newUserLabel.heightAnchor.constraint(equalToConstant: 23),
             
-            signupLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 25),
-            signupLabel.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 6),
-            signupLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            signupLabel.heightAnchor.constraint(equalToConstant: 23),
+            signupButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
+            signupButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 6),
+            signupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            signupButton.heightAnchor.constraint(equalToConstant: 23),
         ])
     }
 
+}
+
+
+extension SignInController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
+    }
 }
