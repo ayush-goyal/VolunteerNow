@@ -9,57 +9,128 @@
 import CoreLocation
 import MapKit
 
+/*
+{
+    name: String,
+    organizer: String,
+    location: {
+        latitude: Double,
+        longitude: Double
+    },
+    address: {
+        street: String,
+        city: String,
+        state: String,
+        zip: String
+    },
+    details: {
+        description: String,
+        organizer: String,
+        setting: String,
+        ages: String,
+    },
+    contact: {
+        name: String,
+        email: String,
+        phone: String
+    },
+    website: String,
+    tags: [String],
+    imageUrl: String,
+    type: String (ongoing, once),
+    startDate: "yyyy-MM-dd HH:mm:ss ZZZ",
+    endDate: "yyyy-MM-dd HH:mm:ss ZZZ",
+ 
+}
+*/
+
 class Event: NSObject, MKAnnotation {
-    var name: String
-    var organizer: String
-    var startDate: Date?
-    var endDate: Date?
-    var location: String
-    var distance: Double?
-    var information: String?
-    var coordinate: CLLocationCoordinate2D
-    var link: String?
-    var isSaved: Bool = false
-    var eventID: Int?
-    var imageString: String
+    let name: String
+    let organizer: String
     
-    init(name: String, organizer: String, location: String, distance: Double, coordinate: CLLocationCoordinate2D, imageString: String) {
-        self.name = name
-        self.organizer = organizer
-        self.location = location
-        self.distance = distance
-        self.coordinate = coordinate
-        self.imageString = imageString
-        super.init()
+    static var currentLocation: CLLocation?
+    
+    let location: (latitude: Double, longitude: Double)
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(self.location.latitude, self.location.longitude)
     }
     
-    init?(data: [String: Any]) {
-        guard let name = data["name"] as? String, let organizer = data["organizer"] as? String, let date = data["date"] as? String, let location = data["location"] as? String, let description = data["description"] as? String, let coordinate = data["coordinate"] as? [String: CLLocationDegrees], let link = data["link"] as? String, let eventID = data["eventID"] as? String, let imageString = data["imageString"] as? String else {
+    let address: Address
+    
+    var distance: Double? {
+        let location = CLLocation(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude)
+        if let distance = Event.currentLocation?.distance(from: location) {
+            let distanceInMiles = (distance * 10/1609.34).rounded() / 10.0 // Gives one decimal point precision
+            return distanceInMiles
+        } else {
             return nil
         }
+    }
+    
+    let details: Details
+    let website: String
+    let tags: [String]
+    let imageUrl: String
+    let contact: Contact
+    let type: EventType
+   
+    
+    //var isSaved: Bool = false
+    //var eventID: Int?
+    
+    init?(data: [String: Any]) {
+        guard
+            let name = data["name"] as? String,
+            let organizer = data["organizer"] as? String,
+            let location = data["location"] as? [String: Double],
+            let address = data["address"] as? [String: String],
+            let details = data["details"] as? [String: String],
+            let contact = data["contact"] as? [String: String],
+            let website = data["website"] as? String,
+            let tags = data["tags"] as? [String],
+            let type = data["type"] as? String,
+            let imageUrl = data["imageUrl"] as? String
+        else { return nil }
         
         self.name = name
         self.organizer = organizer
-        self.location = location
-        self.information = description
-        self.link = link
-        self.eventID = Int(eventID) ?? 0
-        self.imageString = imageString
-        guard let latitude = coordinate["latitude"], let longitude = coordinate["longitude"] else {
-            return nil }
-        self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let latitude = location["latitude"], let longitude = location["longitude"] {
+            self.location = (latitude: latitude, longitude: longitude)
+        } else { return nil }
         
-        if date.count > 10 {
-            var index = date.index(date.startIndex, offsetBy:10)
-            self.startDate = dateFormatter.date(from: date.substring(to: index))!
+        if let street = address["street"], let city = address["city"], let state = address["state"], let zip = address["zip"] {
+            self.address = Address(street: street, city: city, state: state, zip: zip)
+        } else { return nil }
+        
+        if let description = details["description"], let organizer = details["organizer"], let setting = details["setting"], let ages = details["ages"] {
+            self.details = Details(description: description, organizer: organizer, setting: setting, ages: ages)
+        } else { return nil }
+        
+        if let name = contact["name"], let email = contact["email"], let phone = contact["phone"] {
+            self.contact = Contact(name: name, email: email, phone: phone)
+        } else { return nil }
             
-            index = date.index(date.startIndex, offsetBy:13)
-            self.endDate = dateFormatter.date(from: date.substring(from: index))!
+        self.website = website
+        self.tags = tags
+        self.imageUrl = imageUrl
+        
+        if type == "ongoing" {
+            self.type = .ongoing
+        } else if type == "once" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+            
+            guard
+                let startDateString = data["startDate"] as? String,
+                let startDate = dateFormatter.date(from: startDateString),
+                let endDateString = data["endDate"] as? String,
+                let endDate = dateFormatter.date(from: endDateString)
+            else { return nil }
+            
+            self.type = .once(startDate: startDate, endDate: endDate)
         } else {
-            self.startDate = dateFormatter.date(from: date)!
+            return nil
         }
         
         super.init()
@@ -67,6 +138,48 @@ class Event: NSObject, MKAnnotation {
         Event.addEvent(self)
     }
 }
+
+struct Address {
+    var street: String
+    var city: String
+    var state: String
+    var zip: String
+}
+
+struct Details {
+    var description: String
+    var organizer: String
+    var setting: String
+    var ages: String
+}
+
+enum EventType {
+    case ongoing
+    case once(startDate: Date, endDate: Date)
+}
+
+struct Contact {
+    var name: String
+    var email: String
+    var phone: String
+}
+
+
+
+/*
+ 
+ 
+ Event.addEvent(Event(name: "Day Field Trip for Children to the College Football Hall of Fame", organizer: "Acworth Parks, Recreation, and Community Resource Department", location: "3279 Yorktown Dr", distance: 34, coordinate: CLLocationCoordinate2DMake(34.43532, 32.53423), imageString: "http://www.nyrr.org/sites/default/files/styles/rfl-testimonial-712x385/public/nyrr-photo-album/2016/2016SpringSummerVolunteers_04.JPG?itok=WAE6XwRJ"))
+ Event.addEvent(Event(name: "Volunteer for Pets", organizer: "PetVolunteer", location: "3279 Yorktown Dr", distance: 34, coordinate: CLLocationCoordinate2DMake(34.43532, 32.53423), imageString: "https://www.tcsnycmarathon.org/sites/default/files/styles/image-705x400/public/TCSNYCM14_volunteer%20race%20day%20story.jpg?itok=ZJqnqueH"))
+ Event.addEvent(Event(name: "Volunteer for Pets", organizer: "PetVolunteer", location: "3279 Yorktown Dr", distance: 34, coordinate: CLLocationCoordinate2DMake(34.43532, 32.53423), imageString: "https://www.tcsnycmarathon.org/sites/default/files/styles/image-705x400/public/TCSNYCM14_volunteer%20race%20day%20story.jpg?itok=ZJqnqueH"))
+ 
+ 
+ */
+
+
+
+
+
 
 enum SortType: String {
     case closest

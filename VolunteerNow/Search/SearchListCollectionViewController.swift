@@ -42,8 +42,15 @@ class SearchListCollectionViewController: UICollectionViewController, UICollecti
         cell.nameLabel.text = event.name
         cell.organizerLabel.text = event.organizer
         cell.distanceLabel.text = String(event.distance!)
-        cell.dateLabel.text = String(describing: event.startDate)
-        cell.backgroundImageView.downloadedFrom(link: event.imageString)
+        switch event.type {
+        case .ongoing:
+            cell.dateLabel.text = "Ongoing Event"
+        case .once(let startDate, let endDate):
+            let formatter = DateFormatter()
+            formatter.dateFormat = "E, MMM DD"
+            cell.dateLabel.text = formatter.string(from: startDate)
+        }
+        cell.backgroundImageView.downloadedFrom(link: event.imageUrl)
     
         return cell
     }
@@ -58,12 +65,10 @@ class SearchListCollectionViewController: UICollectionViewController, UICollecti
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailContainerController") as? EventDetailContainerController {
-            if let navigator = navigationController {
-                navigator.pushViewController(EventDetailContainerController(), animated: true)
-                //navigator.pushViewController(viewController, animated: true)
-            }
+        if let navigator = navigationController {
+            let viewController = EventDetailController()
+            viewController.setValues(withEvent: Event.selectedEvents[indexPath.row])
+            navigator.pushViewController(viewController, animated: true)
         }
     }
 

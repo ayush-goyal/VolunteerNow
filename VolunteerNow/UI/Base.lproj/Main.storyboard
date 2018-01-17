@@ -608,10 +608,10 @@
             </objects>
             <point key="canvasLocation" x="2068" y="-632"/>
         </scene>
-        <!--Event Detail Container Controller-->
+        <!--Event Detail Controller-->
         <scene sceneID="JD1-pp-IKq">
             <objects>
-                <viewController storyboardIdentifier="eventDetailContainerController" id="NRn-Mk-8Da" customClass="EventDetailContainerController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventDetailController" id="NRn-Mk-8Da" customClass="EventDetailController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gPZ-79-TMv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1167,10 +1167,10 @@
             </objects>
             <point key="canvasLocation" x="-2164" y="1050"/>
         </scene>
-        <!--Event Detail Controller-->
+        <!--View Controller-->
         <scene sceneID="GIv-om-5Tl">
             <objects>
-                <viewController storyboardIdentifier="eventDetailController" id="Z9N-b5-ucx" customClass="EventDetailController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z9N-b5-ucx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9y-sc-LOJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

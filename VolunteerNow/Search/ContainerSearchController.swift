@@ -28,6 +28,7 @@ class ContainerSearchController: UIViewController {
         didSet {
             searchListController.currentLocation = self.currentLocation
             searchMapController.currentLocation = self.currentLocation
+            Event.currentLocation = self.currentLocation
         }
     }
     
