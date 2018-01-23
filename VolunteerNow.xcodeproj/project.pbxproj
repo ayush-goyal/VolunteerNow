@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A099ECF2003D19F007B519F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A099ECE2003D19F007B519F /* GoogleService-Info.plist */; };
 		2A099ED12004575A007B519F /* BarFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED02004575A007B519F /* BarFilterController.swift */; };
 		2A099ED3200460F9007B519F /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED2200460F9007B519F /* EventCell.swift */; };
 		2A099ED520046333007B519F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED420046333007B519F /* APIManager.swift */; };
@@ -43,8 +42,16 @@
 		2A325CED200EA9FE00EAEF52 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */; };
 		2A325CEF200EBC5700EAEF52 /* BarSearchContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */; };
 		2A325CF1200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */; };
-		2A325CF4200EC2D600EAEF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF3200EC2D600EAEF52 /* ViewController.swift */; };
 		2A325CF6200ED20800EAEF52 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF5200ED20800EAEF52 /* EventDetailController.swift */; };
+		2A3EC1AB20111319009E3345 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EC1AA20111319009E3345 /* App.swift */; };
+		2A3EFB922016D7A8004EBC20 /* CheckInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB912016D7A8004EBC20 /* CheckInController.swift */; };
+		2A3EFB942016D7CE004EBC20 /* CheckInContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB932016D7CD004EBC20 /* CheckInContainerController.swift */; };
+		2A3EFB962016D97A004EBC20 /* VolunteerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB952016D97A004EBC20 /* VolunteerController.swift */; };
+		2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */; };
+		2A9EB0312016B77B005FA408 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0302016B77B005FA408 /* User.swift */; };
+		2A9EB0342016B8BC005FA408 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */; };
+		2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */; };
+		2A9EB03E2016B919005FA408 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03D2016B919005FA408 /* Organization.swift */; };
 		2AC6388F2001520B00144AD6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6388E2001520B00144AD6 /* MapKit.framework */; };
 		2AC638912001560800144AD6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638902001560800144AD6 /* Event.swift */; };
 		2AC638932001588600144AD6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638922001588600144AD6 /* ProfileController.swift */; };
@@ -59,11 +66,12 @@
 		2AEDBD26200146EB00756696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD24200146EB00756696 /* LaunchScreen.storyboard */; };
 		2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */; };
 		2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD3120014B6A00756696 /* SearchMapController.swift */; };
+		2AF8ADF52010465A00A75683 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8ADF42010465A00A75683 /* CompletedViewController.swift */; };
+		2AFC34DA20110D4D008568CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC34D920110D4D008568CA /* GoogleService-Info.plist */; };
 		81DE77ED67D23CBA34113DB2 /* Pods_VolunteerNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A099ECE2003D19F007B519F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A099ED02004575A007B519F /* BarFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarFilterController.swift; sourceTree = "<group>"; };
 		2A099ED2200460F9007B519F /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		2A099ED420046333007B519F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -99,8 +107,16 @@
 		2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSearchContainerController.swift; sourceTree = "<group>"; };
 		2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCollectionViewControllerWithSearchDelegate.swift; sourceTree = "<group>"; };
-		2A325CF3200EC2D600EAEF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A325CF5200ED20800EAEF52 /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		2A3EC1AA20111319009E3345 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		2A3EFB912016D7A8004EBC20 /* CheckInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInController.swift; sourceTree = "<group>"; };
+		2A3EFB932016D7CD004EBC20 /* CheckInContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInContainerController.swift; sourceTree = "<group>"; };
+		2A3EFB952016D97A004EBC20 /* VolunteerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerController.swift; sourceTree = "<group>"; };
+		2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationSignInController.swift; sourceTree = "<group>"; };
+		2A9EB0302016B77B005FA408 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrganizationController.swift; sourceTree = "<group>"; };
+		2A9EB03D2016B919005FA408 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VolunteerNow.entitlements; sourceTree = "<group>"; };
 		2AC6388E2001520B00144AD6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AC638902001560800144AD6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -118,6 +134,8 @@
 		2AEDBD27200146EB00756696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerSearchController.swift; sourceTree = "<group>"; };
 		2AEDBD3120014B6A00756696 /* SearchMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
+		2AF8ADF42010465A00A75683 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
+		2AFC34D920110D4D008568CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.release.xcconfig"; sourceTree = "<group>"; };
 		9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VolunteerNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90FD5BD541A839F16584DA4 /* Pods-VolunteerNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,11 +198,25 @@
 			children = (
 				2AC638A32001687D00144AD6 /* QRScannerController.swift */,
 				2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */,
+				2AF8ADF42010465A00A75683 /* CompletedViewController.swift */,
 				2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */,
 				2AC638922001588600144AD6 /* ProfileController.swift */,
+				2A3EFB952016D97A004EBC20 /* VolunteerController.swift */,
 				2A325CF5200ED20800EAEF52 /* EventDetailController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2A9EB0322016B89D005FA408 /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */,
+				2A3EFB932016D7CD004EBC20 /* CheckInContainerController.swift */,
+				2A3EFB912016D7A8004EBC20 /* CheckInController.swift */,
+				2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */,
+				2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */,
+			);
+			path = Organization;
 			sourceTree = "<group>";
 		};
 		2AC6388D2001520B00144AD6 /* Frameworks */ = {
@@ -224,7 +256,10 @@
 		2AC638A0200167C400144AD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A3EC1AA20111319009E3345 /* App.swift */,
 				2AC638902001560800144AD6 /* Event.swift */,
+				2A9EB0302016B77B005FA408 /* User.swift */,
+				2A9EB03D2016B919005FA408 /* Organization.swift */,
 				2A099ED420046333007B519F /* APIManager.swift */,
 				2AEDBD1F200146EB00756696 /* VolunteerNow.xcdatamodeld */,
 			);
@@ -234,7 +269,7 @@
 		2AC638A1200167E900144AD6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A099ECE2003D19F007B519F /* GoogleService-Info.plist */,
+				2AFC34D920110D4D008568CA /* GoogleService-Info.plist */,
 				2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */,
 				2AEDBD27200146EB00756696 /* Info.plist */,
 			);
@@ -279,10 +314,10 @@
 				2AC6389E200167B900144AD6 /* Login */,
 				2AC638A0200167C400144AD6 /* Model */,
 				2A325CDE200D997500EAEF52 /* Custom */,
+				2A9EB0322016B89D005FA408 /* Organization */,
 				2AC638A22001680100144AD6 /* UI */,
 				2AC638A1200167E900144AD6 /* Resources */,
 				2A325C7F200D199100EAEF52 /* Fonts */,
-				2A325CF3200EC2D600EAEF52 /* ViewController.swift */,
 			);
 			path = VolunteerNow;
 			sourceTree = "<group>";
@@ -368,6 +403,7 @@
 			files = (
 				2A325CCC200D206500EAEF52 /* Sofia Pro Ultra Light.otf in Resources */,
 				2A325CD0200D206500EAEF52 /* Sofia Pro Semi Bold.otf in Resources */,
+				2AFC34DA20110D4D008568CA /* GoogleService-Info.plist in Resources */,
 				2A325CB7200D1C1600EAEF52 /* BrandonText-Thin.otf in Resources */,
 				2A325CD6200D206500EAEF52 /* Sofia Pro Bold Italic.otf in Resources */,
 				2A325CCE200D206500EAEF52 /* Sofia Pro Regular.otf in Resources */,
@@ -381,7 +417,6 @@
 				2A325CD7200D206500EAEF52 /* Sofia Pro Black.otf in Resources */,
 				2AEDBD26200146EB00756696 /* LaunchScreen.storyboard in Resources */,
 				2A325CB5200D1C1600EAEF52 /* BrandonText-Bold.otf in Resources */,
-				2A099ECF2003D19F007B519F /* GoogleService-Info.plist in Resources */,
 				2AEDBD23200146EB00756696 /* Assets.xcassets in Resources */,
 				2A325CCA200D206500EAEF52 /* Sofia Pro Extra Light.otf in Resources */,
 				2A325CCB200D206500EAEF52 /* Sofia Pro Medium Italic.otf in Resources */,
@@ -440,18 +475,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CZPicker/CZPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GeoFire/GeoFire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PostalAddressRow/PostalAddressRow.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CZPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GeoFire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PostalAddressRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,28 +512,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A325CE5200DA3E900EAEF52 /* ProfileContainerController.swift in Sources */,
+				2A9EB0342016B8BC005FA408 /* AddEventViewController.swift in Sources */,
 				2AC638912001560800144AD6 /* Event.swift in Sources */,
+				2A3EFB922016D7A8004EBC20 /* CheckInController.swift in Sources */,
 				2AC638A62001710700144AD6 /* CameraController.swift in Sources */,
 				2A325CEF200EBC5700EAEF52 /* BarSearchContainerController.swift in Sources */,
 				2AEDBD19200146EB00756696 /* AppDelegate.swift in Sources */,
+				2A9EB0312016B77B005FA408 /* User.swift in Sources */,
+				2A3EC1AB20111319009E3345 /* App.swift in Sources */,
 				2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */,
 				2AC6389D200165E900144AD6 /* SignupInformationController.swift in Sources */,
-				2A325CF4200EC2D600EAEF52 /* ViewController.swift in Sources */,
 				2A325CED200EA9FE00EAEF52 /* ForgotPasswordController.swift in Sources */,
 				2A099ED3200460F9007B519F /* EventCell.swift in Sources */,
+				2A9EB03E2016B919005FA408 /* Organization.swift in Sources */,
 				2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */,
 				2AC638932001588600144AD6 /* ProfileController.swift in Sources */,
 				2AC63895200160B900144AD6 /* WelcomeController.swift in Sources */,
 				2A325CF1200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift in Sources */,
 				2A099ED12004575A007B519F /* BarFilterController.swift in Sources */,
+				2AF8ADF52010465A00A75683 /* CompletedViewController.swift in Sources */,
 				2A325CEA200E569D00EAEF52 /* SkyFloatingLabelTextField.swift in Sources */,
+				2A3EFB962016D97A004EBC20 /* VolunteerController.swift in Sources */,
 				2A325CDD200D8AC800EAEF52 /* SearchListCollectionViewController.swift in Sources */,
 				2A325CE1200D99D900EAEF52 /* UpcomingViewController.swift in Sources */,
+				2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */,
+				2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */,
 				2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */,
 				2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */,
 				2A325CE9200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				2A325CF6200ED20800EAEF52 /* EventDetailController.swift in Sources */,
 				2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */,
+				2A3EFB942016D7CE004EBC20 /* CheckInContainerController.swift in Sources */,
 				2A099ED520046333007B519F /* APIManager.swift in Sources */,
 				2AC638A42001687D00144AD6 /* QRScannerController.swift in Sources */,
 				2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */,
@@ -637,6 +691,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.summitLabs.VolunteerNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -655,6 +711,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.summitLabs.VolunteerNow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

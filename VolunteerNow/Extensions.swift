@@ -19,7 +19,6 @@ extension UIImageView {
         
         func addImage(image: UIImage) {
             self.image = image
-            self.addImageTint(withColor: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 0.4))
             self.superview?.sendSubview(toBack: self) // Prevents image from covering text
         }
         
@@ -47,12 +46,6 @@ extension UIImageView {
         }
         task.resume()
     }
-    
-    func addImageTint(withColor tintColor: UIColor) {
-        let tintOverlayView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-20, height: 200))
-        tintOverlayView.backgroundColor = tintColor
-        self.addSubview(tintOverlayView)
-    }
 }
 
 extension UIView {
@@ -65,16 +58,6 @@ extension UIView {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
         self.layer.masksToBounds = false
-    }
-}
-
-
-extension UIColor {
-    struct Custom {
-        static let darkGray = UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)
-        static let lightGray = UIColor(red: 157/255, green: 157/255, blue: 157/255, alpha: 1)
-        static let backgroundGray = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        static let purple = UIColor(red: 96/255, green: 77/255, blue: 198/255, alpha: 1)
     }
 }
 
@@ -134,6 +117,46 @@ extension UITextField {
         selectedTextRange = textRange(from: beginning, to: beginning)
         let end = endOfDocument
         selectedTextRange = textRange(from: end, to: end)
+    }
+}
+
+extension UILabel {
+    func setTextandHeight(text: String, lineSpacing: CGFloat, font: UIFont, alignment: NSTextAlignment, leftRightMargin: CGFloat) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.alignment = alignment
+        
+        let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.font: font]
+        
+        let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
+        
+        let width = UIScreen.main.bounds.width-(leftRightMargin * 2)
+        let size = CGSize(width: width, height: 400)
+        
+        let frame = NSString(string: text).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        
+        self.attributedText = attributedText
+        self.heightAnchor.constraint(equalToConstant: frame.height+5)
+        
+    }
+}
+
+// MARK: - Custom Project Colors & Fonts
+extension UIColor {
+    struct Custom {
+        static let darkGray = UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1)
+        static let lightGray = UIColor(red: 157/255, green: 157/255, blue: 157/255, alpha: 1)
+        static let backgroundGray = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        static let purple = UIColor(red: 96/255, green: 77/255, blue: 198/255, alpha: 1)
+    }
+}
+
+extension UIFont {
+    struct Custom {
+        static let mainTitle = UIFont(name: "SofiaPro-Bold", size: 21)!
+        static let subTitle = UIFont(name: "SofiaPro-SemiBold", size: 19)!
+        static let heading = UIFont(name: "SofiaPro-Bold", size: 17)!
+        static let text = UIFont(name: "SofiaPro-Medium", size: 17)!
     }
 }
 

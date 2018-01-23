@@ -11,12 +11,13 @@ import MapKit
 import CoreLocation
 import CoreData
 
-class SearchMapController: UIViewController, MKMapViewDelegate {
+class SearchMapController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     var currentLocation: CLLocation? {
         didSet {
             zoomMap()
+            addAnnotations()
         }
     }
     
@@ -35,14 +36,17 @@ class SearchMapController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    /*func addAnnotations() {
-        mapView.addAnnotations(eventsData)
-    }*/
+    func addAnnotations() {
+        mapView.addAnnotations(Event.selectedEvents)
+    }
     
+    func removeAnnotations() {
+        mapView.removeAnnotations(Event.selectedEvents)
+    }
 }
 
 
-/*extension SearchMapController: MKMapViewDelegate {
+extension SearchMapController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -68,11 +72,10 @@ class SearchMapController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let event = view.annotation as? Event else { return }
         
-        if let eventDetailController = self.storyboard?.instantiateViewController(withIdentifier: "eventDetailController") as? EventDetailController {
-            eventDetailController.event = event
-            eventDetailController.managedObjectContext = managedObjectContext
-            //present(eventDetailController, animated: true, completion: nil)
-            navigationController?.pushViewController(eventDetailController, animated: true)
+        if let navigator = navigationController {
+            let viewController = EventDetailController()
+            viewController.setValues(withEvent: event)
+            navigator.pushViewController(viewController, animated: true)
         }
     }
-}*/
+}

@@ -7,15 +7,16 @@
 //
 
 import UIKit
-
-fileprivate let leftRightMargin: CGFloat = 22
+import  MapKit
 
 class EventDetailController: UIViewController {
+    
+    private let leftRightMargin: CGFloat = 22
     
     var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1400)
+        sv.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1900)
         sv.backgroundColor = UIColor.white
         return sv
     }()
@@ -31,7 +32,6 @@ class EventDetailController: UIViewController {
     var nameHeadingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.red
         label.textColor = UIColor.black
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -41,7 +41,6 @@ class EventDetailController: UIViewController {
     var organizerHeadingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.red
         label.textColor = UIColor.Custom.darkGray
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -51,7 +50,6 @@ class EventDetailController: UIViewController {
     var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.green
         label.textColor = UIColor.black
         label.text = "Description"
         label.font = UIFont.Custom.heading
@@ -61,7 +59,6 @@ class EventDetailController: UIViewController {
     var descriptionInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.green
         label.textColor = UIColor.darkGray
         label.numberOfLines = 0
         label.font = UIFont.Custom.text
@@ -71,7 +68,6 @@ class EventDetailController: UIViewController {
     var organizerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.green
         label.textColor = UIColor.black
         label.text = "Organizer"
         label.font = UIFont.Custom.heading
@@ -81,32 +77,64 @@ class EventDetailController: UIViewController {
     var organizerInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.green
         label.numberOfLines = 0
         label.textColor = UIColor.Custom.darkGray
         label.font = UIFont.Custom.text
         return label
     }()
     
+    var dateImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "date").withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor.Custom.darkGray
+        return imageView
+    }()
+    
     var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.green
         label.numberOfLines = 2
         label.textColor = UIColor.Custom.darkGray
         label.font = UIFont.Custom.text
         return label
     }()
     
+    var locationImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "locationPin").withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor.Custom.darkGray
+        return imageView
+    }()
+    
+    var locationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textColor = UIColor.Custom.darkGray
+        label.font = UIFont.Custom.text
+        return label
+    }()
+    
+    let locationMapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        return mapView
+    }()
+    
     var volunteerButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = UIFont.Custom.subTitle
-        button.setTitle("Volunteer Now!", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.Custom.purple
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    var isVolunteerButton: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +144,25 @@ class EventDetailController: UIViewController {
         addShadowToBar()
         addShadowToTabBar()
         setupViews()
+        
+        if isVolunteerButton {
+            volunteerButton.setTitle("Volunteer Now!", for: .normal)
+            volunteerButton.addTarget(self, action: #selector(volunteerButtonPressed), for: .touchUpInside)
+        } else {
+            volunteerButton.setTitle("Check In", for: .normal)
+             volunteerButton.addTarget(self, action: #selector(checkInButtonPressed), for: .touchUpInside)
+        }
+    }
+    
+    @objc func volunteerButtonPressed() {
+        let viewController = VolunteerController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc func checkInButtonPressed() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "qrScannerController") as! QRScannerController
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func setupViews() {
@@ -144,6 +191,11 @@ class EventDetailController: UIViewController {
         scrollView.addSubview(descriptionInfoLabel)
         scrollView.addSubview(organizerLabel)
         scrollView.addSubview(organizerInfoLabel)
+        scrollView.addSubview(dateImageView)
+        scrollView.addSubview(dateLabel)
+        scrollView.addSubview(locationImageView)
+        scrollView.addSubview(locationLabel)
+        scrollView.addSubview(locationMapView)
         
         NSLayoutConstraint.activate([
             organizationLogoImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
@@ -159,65 +211,102 @@ class EventDetailController: UIViewController {
             organizerHeadingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightMargin),
             organizerHeadingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightMargin),
             
-            descriptionLabel.topAnchor.constraint(equalTo: organizerHeadingLabel.bottomAnchor, constant: 20),
+            descriptionLabel.topAnchor.constraint(equalTo: organizerHeadingLabel.bottomAnchor, constant: 30),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightMargin),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightMargin),
             descriptionLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            descriptionInfoLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            descriptionInfoLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             descriptionInfoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightMargin),
             descriptionInfoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightMargin),
             
-            organizerLabel.topAnchor.constraint(equalTo: descriptionInfoLabel.bottomAnchor, constant: 20),
+            organizerLabel.topAnchor.constraint(equalTo: descriptionInfoLabel.bottomAnchor, constant: 25),
             organizerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightMargin),
             organizerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightMargin),
             organizerLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            organizerInfoLabel.topAnchor.constraint(equalTo: organizerLabel.bottomAnchor, constant: 20),
+            organizerInfoLabel.topAnchor.constraint(equalTo: organizerLabel.bottomAnchor, constant: 10),
             organizerInfoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightMargin),
-            organizerInfoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightMargin)
+            organizerInfoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightMargin),
+            
+            dateImageView.topAnchor.constraint(equalTo: organizerInfoLabel.bottomAnchor, constant: 30),
+            dateImageView.heightAnchor.constraint(equalToConstant: 60),
+            dateImageView.widthAnchor.constraint(equalToConstant: 60),
+            dateImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            
+            dateLabel.topAnchor.constraint(equalTo: dateImageView.bottomAnchor, constant: 15),
+            dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            
+            locationMapView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 30),
+            locationMapView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            locationMapView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            locationMapView.heightAnchor.constraint(equalToConstant: 170),
+            
+            locationImageView.topAnchor.constraint(equalTo: locationMapView.bottomAnchor, constant: 20),
+            locationImageView.heightAnchor.constraint(equalToConstant: 60),
+            locationImageView.widthAnchor.constraint(equalToConstant: 60),
+            locationImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            
+            locationLabel.topAnchor.constraint(equalTo: locationImageView.bottomAnchor, constant: 18),
+            locationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            
         ])
         
     }
     
     func setValues(withEvent event: Event) {
-        nameHeadingLabel.setTextandHeight(text: event.name, lineSpacing: 13, font: UIFont.Custom.mainTitle, alignment: .center)
-        organizerHeadingLabel.setTextandHeight(text: event.organizer, lineSpacing: 0, font: UIFont.Custom.subTitle, alignment: .center)
+        nameHeadingLabel.setTextandHeight(text: event.name, lineSpacing: 13, font: UIFont.Custom.mainTitle, alignment: .center, leftRightMargin: leftRightMargin)
+        organizerHeadingLabel.setTextandHeight(text: event.organizer, lineSpacing: 0, font: UIFont.Custom.subTitle, alignment: .center, leftRightMargin: leftRightMargin)
         
-        descriptionInfoLabel.setTextandHeight(text: event.name, lineSpacing: 3, font: UIFont.Custom.text, alignment: .left)
-        organizerInfoLabel.setTextandHeight(text: event.organizer, lineSpacing: 3, font: UIFont.Custom.text, alignment: .left)
+        descriptionInfoLabel.setTextandHeight(text: event.details.description, lineSpacing: 3, font: UIFont.Custom.text, alignment: .left, leftRightMargin: leftRightMargin)
+        organizerInfoLabel.setTextandHeight(text: event.details.organizer, lineSpacing: 3, font: UIFont.Custom.text, alignment: .left, leftRightMargin: leftRightMargin)
+        
+        switch event.type {
+        case .ongoing:
+            organizerInfoLabel.setTextandHeight(text: "Ongoing Event", lineSpacing: 1, font: UIFont.Custom.text, alignment: .center, leftRightMargin: 40)
+        case .once(let startDate, let endDate):
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEEE, MMMM d, yyyy"
+            var dateString = formatter.string(from: startDate) + "\n"
+            formatter.dateFormat = "h:mm a"
+            dateString = dateString + formatter.string(from: startDate) + " - " + formatter.string(from: endDate)
+            dateLabel.setTextandHeight(text: dateString, lineSpacing: 7, font: UIFont.Custom.text, alignment: .center, leftRightMargin: 40)
+        }
+        
+        if let distance = event.distance {
+            let locationString = String(distance) + " miles away\n" + event.address.print
+            locationLabel.setTextandHeight(text: locationString, lineSpacing: 7, font: UIFont.Custom.text, alignment: .center, leftRightMargin: 40)
+        } else {
+            locationLabel.setTextandHeight(text: event.address.print, lineSpacing: 7, font: UIFont.Custom.text, alignment: .center, leftRightMargin: 40)
+        }
+        
+        let viewRegion = MKCoordinateRegionMakeWithDistance(event.coordinate, 2000, 2000)
+        locationMapView.setRegion(viewRegion, animated: true)
+        locationMapView.addAnnotation(event)
+        
     }
 
 }
 
-
-fileprivate extension UIFont {
-    struct Custom {
-        static let mainTitle = UIFont(name: "SofiaPro-Bold", size: 23)!
-        static let subTitle = UIFont(name: "SofiaPro-SemiBold", size: 20)!
-        static let heading = UIFont(name: "SofiaPro-Bold", size: 18)!
-        static let text = UIFont(name: "SofiaPro-Medium", size: 18)!
-    }
-}
-
-fileprivate extension UILabel {
-    func setTextandHeight(text: String, lineSpacing: CGFloat, font: UIFont, alignment: NSTextAlignment) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = lineSpacing
-        paragraphStyle.alignment = alignment
+extension EventDetailController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let identifier = "event"
+        var annotationView: MKPinAnnotationView
         
-        let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.paragraphStyle: paragraphStyle, NSAttributedStringKey.font: font]
-        
-        let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
-        
-        let width = UIScreen.main.bounds.width-(leftRightMargin * 2)
-        let size = CGSize(width: width, height: 400)
-        
-        let frame = NSString(string: text).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-        
-        self.attributedText = attributedText
-        self.heightAnchor.constraint(equalToConstant: frame.height+5)
-        
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKPinAnnotationView {
+            dequeuedView.annotation = annotation
+            annotationView = dequeuedView
+        } else {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView.isEnabled = false
+        }
+        return annotationView
     }
 }
 

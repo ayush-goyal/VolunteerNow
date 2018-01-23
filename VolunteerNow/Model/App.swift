@@ -7,3 +7,29 @@
 //
 
 import Foundation
+import CoreLocation
+import Firebase
+
+struct App {
+    
+    private init() {
+        
+    }
+    
+    static var shared = App()
+    
+    var currentLocation: CLLocation?
+    var dbRef: DatabaseReference!
+    
+    var searchListController: SearchListCollectionViewController!
+    var searchMapController: SearchMapController!
+    
+    func reloadData() {
+        searchMapController.removeAnnotations()
+        
+        Event.updateSelectedEventsList()
+        searchListController.collectionView?.reloadData()
+        searchMapController.addAnnotations()
+        
+    }
+}

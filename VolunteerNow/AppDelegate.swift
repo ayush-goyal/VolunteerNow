@@ -35,12 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         
+        App.shared.dbRef = Database.database().reference()
+        
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
         // Check to see if user is signed in
         
-        /*if Auth.auth().currentUser == nil {
+        if Auth.auth().currentUser == nil {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -50,8 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             self.window?.makeKeyAndVisible()
         } else {
             print("User is logged into firebase")
-        }*/
-        
+         
+            if let displayName = Auth.auth().currentUser?.displayName, let uid = Auth.auth().currentUser?.uid, let email = Auth.auth().currentUser?.email {
+                User.uid = uid
+                User.name = displayName
+                User.email = email
+            } else { fatalError() }
+        }
         return true
     }
 
@@ -100,13 +107,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 fatalError(error.localizedDescription)
             }
             // User is signed in
-            let defaults = UserDefaults.standard
-
+   
             if let displayName = user?.displayName, let uid = user?.uid, let email = user?.email {
-                defaults.set(displayName, forKey: "name")
-                defaults.set(uid, forKey: "uid")
-                defaults.set(email, forKey: "email")
-            }
+                User.uid = uid
+                User.name = displayName
+                User.email = email
+            } else { fatalError() }
             print("User successfully signed into firebase")
             self.window?.rootViewController?.performSegue(withIdentifier: "homeViewSegue", sender: nil)
         }

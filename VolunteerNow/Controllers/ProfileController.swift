@@ -19,8 +19,7 @@ class ProfileController: UITableViewController {
     func setupQrCode() {
         let filter: CIFilter = CIFilter(name: "CIQRCodeGenerator")!
         
-        let defaults = UserDefaults.standard
-        let id = String(defaults.integer(forKey: "id"))
+        guard let id = User.uid else { fatalError() }
         let data = id.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
         
         filter.setValue(data, forKey: "inputMessage")
@@ -34,6 +33,15 @@ class ProfileController: UITableViewController {
         let transformedImage = qrcodeImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
         
         qrImageView.image = UIImage(ciImage: transformedImage)
+    }
+    
+    @IBAction func switchToOrganizationView(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "organizationSignInController")
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
 }

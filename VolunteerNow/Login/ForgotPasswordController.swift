@@ -16,6 +16,7 @@ class ForgotPasswordController: UIViewController {
         navigationItem.title = "Forgot Password"
         
         addShadowToBar()
+        addShadowToTabBar()
     }
     
 

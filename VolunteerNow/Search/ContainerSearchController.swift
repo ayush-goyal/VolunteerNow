@@ -26,9 +26,12 @@ class ContainerSearchController: UIViewController {
     
     var currentLocation: CLLocation? {
         didSet {
-            searchListController.currentLocation = self.currentLocation
             searchMapController.currentLocation = self.currentLocation
-            Event.currentLocation = self.currentLocation
+            App.shared.currentLocation = self.currentLocation
+            searchListController.collectionView?.reloadData()
+            
+            //Event.setEventInDatabase(withId: "3939943", location: self.currentLocation!)
+            Event.retrieveEventsFromDatabase()
         }
     }
     
@@ -38,17 +41,21 @@ class ContainerSearchController: UIViewController {
         locationManager.delegate = self
         checkLocationServicesAuthorization()
         
+        User.retrieveEventsFromDatabase()
+        
         searchMapContainerView.alpha = 0
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterList))
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterList))
         
         addSelectorSegmentedView()
         addShadowToBar()
         addShadowToTabBar()
         changeBackNavigationButton()
+        
     }
     
     func addSelectorSegmentedView() {
-        let selectorSegmentedView = SelectorSegmentedView(normalColor: UIColor.Custom.lightGray, highlightColor: UIColor.Custom.purple, titles: ["List", "Map"], images: [#imageLiteral(resourceName: "first"), #imageLiteral(resourceName: "second")], width: UIScreen.main.bounds.width, changeView: self.changeContainerView)
+        let selectorSegmentedView = SelectorSegmentedView(normalColor: UIColor.Custom.lightGray, highlightColor: UIColor.Custom.purple, titles: ["List", "Map"], images: [#imageLiteral(resourceName: "list"),#imageLiteral(resourceName: "location")], selectedImages: [#imageLiteral(resourceName: "list_selected"), #imageLiteral(resourceName: "location_selected")],width: UIScreen.main.bounds.width, changeView: self.changeContainerView)
         selectorSegmentedView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(selectorSegmentedView)
@@ -97,9 +104,11 @@ class ContainerSearchController: UIViewController {
             
         case let viewController as SearchListCollectionViewController:
             self.searchListController = viewController
+            App.shared.searchListController = viewController
             
         case let viewController as SearchMapController:
             self.searchMapController = viewController
+            App.shared.searchMapController = viewController
         
         default:
             break
@@ -110,10 +119,6 @@ class ContainerSearchController: UIViewController {
         
     }
 }
-
-
-
-
 
 extension ContainerSearchController: CLLocationManagerDelegate {
     func checkLocationServicesAuthorization() {

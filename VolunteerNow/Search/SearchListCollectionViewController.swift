@@ -13,8 +13,6 @@ private let eventCellReuseIdentifier = "eventId"
 
 class SearchListCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var currentLocation: CLLocation?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,25 +36,14 @@ class SearchListCollectionViewController: UICollectionViewController, UICollecti
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
         let event = Event.selectedEvents[indexPath.row]
-
-        cell.nameLabel.text = event.name
-        cell.organizerLabel.text = event.organizer
-        cell.distanceLabel.text = String(event.distance!)
-        switch event.type {
-        case .ongoing:
-            cell.dateLabel.text = "Ongoing Event"
-        case .once(let startDate, let endDate):
-            let formatter = DateFormatter()
-            formatter.dateFormat = "E, MMM DD"
-            cell.dateLabel.text = formatter.string(from: startDate)
-        }
-        cell.backgroundImageView.downloadedFrom(link: event.imageUrl)
+        
+        cell.setEventProperties(event: event)
     
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: UIScreen.main.bounds.width-20, height: 200) // Subtract left and right collection view section insets
+        return CGSize.init(width: UIScreen.main.bounds.width-20, height: 220) // Subtract left and right collection view section insets
         // Also change size of image tint view in extensions if cell size changed
     }
     

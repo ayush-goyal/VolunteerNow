@@ -10,16 +10,21 @@ import UIKit
 
 class ProfileContainerController: UIViewController {
 
+    @IBOutlet weak var profileControllerContainerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addShadowToBar()
         addShadowToTabBar()
+        changeBackNavigationButton()
+        
+        profileControllerContainerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+                profileControllerContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+                profileControllerContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                profileControllerContainerView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                profileControllerContainerView.rightAnchor.constraint(equalTo: view.rightAnchor),
+        ])
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

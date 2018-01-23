@@ -6,4 +6,10 @@
 //  Copyright © 2018 Summit Labs. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class VolunteerController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}

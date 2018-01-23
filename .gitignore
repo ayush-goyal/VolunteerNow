@@ -1,0 +1,28 @@
+# temporary files
+.DS_Store
+*.swp
+*.lock
+profile
+*~.nib
+
+# Xcode per-user config
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+# Build products
+*.o
+*.LinkFileList
+*.hmap
+DerivedData/
+build/
+Builds/
+
+# Automatic backup files
+*.dat
+*.dep
