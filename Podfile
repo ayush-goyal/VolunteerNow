@@ -7,8 +7,13 @@ target 'VolunteerNow' do
 
   # Pods for VolunteerNow
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'GeoFire'
+  pod "CZPicker"
+  pod 'Eureka'
+  pod 'PostalAddressRow'
 
 end
