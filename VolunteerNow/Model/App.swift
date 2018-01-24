@@ -24,11 +24,12 @@ struct App {
     var searchListController: SearchListCollectionViewController!
     var searchMapController: SearchMapController!
     
-    func reloadData() {
+    func reloadSearchData() {
         searchMapController.removeAnnotations()
         
         Event.updateSelectedEventsList()
         searchListController.collectionView?.reloadData()
+        searchListController.stopRefresher()
         searchMapController.addAnnotations()
         
     }

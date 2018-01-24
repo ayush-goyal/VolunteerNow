@@ -225,7 +225,7 @@ extension Event {
         }
     }
     
-    static func retrieveEventsFromDatabase() {
+    static func retrieveClosestEventsFromDatabase() {
         guard let currentLocation = App.shared.currentLocation else { return }
         let geoFire = GeoFire(firebaseRef: App.shared.dbRef.child("event-locations"))!
         // Query locations at currentLocation with a radius of km
@@ -257,11 +257,35 @@ extension Event {
             // We ask to be notified when every block left the group
             group.notify(queue: .main) {
                 print("All events loaded")
-                App.shared.reloadData()
+                App.shared.reloadSearchData()
             }
             
         }
         
+    }
+    
+    static func retrieveEventsFromDatabase(keys: NSArray, completionHandler: @escaping ([Event]) -> Void) {
+        let group = DispatchGroup()
+        var events: [Event] = []
+        for key in keys {
+            let key = String(describing: key)
+            if !Event.loadedEventIds.contains(key) { // Checks if key has already been loaded
+                group.enter()
+                App.shared.dbRef.child("events").child(key).observeSingleEvent(of: .value) { snapshot in
+                    let value = snapshot.value as! NSDictionary
+                    Event.loadedEventIds.append(key)
+                    events.append(Event(data: value)!)
+                    group.leave()
+                }
+            } else {
+                events.append(allEvents[loadedEventIds.index(of: key)!])
+            }
+        }
+        // We ask to be notified when every block left the group
+        group.notify(queue: .main) {
+            print("All events loaded")
+            completionHandler(events)
+        }
     }
 }
 

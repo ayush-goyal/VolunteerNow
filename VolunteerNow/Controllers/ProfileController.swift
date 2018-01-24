@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileController: UITableViewController {
 
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var qrImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupQrCode()
+        
+        nameLabel.text = Auth.auth().currentUser?.displayName ?? ""
+        emailLabel.text = Auth.auth().currentUser?.email ?? ""
+        phoneLabel.text = Auth.auth().currentUser?.phoneNumber ?? ""
     }
     
     func setupQrCode() {

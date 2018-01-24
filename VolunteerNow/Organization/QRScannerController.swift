@@ -32,6 +32,10 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         
         configureCameraController()
         
+        navigationItem.title = "Scanner"
+        addShadowToBar()
+        addShadowToTabBar()
+        
         view.addSubview(qrCodeFrameView)
         view.bringSubview(toFront: qrCodeFrameView)
     }

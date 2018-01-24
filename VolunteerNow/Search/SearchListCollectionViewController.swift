@@ -13,6 +13,13 @@ private let eventCellReuseIdentifier = "eventId"
 
 class SearchListCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.Custom.purple
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +27,16 @@ class SearchListCollectionViewController: UICollectionViewController, UICollecti
         self.collectionView!.register(EventCell.self, forCellWithReuseIdentifier: eventCellReuseIdentifier)
         collectionView!.backgroundColor = UIColor.Custom.backgroundGray
 
+        self.collectionView?.alwaysBounceVertical = true
+        self.collectionView?.addSubview(refresher)
+    }
+
+    @objc func loadData() {
+        Event.retrieveClosestEventsFromDatabase()
+    }
+
+    func stopRefresher() {
+        self.refresher.endRefreshing()
     }
 
     // MARK: UICollectionViewDataSource

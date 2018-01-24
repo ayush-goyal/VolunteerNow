@@ -12,13 +12,28 @@ private let eventCellReuseIdentifier = "eventId"
 
 class CheckInController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.Custom.purple
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadData()
+        
         // Register cell classes
         self.collectionView!.register(EventCell.self, forCellWithReuseIdentifier: eventCellReuseIdentifier)
         collectionView!.backgroundColor = UIColor.Custom.backgroundGray
         
+        self.collectionView?.alwaysBounceVertical = true
+        self.collectionView?.addSubview(refresher)
+    }
+    
+    @objc func loadData() {
+        Organization.retrieveUpcomingEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource
@@ -51,12 +66,10 @@ class CheckInController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let navigator = navigationController {
-            let viewController = EventDetailController()
-            viewController.isVolunteerButton = false
-            viewController.setValues(withEvent: Event.selectedEvents[indexPath.row])
-            navigator.pushViewController(viewController, animated: true)
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "qrScannerController")
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

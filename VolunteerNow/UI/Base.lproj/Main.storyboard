@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAt-j2-PGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2770" y="4420"/>
+            <point key="canvasLocation" x="3574" y="4155"/>
         </scene>
         <!--Events-->
         <scene sceneID="wAc-Dk-fI5">
@@ -388,7 +388,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="xPb-7p-O2r">
             <objects>
-                <tabBarController id="Ctg-Oa-aUr" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="userTabBarController" id="Ctg-Oa-aUr" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bgB-Rg-PUw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -605,36 +605,8 @@
                         <sections>
                             <tableViewSection id="4wq-Xb-iUZ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jfY-d4-S3L">
-                                        <rect key="frame" x="0.0" y="286" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jfY-d4-S3L" id="zDV-zB-5PG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ty-uV-r1k">
-                                                    <rect key="frame" x="24" y="14.5" width="70" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30075" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZy-iw-mRk">
-                                                    <rect key="frame" x="301" y="14" width="50" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="4ty-uV-r1k" firstAttribute="centerY" secondItem="zDV-zB-5PG" secondAttribute="centerY" id="1Nu-Fv-pf9"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CZy-iw-mRk" secondAttribute="trailing" constant="8" id="4x7-HL-CkA"/>
-                                                <constraint firstItem="CZy-iw-mRk" firstAttribute="centerY" secondItem="zDV-zB-5PG" secondAttribute="centerY" id="dCT-e2-ogv"/>
-                                                <constraint firstItem="4ty-uV-r1k" firstAttribute="leading" secondItem="zDV-zB-5PG" secondAttribute="leadingMargin" constant="8" id="kA0-L0-Mgn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Cle-6X-Efv">
-                                        <rect key="frame" x="0.0" y="336" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="286" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cle-6X-Efv" id="r6W-ob-Sxp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -662,7 +634,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aI4-kk-jxY">
-                                        <rect key="frame" x="0.0" y="386" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="336" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aI4-kk-jxY" id="b6b-37-xjK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -694,7 +666,7 @@
                             <tableViewSection id="JwM-XQ-btV">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bUF-I3-jFo">
-                                        <rect key="frame" x="0.0" y="472" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="422" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bUF-I3-jFo" id="kob-aG-lBs">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
@@ -714,7 +686,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="z6X-iV-OBH">
-                                        <rect key="frame" x="0.0" y="522" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="472" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z6X-iV-OBH" id="It8-Xp-leq">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
@@ -734,7 +706,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="U8K-Ad-Mbi">
-                                        <rect key="frame" x="0.0" y="572" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="522" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U8K-Ad-Mbi" id="2Nw-HO-4Y7">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -759,7 +731,7 @@
                             <tableViewSection id="wrN-J2-ygf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CBg-mM-h8B">
-                                        <rect key="frame" x="0.0" y="658" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="608" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBg-mM-h8B" id="XOC-FB-3e1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -787,6 +759,9 @@
                     <navigationItem key="navigationItem" title="Account" id="sP0-e1-Sl7"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="emailLabel" destination="Uza-F1-9wC" id="jSt-vr-Ufx"/>
+                        <outlet property="nameLabel" destination="2kO-Wa-005" id="gEy-U7-CMn"/>
+                        <outlet property="phoneLabel" destination="107-04-Iab" id="dRs-Zq-cpf"/>
                         <outlet property="qrImageView" destination="aUk-6Z-qBB" id="SrA-fw-RgN"/>
                     </connections>
                 </tableViewController>
@@ -1253,7 +1228,7 @@ Roswell, GA, 30075</string>
         <scene sceneID="CdY-of-Rla">
             <objects>
                 <navigationController id="pDO-tM-kyy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Organization" id="ejy-sK-sov"/>
+                    <tabBarItem key="tabBarItem" title="Organization" image="buildings" selectedImage="buildings_selected" id="ejy-sK-sov"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V6D-Jr-Lxr">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1287,7 +1262,7 @@ Roswell, GA, 30075</string>
                     </view>
                     <navigationItem key="navigationItem" title="Organization" id="bN0-mF-woF"/>
                     <connections>
-                        <outlet property="profileControllerContainerView" destination="mGB-nk-Wjp" id="NdY-58-bZj"/>
+                        <outlet property="profileControllerContainerView" destination="mGB-nk-Wjp" id="E2w-cn-TNN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uu5-Tp-yNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1318,7 +1293,7 @@ Roswell, GA, 30075</string>
         <!--Check In-->
         <scene sceneID="jaC-wG-xFj">
             <objects>
-                <viewController id="MkA-eL-39N" sceneMemberID="viewController">
+                <viewController id="MkA-eL-39N" customClass="CheckInContainerController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1nW-vY-K1I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1357,7 +1332,7 @@ Roswell, GA, 30075</string>
         <scene sceneID="lh7-xz-cBc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wE-zI-Rf0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" id="3zM-zg-njA"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="add" selectedImage="add_selected" id="3zM-zg-njA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oiv-6X-A5e">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1391,7 +1366,7 @@ Roswell, GA, 30075</string>
         <!--Upcoming-->
         <scene sceneID="4Fc-fF-9cb">
             <objects>
-                <collectionViewController id="GsS-2T-0rF" customClass="UpcomingOrganizationController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="GsS-2T-0rF" customClass="CheckInController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kNi-uG-Dpy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1417,7 +1392,7 @@ Roswell, GA, 30075</string>
         <!--Account-->
         <scene sceneID="DQO-e3-gmh">
             <objects>
-                <tableViewController id="xfj-eJ-DHm" sceneMemberID="viewController">
+                <tableViewController id="xfj-eJ-DHm" customClass="OrganizationProfileController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="oP9-3A-829">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1450,14 +1425,14 @@ Roswell, GA, 30075</string>
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odR-uJ-979">
-                                                    <rect key="frame" x="24" y="14.5" width="70" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odR-uJ-979">
+                                                    <rect key="frame" x="24" y="14.5" width="62" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30075" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVw-lI-uTa">
-                                                    <rect key="frame" x="301" y="14" width="50" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.google.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVw-lI-uTa">
+                                                    <rect key="frame" x="219" y="14" width="132" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1471,68 +1446,12 @@ Roswell, GA, 30075</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mm4-NX-dfs">
-                                        <rect key="frame" x="0.0" y="156" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mm4-NX-dfs" id="VtY-w4-Rwm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTp-YV-gyv">
-                                                    <rect key="frame" x="24" y="15" width="108" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="agoyal2001@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQG-zb-w1i">
-                                                    <rect key="frame" x="169.5" y="14" width="181.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="hTp-YV-gyv" firstAttribute="leading" secondItem="VtY-w4-Rwm" secondAttribute="leadingMargin" constant="8" id="2ri-R0-gmM"/>
-                                                <constraint firstItem="vQG-zb-w1i" firstAttribute="centerY" secondItem="VtY-w4-Rwm" secondAttribute="centerY" id="Tuu-dP-Y0A"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vQG-zb-w1i" secondAttribute="trailing" constant="8" id="gD2-io-VWV"/>
-                                                <constraint firstItem="hTp-YV-gyv" firstAttribute="centerY" secondItem="VtY-w4-Rwm" secondAttribute="centerY" id="l8o-5Y-xZR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7SX-oO-P1Y">
-                                        <rect key="frame" x="0.0" y="206" width="375" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7SX-oO-P1Y" id="2ce-BF-qlr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7e-L9-zv6">
-                                                    <rect key="frame" x="24" y="14.5" width="115" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="678-330-9948" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDt-YV-HBA">
-                                                    <rect key="frame" x="233" y="15" width="118" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="l7e-L9-zv6" firstAttribute="centerY" secondItem="2ce-BF-qlr" secondAttribute="centerY" id="5qC-MP-3zr"/>
-                                                <constraint firstItem="l7e-L9-zv6" firstAttribute="leading" secondItem="2ce-BF-qlr" secondAttribute="leadingMargin" constant="8" id="6eP-EH-8Dk"/>
-                                                <constraint firstItem="mDt-YV-HBA" firstAttribute="centerY" secondItem="2ce-BF-qlr" secondAttribute="centerY" id="ZfL-7d-jIP"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="mDt-YV-HBA" secondAttribute="trailing" constant="8" id="uqY-F2-DLv"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="1Fl-KT-tga">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wV2-8r-zvL">
-                                        <rect key="frame" x="0.0" y="292" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="192" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wV2-8r-zvL" id="UVn-QR-9Np">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
@@ -1552,7 +1471,7 @@ Roswell, GA, 30075</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="42U-2V-KsS">
-                                        <rect key="frame" x="0.0" y="342" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="242" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="42U-2V-KsS" id="i6G-G0-Apd">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="49.5"/>
@@ -1572,7 +1491,7 @@ Roswell, GA, 30075</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NOz-Oo-vfn">
-                                        <rect key="frame" x="0.0" y="392" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="292" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NOz-Oo-vfn" id="HTe-KB-rSJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -1581,6 +1500,9 @@ Roswell, GA, 30075</string>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYc-8s-YRm">
                                                     <rect key="frame" x="24" y="10" width="138" height="30"/>
                                                     <state key="normal" title="Switch to User View"/>
+                                                    <connections>
+                                                        <action selector="switchToUserView:" destination="xfj-eJ-DHm" eventType="touchUpInside" id="nrN-tw-KeU"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1594,7 +1516,7 @@ Roswell, GA, 30075</string>
                             <tableViewSection id="nPN-Lk-obD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mkR-NT-yim">
-                                        <rect key="frame" x="0.0" y="478" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="378" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mkR-NT-yim" id="SVe-J5-gaE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -1621,6 +1543,10 @@ Roswell, GA, 30075</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="Account" id="xiy-FY-1Eb"/>
                     <size key="freeformSize" width="375" height="700"/>
+                    <connections>
+                        <outlet property="organizerLabel" destination="Mfd-Kr-14p" id="APJ-Ro-POK"/>
+                        <outlet property="websiteLabel" destination="sVw-lI-uTa" id="1fT-7a-iKs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7B5-l3-UkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1649,7 +1575,7 @@ Roswell, GA, 30075</string>
         <scene sceneID="yej-Lt-gl4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pP9-Yh-Kw0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Check In" id="u6U-tG-X39"/>
+                    <tabBarItem key="tabBarItem" title="Check In" image="clipboard" selectedImage="clipboard_selected" id="u6U-tG-X39"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="16J-Ud-IEp">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1870,10 +1796,16 @@ Roswell, GA, 30075</string>
     <resources>
         <image name="account_selected" width="25" height="25"/>
         <image name="acount" width="25" height="25"/>
+        <image name="add" width="25" height="25"/>
+        <image name="add_selected" width="25" height="25"/>
+        <image name="buildings" width="25" height="25"/>
+        <image name="buildings_selected" width="25" height="25"/>
         <image name="calendar" width="25" height="25"/>
         <image name="calendar_selected" width="25" height="25"/>
         <image name="check" width="25" height="25"/>
         <image name="check_selected" width="25" height="25"/>
+        <image name="clipboard" width="25" height="25"/>
+        <image name="clipboard_selected" width="25" height="25"/>
         <image name="emailIcon" width="100" height="100"/>
         <image name="filter" width="28" height="28"/>
         <image name="lockIcon" width="100" height="100"/>

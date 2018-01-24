@@ -6,29 +6,40 @@
 //  Copyright © 2018 Summit Labs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Organization {
     static var upcomingEvents: [Event] = []
     static var completedEvents: [Event] = []
     
-    static func retrieveEventsFromDatabase() {
-        
+    static func retrieveUpcomingEventsFromDatabase(collectionView: UICollectionView, refresher: UIRefreshControl?) {
+        App.shared.dbRef.child("organizations").child(id).child("upcoming").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? NSArray {
+                Event.retrieveEventsFromDatabase(keys: value) { events in
+                    self.upcomingEvents = events
+                    collectionView.reloadData()
+                    if let refresher = refresher {
+                        refresher.endRefreshing()
+                    }
+                }
+            }
+        }
+    }
+    static func retrieveCompletedEventsFromDatabase(collectionView: UICollectionView, refresher: UIRefreshControl?) {
+        App.shared.dbRef.child("organizations").child(id).child("completed").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? NSArray {
+                Event.retrieveEventsFromDatabase(keys: value) { events in
+                    self.completedEvents = events
+                    collectionView.reloadData()
+                    if let refresher = refresher {
+                        refresher.endRefreshing()
+                    }
+                }
+            }
+        }
     }
     
-    private init(organizer: String, website: String) {
-        self.organizer = organizer
-        self.webste = website
-    }
-    
-    static var shared: Organization!
-    
-    static func sharedInit(organizer: String, website: String) {
-        Organization.shared = Organization(organizer: organizer, website: website)
-    }
-    
-    var organizer: String
-    
-    var webste: String
-
+    static var organizer: String!
+    static var webste: String!
+    static var id: String!
 }

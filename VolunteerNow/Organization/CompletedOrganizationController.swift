@@ -12,8 +12,17 @@ private let eventCellReuseIdentifier = "eventId"
 
 class CompletedOrganizationController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.Custom.purple
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadData()
         
         addShadowToBar()
         addShadowToTabBar()
@@ -23,6 +32,12 @@ class CompletedOrganizationController: UICollectionViewController, UICollectionV
         self.collectionView!.register(EventCell.self, forCellWithReuseIdentifier: eventCellReuseIdentifier)
         collectionView!.backgroundColor = UIColor.Custom.backgroundGray
         
+        self.collectionView?.alwaysBounceVertical = true
+        self.collectionView?.addSubview(refresher)
+    }
+    
+    @objc func loadData() {
+        Organization.retrieveCompletedEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource

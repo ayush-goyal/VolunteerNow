@@ -31,7 +31,7 @@ class ContainerSearchController: UIViewController {
             searchListController.collectionView?.reloadData()
             
             //Event.setEventInDatabase(withId: "3939943", location: self.currentLocation!)
-            Event.retrieveEventsFromDatabase()
+            Event.retrieveClosestEventsFromDatabase()
         }
     }
     
@@ -40,9 +40,7 @@ class ContainerSearchController: UIViewController {
         
         locationManager.delegate = self
         checkLocationServicesAuthorization()
-        
-        User.retrieveEventsFromDatabase()
-        
+                
         searchMapContainerView.alpha = 0
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterList))

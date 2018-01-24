@@ -12,13 +12,29 @@ private let eventCellReuseIdentifier = "eventId"
 
 class CompletedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.Custom.purple
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadData()
         
         // Register cell classes
         self.collectionView!.register(EventCell.self, forCellWithReuseIdentifier: eventCellReuseIdentifier)
         collectionView!.backgroundColor = UIColor.Custom.backgroundGray
         
+        self.collectionView?.alwaysBounceVertical = true
+        self.collectionView?.addSubview(refresher)
+        
+    }
+    
+    @objc func loadData() {
+        User.retrieveCompletedEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource

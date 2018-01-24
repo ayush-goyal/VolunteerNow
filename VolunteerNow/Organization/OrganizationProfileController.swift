@@ -6,4 +6,27 @@
 //  Copyright © 2018 Summit Labs. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class OrganizationProfileController: UITableViewController {
+    
+    @IBOutlet weak var organizerLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        organizerLabel.text = Organization.organizer
+        websiteLabel.text = Organization.webste
+    }
+    
+    @IBAction func switchToUserView(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "userTabBarController")
+        
+        present(viewController, animated: true, completion: nil)
+    }
+    
+}
+

@@ -22,21 +22,20 @@ class OrganizationSignInController: UIViewController {
         
         checkIfAlreadySignedIn()
         
-        loginButton.layer.cornerRadius = 5
-        loginButton.layer.masksToBounds = true
-        
-        codeTextField.iconType = .image
         codeTextField.titleFont = UIFont.init(name: "SofiaPro-Medium", size: 15)!
         
+        loginButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.masksToBounds = true
+
         codeTextField.delegate = self
-        hideKeyboardWhenTappedAround()
         
+        hideKeyboardWhenTappedAround()
         addShadowToBar()
         addShadowToTabBar()
         changeBackNavigationButton()
-        setupViews()
         
-        loginButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
+        setupViews()
     }
     
     func checkIfAlreadySignedIn() {
@@ -46,7 +45,9 @@ class OrganizationSignInController: UIViewController {
             App.shared.dbRef.child("organizations").child(organizationCode).observeSingleEvent(of: .value) { snapshot in
                 let value = snapshot.value as? NSDictionary
                 if let organizer = value?["organizer"] as? String, let website = value?["organizer"] as? String {
-                    Organization.sharedInit(organizer: organizer, website: website)
+                    Organization.organizer = organizer
+                    Organization.webste = website
+                    Organization.id = organizationCode
                     self.performSegue(withIdentifier: "organizationHomeSegue", sender: nil)
                 }
             }
@@ -58,7 +59,9 @@ class OrganizationSignInController: UIViewController {
         App.shared.dbRef.child("organizations").child(text).observeSingleEvent(of: .value) { snapshot in
             let value = snapshot.value as? NSDictionary
             if let organizer = value?["organizer"] as? String, let website = value?["organizer"] as? String {
-                Organization.sharedInit(organizer: organizer, website: website)
+                Organization.organizer = organizer
+                Organization.webste = website
+                Organization.id = text
                 let defaults = UserDefaults.standard
                 defaults.set(text, forKey: "organizationCode")
                 self.performSegue(withIdentifier: "organizationHomeSegue", sender: nil)

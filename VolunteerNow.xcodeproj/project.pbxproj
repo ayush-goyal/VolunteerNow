@@ -48,6 +48,7 @@
 		2A3EFB942016D7CE004EBC20 /* CheckInContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB932016D7CD004EBC20 /* CheckInContainerController.swift */; };
 		2A3EFB962016D97A004EBC20 /* VolunteerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB952016D97A004EBC20 /* VolunteerController.swift */; };
 		2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */; };
+		2A3EFB9C20183425004EBC20 /* OrganizationProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */; };
 		2A9EB0312016B77B005FA408 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0302016B77B005FA408 /* User.swift */; };
 		2A9EB0342016B8BC005FA408 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */; };
 		2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */; };
@@ -113,6 +114,7 @@
 		2A3EFB932016D7CD004EBC20 /* CheckInContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInContainerController.swift; sourceTree = "<group>"; };
 		2A3EFB952016D97A004EBC20 /* VolunteerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerController.swift; sourceTree = "<group>"; };
 		2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationSignInController.swift; sourceTree = "<group>"; };
+		2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationProfileController.swift; sourceTree = "<group>"; };
 		2A9EB0302016B77B005FA408 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrganizationController.swift; sourceTree = "<group>"; };
@@ -196,7 +198,6 @@
 		2A325CDF200D998C00EAEF52 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2AC638A32001687D00144AD6 /* QRScannerController.swift */,
 				2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */,
 				2AF8ADF42010465A00A75683 /* CompletedViewController.swift */,
 				2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */,
@@ -213,8 +214,10 @@
 				2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */,
 				2A3EFB932016D7CD004EBC20 /* CheckInContainerController.swift */,
 				2A3EFB912016D7A8004EBC20 /* CheckInController.swift */,
+				2AC638A32001687D00144AD6 /* QRScannerController.swift */,
 				2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */,
 				2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */,
+				2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */,
 			);
 			path = Organization;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				2A325CF6200ED20800EAEF52 /* EventDetailController.swift in Sources */,
 				2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */,
 				2A3EFB942016D7CE004EBC20 /* CheckInContainerController.swift in Sources */,
+				2A3EFB9C20183425004EBC20 /* OrganizationProfileController.swift in Sources */,
 				2A099ED520046333007B519F /* APIManager.swift in Sources */,
 				2AC638A42001687D00144AD6 /* QRScannerController.swift in Sources */,
 				2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */,
