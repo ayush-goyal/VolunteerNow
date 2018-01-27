@@ -237,7 +237,7 @@ extension Event {
 
 
 extension Event {
-    static func setEventInDatabase(withId eventId: String, location: CLLocation) {
+    static func setEventLocationInDatabase(withId eventId: String, location: CLLocation) {
         let geoFire = GeoFire(firebaseRef: App.shared.dbRef.child("event-locations"))!
         geoFire.setLocation(location, forKey: eventId) { (error) in
             if let error = error {
@@ -248,18 +248,31 @@ extension Event {
         }
     }
     
+    static func setEventLocationsForEventsInDatabase() {
+        App.shared.dbRef.child("events").observeSingleEvent(of: .value) { snapshot in
+            let value = snapshot.value as! [String: [String: Any]]
+            for (key, event) in value {
+                let location = event["location"] as! [String: Double]
+                let clLocation = CLLocation(latitude: location["latitude"]!, longitude: location["longitude"]!)
+                setEventLocationInDatabase(withId: key, location: clLocation)
+            }
+        }
+    }
+    
     static func retrieveClosestEventsFromDatabase() {
         guard let currentLocation = App.shared.currentLocation else { return }
         let geoFire = GeoFire(firebaseRef: App.shared.dbRef.child("event-locations"))!
         // Query locations at currentLocation with a radius of km
         let center = currentLocation
-        let geoQuery = geoFire.query(at: center, withRadius: Event.selectedDistanceType.rawValue)
+        print("\n" + String(Event.selectedDistanceType.rawValue))
+        let geoQuery = geoFire.query(at: center, withRadius:
+            Double(Event.selectedDistanceType.rawValue) * 1.609)
         
         var events: [String] = []
         
         geoQuery?.observe(.keyEntered) { key, location in
             guard let key = key, let location = location else { fatalError() }
-            print("Key '\(key)' entered the search area and is at location '\(location)'")
+            print("\nKey '\(key)' entered the search area and is at location '\(location)'")
             events.append(key)
         }
         

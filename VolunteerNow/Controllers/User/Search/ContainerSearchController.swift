@@ -34,7 +34,6 @@ class ContainerSearchController: UIViewController {
             App.shared.currentLocation = self.currentLocation
             
             populateDataInControllers()
-            Event.setEventInDatabase(withId: "3939943", location: self.currentLocation!)
         }
     }
     
@@ -60,9 +59,7 @@ class ContainerSearchController: UIViewController {
     
     func populateDataInControllers() {
         guard let _ = self.currentLocation, let searchListController = self.searchListController, let _ = self.searchMapController else { return }
-        
-        searchListController.collectionView?.reloadData()
-        
+                
         Event.retrieveClosestEventsFromDatabase()
     }
     

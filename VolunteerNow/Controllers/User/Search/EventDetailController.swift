@@ -16,7 +16,7 @@ class EventDetailController: UIViewController {
     var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1900)
+        sv.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1300)
         sv.backgroundColor = UIColor.white
         return sv
     }()

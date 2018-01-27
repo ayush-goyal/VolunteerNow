@@ -115,6 +115,7 @@
 		2A3EFB952016D97A004EBC20 /* VolunteerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerController.swift; sourceTree = "<group>"; };
 		2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationSignInController.swift; sourceTree = "<group>"; };
 		2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationProfileController.swift; sourceTree = "<group>"; };
+		2A668B87201CD50F00FCA868 /* WheelerLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WheelerLocation.gpx; sourceTree = "<group>"; };
 		2A9EB0302016B77B005FA408 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A9EB0332016B8BC005FA408 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
 		2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrganizationController.swift; sourceTree = "<group>"; };
@@ -286,6 +287,7 @@
 				2AFC34D920110D4D008568CA /* GoogleService-Info.plist */,
 				2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */,
 				2AEDBD27200146EB00756696 /* Info.plist */,
+				2A668B87201CD50F00FCA868 /* WheelerLocation.gpx */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

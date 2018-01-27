@@ -143,13 +143,8 @@ class BarFilterController: UIViewController {
         categoryPicker.show()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveFilter" {
-            Event.retrieveClosestEventsFromDatabase()
-        }
-    }
-    
     @objc func doneButton() {
+        Event.retrieveClosestEventsFromDatabase()
         self.dismiss(animated: true, completion: nil)
     }
     
