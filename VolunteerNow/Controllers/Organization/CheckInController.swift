@@ -1,8 +1,8 @@
 //
-//  UpcomingViewController.swift
+//  CheckInController.swift
 //  VolunteerNow
 //
-//  Created by Ayush Goyal on 1/15/18.
+//  Created by Ayush Goyal on 1/22/18.
 //  Copyright © 2018 Summit Labs. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 
 private let eventCellReuseIdentifier = "eventId"
 
-class UpcomingViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class CheckInController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -21,7 +21,7 @@ class UpcomingViewController: UICollectionViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         loadData()
         
         // Register cell classes
@@ -33,9 +33,8 @@ class UpcomingViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     @objc func loadData() {
-        User.retrieveUpcomingEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
+        Organization.retrieveUpcomingEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
     }
-    
     
     // MARK: UICollectionViewDataSource
     
@@ -45,12 +44,12 @@ class UpcomingViewController: UICollectionViewController, UICollectionViewDelega
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return User.upcomingEvents.count
+        return Organization.upcomingEvents.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
-        let event = User.upcomingEvents[indexPath.row]
+        let event = Organization.upcomingEvents[indexPath.row]
         
         cell.setEventProperties(event: event)
         
@@ -67,11 +66,12 @@ class UpcomingViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let navigator = navigationController {
-            let viewController = EventDetailController()
-            viewController.setValues(withEvent: Event.selectedEvents[indexPath.row])
-            navigator.pushViewController(viewController, animated: true)
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "qrScannerController") as! QRScannerController
+        viewController.eventId = Organization.upcomingEvents[indexPath.row].id
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
+

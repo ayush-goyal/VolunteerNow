@@ -136,6 +136,8 @@ class EventDetailController: UIViewController {
     
     var isVolunteerButton: Bool = true
     
+    private var eventID: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -155,7 +157,9 @@ class EventDetailController: UIViewController {
     }
     
     @objc func volunteerButtonPressed() {
-        let viewController = VolunteerController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "volunteerController") as! VolunteerController
+        viewController.setEventToFirebase(eventId: eventID)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -286,6 +290,7 @@ class EventDetailController: UIViewController {
         locationMapView.setRegion(viewRegion, animated: true)
         locationMapView.addAnnotation(event)
         
+        eventID = event.id
     }
 
 }

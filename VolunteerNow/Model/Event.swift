@@ -75,11 +75,12 @@ class Event: NSObject, MKAnnotation {
     let contact: Contact
     let type: EventType
     
+    var date: Date // TODO: Date of first event - fix for onoing dates
+    
     //var isSaved: Bool = false
-    //var eventID: Int?
+    let id: Int
     
     init?(data: NSDictionary) {
-        print(data["address"])
         guard
             let name = data["name"] as? String,
             let organizer = data["organizer"] as? String,
@@ -90,7 +91,8 @@ class Event: NSObject, MKAnnotation {
             let website = data["website"] as? String,
             let tags = data["tags"] as? [String],
             let type = data["type"] as? String,
-            let imageUrl = data["imageUrl"] as? String
+            let imageUrl = data["imageUrl"] as? String,
+            let id = data["id"] as? Int
         else { fatalError() }
         
         self.name = name
@@ -115,13 +117,15 @@ class Event: NSObject, MKAnnotation {
         self.website = website
         self.tags = tags
         self.imageUrl = imageUrl
+        self.id = id
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
         
         if type == "ongoing" {
             self.type = .ongoing
+            self.date = dateFormatter.date(from: "2018-01-18 23:22:35 +0000")! // TODO: Fix this line for ongoing events
         } else if type == "once" {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
-            
             guard
                 let startDateString = data["startDate"] as? String,
                 let startDate = dateFormatter.date(from: startDateString),
@@ -130,6 +134,7 @@ class Event: NSObject, MKAnnotation {
             else { fatalError() }
             
             self.type = .once(startDate: startDate, endDate: endDate)
+            self.date = startDate
         } else {
             fatalError()
         }
@@ -208,7 +213,25 @@ extension Event {
     
     static func updateSelectedEventsList() {
         print("Updated selected events based on category and sort")
-        Event.selectedEvents = Event.allEvents // TODO: Remove this line
+        var events: [Event] = []
+        for event in allEvents {
+            if let distance = event.distance {
+                if distance <= Event.selectedDistanceType.rawValue {
+                    events.append(event)
+                }
+            }
+        }
+        switch Event.selectedSortType {
+        case .closest:
+            events = events.sorted(by: { $0.distance! < $1.distance! })
+            break
+        case .upcoming:
+            events = events.sorted(by: { $0.date < $1.date })
+            break
+        default:
+            break
+        }
+        Event.selectedEvents = events
     }
 }
 

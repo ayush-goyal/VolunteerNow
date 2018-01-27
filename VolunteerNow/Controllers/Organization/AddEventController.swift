@@ -1,5 +1,5 @@
 //
-//  AddEventViewController.swift
+//  AddEventController.swift
 //  VolunteerNow
 //
 //  Created by Ayush Goyal on 1/22/18.
@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 import PostalAddressRow
 
-class AddEventViewController: FormViewController {
+class AddEventController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         

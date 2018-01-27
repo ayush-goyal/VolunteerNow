@@ -11,12 +11,34 @@ import CoreData
 import Firebase
 import GoogleSignIn
 import CoreLocation
+import Presentr
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-
+    
     var window: UIWindow?
-
+    
+    var presenter: Presentr = {
+        let presenter = Presentr(presentationType: .alert)
+        presenter.presentationType = .alert
+        
+        let animation = CoverVerticalAnimation(options: .spring(duration: 1.0, delay: 0, damping: 0.7, velocity: 0))
+        let coverVerticalWithSpring = TransitionType.custom(animation)
+        presenter.transitionType = coverVerticalWithSpring
+        presenter.dismissTransitionType = coverVerticalWithSpring
+        presenter.backgroundOpacity = 0.5
+        
+        return presenter
+    }()
+    
+    func presentError(text: String) {
+        let alertController = Presentr.alertViewController(title: "Error", body: text)
+        let okAction = AlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        
+        self.window?.rootViewController?.customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Set fonts
         UINavigationBar.appearance().titleTextAttributes = [
@@ -46,10 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "welcomeController")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "signInController")
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
+            
         } else {
             print("User is logged into firebase")
          
@@ -57,7 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 User.uid = uid
                 User.name = displayName
                 User.email = email
-            } else { fatalError() }
+            } else {
+                presentError(text: "User name, id, or email not set")
+            }
         }
         return true
     }
@@ -93,18 +118,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
         if let error = error {
-            fatalError(error.localizedDescription)
+            presentError(text: error.localizedDescription)
         }
         
-        guard let authentication = user.authentication else { return }
+        guard let authentication = user?.authentication else {
+            presentError(text: "Failed to sign in")
+            return
+        }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
         
         Auth.auth().signIn(with: credential) { (user, error) in
             if let error = error {
-                fatalError(error.localizedDescription)
+                self.presentError(text: error.localizedDescription)
             }
             // User is signed in
    
@@ -112,14 +140,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 User.uid = uid
                 User.name = displayName
                 User.email = email
-            } else { fatalError() }
+            } else {
+                self.presentError(text: "User name, id, or email not set")
+            }
             print("User successfully signed into firebase")
-            self.window?.rootViewController?.performSegue(withIdentifier: "homeViewSegue", sender: nil)
+            let navigationController = self.window?.rootViewController as? UINavigationController
+            navigationController?.topViewController?.performSegue(withIdentifier: "homeViewSegue", sender: nil)
         }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        fatalError(error.localizedDescription)
+        presentError(text: error.localizedDescription)
     }
 
     // MARK: - Core Data stack

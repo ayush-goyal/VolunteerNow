@@ -34,14 +34,14 @@
 		2A325CD8200D206500EAEF52 /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC8200D206200EAEF52 /* Sofia Pro Bold.otf */; };
 		2A325CD9200D206500EAEF52 /* Sofia Pro Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CC9200D206400EAEF52 /* Sofia Pro Medium.otf */; };
 		2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */; };
-		2A325CDD200D8AC800EAEF52 /* SearchListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */; };
-		2A325CE1200D99D900EAEF52 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */; };
+		2A325CDD200D8AC800EAEF52 /* SearchListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CDC200D8AC800EAEF52 /* SearchListController.swift */; };
+		2A325CE1200D99D900EAEF52 /* UpcomingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE0200D99D900EAEF52 /* UpcomingController.swift */; };
 		2A325CE5200DA3E900EAEF52 /* ProfileContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */; };
 		2A325CE9200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE6200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
 		2A325CEA200E569D00EAEF52 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CE7200E569D00EAEF52 /* SkyFloatingLabelTextField.swift */; };
 		2A325CED200EA9FE00EAEF52 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */; };
 		2A325CEF200EBC5700EAEF52 /* BarSearchContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */; };
-		2A325CF1200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */; };
+		2A325CF1200EBC6C00EAEF52 /* BarSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF0200EBC6C00EAEF52 /* BarSearchController.swift */; };
 		2A325CF6200ED20800EAEF52 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325CF5200ED20800EAEF52 /* EventDetailController.swift */; };
 		2A3EC1AB20111319009E3345 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EC1AA20111319009E3345 /* App.swift */; };
 		2A3EFB922016D7A8004EBC20 /* CheckInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB912016D7A8004EBC20 /* CheckInController.swift */; };
@@ -50,16 +50,16 @@
 		2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */; };
 		2A3EFB9C20183425004EBC20 /* OrganizationProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */; };
 		2A9EB0312016B77B005FA408 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0302016B77B005FA408 /* User.swift */; };
-		2A9EB0342016B8BC005FA408 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */; };
+		2A9EB0342016B8BC005FA408 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0332016B8BC005FA408 /* AddEventController.swift */; };
 		2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */; };
 		2A9EB03E2016B919005FA408 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03D2016B919005FA408 /* Organization.swift */; };
 		2AC6388F2001520B00144AD6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6388E2001520B00144AD6 /* MapKit.framework */; };
 		2AC638912001560800144AD6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638902001560800144AD6 /* Event.swift */; };
 		2AC638932001588600144AD6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638922001588600144AD6 /* ProfileController.swift */; };
-		2AC63895200160B900144AD6 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC63894200160B900144AD6 /* WelcomeController.swift */; };
 		2AC6389D200165E900144AD6 /* SignupInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC6389C200165E900144AD6 /* SignupInformationController.swift */; };
 		2AC638A42001687D00144AD6 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638A32001687D00144AD6 /* QRScannerController.swift */; };
 		2AC638A62001710700144AD6 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638A52001710700144AD6 /* CameraController.swift */; };
+		2AD8E628201B7B8D00384A36 /* CheckInConfirmationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8E627201B7B8D00384A36 /* CheckInConfirmationController.swift */; };
 		2AEDBD19200146EB00756696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD18200146EB00756696 /* AppDelegate.swift */; };
 		2AEDBD1E200146EB00756696 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD1C200146EB00756696 /* Main.storyboard */; };
 		2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD1F200146EB00756696 /* VolunteerNow.xcdatamodeld */; };
@@ -67,7 +67,7 @@
 		2AEDBD26200146EB00756696 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDBD24200146EB00756696 /* LaunchScreen.storyboard */; };
 		2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */; };
 		2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD3120014B6A00756696 /* SearchMapController.swift */; };
-		2AF8ADF52010465A00A75683 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8ADF42010465A00A75683 /* CompletedViewController.swift */; };
+		2AF8ADF52010465A00A75683 /* CompletedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8ADF42010465A00A75683 /* CompletedController.swift */; };
 		2AFC34DA20110D4D008568CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC34D920110D4D008568CA /* GoogleService-Info.plist */; };
 		81DE77ED67D23CBA34113DB2 /* Pods_VolunteerNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */; };
 /* End PBXBuildFile section */
@@ -100,14 +100,14 @@
 		2A325CC8200D206200EAEF52 /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Bold.otf"; sourceTree = "<group>"; };
 		2A325CC9200D206400EAEF52 /* Sofia Pro Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Medium.otf"; sourceTree = "<group>"; };
 		2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorSegmentedView.swift; sourceTree = "<group>"; };
-		2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCollectionViewController.swift; sourceTree = "<group>"; };
-		2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
+		2A325CDC200D8AC800EAEF52 /* SearchListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListController.swift; sourceTree = "<group>"; };
+		2A325CE0200D99D900EAEF52 /* UpcomingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingController.swift; sourceTree = "<group>"; };
 		2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContainerController.swift; sourceTree = "<group>"; };
 		2A325CE6200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		2A325CE7200E569D00EAEF52 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSearchContainerController.swift; sourceTree = "<group>"; };
-		2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCollectionViewControllerWithSearchDelegate.swift; sourceTree = "<group>"; };
+		2A325CF0200EBC6C00EAEF52 /* BarSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSearchController.swift; sourceTree = "<group>"; };
 		2A325CF5200ED20800EAEF52 /* EventDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
 		2A3EC1AA20111319009E3345 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		2A3EFB912016D7A8004EBC20 /* CheckInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInController.swift; sourceTree = "<group>"; };
@@ -116,17 +116,17 @@
 		2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationSignInController.swift; sourceTree = "<group>"; };
 		2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationProfileController.swift; sourceTree = "<group>"; };
 		2A9EB0302016B77B005FA408 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		2A9EB0332016B8BC005FA408 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
 		2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrganizationController.swift; sourceTree = "<group>"; };
 		2A9EB03D2016B919005FA408 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VolunteerNow.entitlements; sourceTree = "<group>"; };
 		2AC6388E2001520B00144AD6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AC638902001560800144AD6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		2AC638922001588600144AD6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
-		2AC63894200160B900144AD6 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		2AC6389C200165E900144AD6 /* SignupInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInformationController.swift; sourceTree = "<group>"; };
 		2AC638A32001687D00144AD6 /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		2AC638A52001710700144AD6 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		2AD8E627201B7B8D00384A36 /* CheckInConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInConfirmationController.swift; sourceTree = "<group>"; };
 		2AEDBD15200146EB00756696 /* VolunteerNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolunteerNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEDBD18200146EB00756696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AEDBD1D200146EB00756696 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		2AEDBD27200146EB00756696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerSearchController.swift; sourceTree = "<group>"; };
 		2AEDBD3120014B6A00756696 /* SearchMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
-		2AF8ADF42010465A00A75683 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
+		2AF8ADF42010465A00A75683 /* CompletedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedController.swift; sourceTree = "<group>"; };
 		2AFC34D920110D4D008568CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.release.xcconfig"; sourceTree = "<group>"; };
 		9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VolunteerNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,12 +198,9 @@
 		2A325CDF200D998C00EAEF52 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A325CE0200D99D900EAEF52 /* UpcomingViewController.swift */,
-				2AF8ADF42010465A00A75683 /* CompletedViewController.swift */,
-				2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */,
-				2AC638922001588600144AD6 /* ProfileController.swift */,
-				2A3EFB952016D97A004EBC20 /* VolunteerController.swift */,
-				2A325CF5200ED20800EAEF52 /* EventDetailController.swift */,
+				2AC6389E200167B900144AD6 /* Login */,
+				2AB823B82018ECB1009620E5 /* User */,
+				2A9EB0322016B89D005FA408 /* Organization */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -211,15 +208,27 @@
 		2A9EB0322016B89D005FA408 /* Organization */ = {
 			isa = PBXGroup;
 			children = (
-				2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */,
 				2A3EFB932016D7CD004EBC20 /* CheckInContainerController.swift */,
 				2A3EFB912016D7A8004EBC20 /* CheckInController.swift */,
 				2AC638A32001687D00144AD6 /* QRScannerController.swift */,
-				2A9EB0332016B8BC005FA408 /* AddEventViewController.swift */,
+				2AD8E627201B7B8D00384A36 /* CheckInConfirmationController.swift */,
+				2A9EB0332016B8BC005FA408 /* AddEventController.swift */,
 				2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */,
 				2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */,
 			);
 			path = Organization;
+			sourceTree = "<group>";
+		};
+		2AB823B82018ECB1009620E5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				2AC6389F200167BD00144AD6 /* Search */,
+				2A325CE0200D99D900EAEF52 /* UpcomingController.swift */,
+				2AF8ADF42010465A00A75683 /* CompletedController.swift */,
+				2A325CE4200DA3E900EAEF52 /* ProfileContainerController.swift */,
+				2AC638922001588600144AD6 /* ProfileController.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		2AC6388D2001520B00144AD6 /* Frameworks */ = {
@@ -234,10 +243,10 @@
 		2AC6389E200167B900144AD6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				2AC63894200160B900144AD6 /* WelcomeController.swift */,
 				2A325C7D200D164300EAEF52 /* SignInController.swift */,
-				2AC6389C200165E900144AD6 /* SignupInformationController.swift */,
 				2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */,
+				2AC6389C200165E900144AD6 /* SignupInformationController.swift */,
+				2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -246,12 +255,14 @@
 			isa = PBXGroup;
 			children = (
 				2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */,
-				2A325CDC200D8AC800EAEF52 /* SearchListCollectionViewController.swift */,
+				2A325CDC200D8AC800EAEF52 /* SearchListController.swift */,
 				2AEDBD3120014B6A00756696 /* SearchMapController.swift */,
-				2A099ED02004575A007B519F /* BarFilterController.swift */,
 				2A099ED2200460F9007B519F /* EventCell.swift */,
+				2A325CF5200ED20800EAEF52 /* EventDetailController.swift */,
+				2A099ED02004575A007B519F /* BarFilterController.swift */,
 				2A325CEE200EBC5700EAEF52 /* BarSearchContainerController.swift */,
-				2A325CF0200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift */,
+				2A325CF0200EBC6C00EAEF52 /* BarSearchController.swift */,
+				2A3EFB952016D97A004EBC20 /* VolunteerController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -312,12 +323,9 @@
 			children = (
 				2AEDBD18200146EB00756696 /* AppDelegate.swift */,
 				2A325C7B200CFE4000EAEF52 /* Extensions.swift */,
-				2AC6389F200167BD00144AD6 /* Search */,
 				2A325CDF200D998C00EAEF52 /* Controllers */,
-				2AC6389E200167B900144AD6 /* Login */,
 				2AC638A0200167C400144AD6 /* Model */,
 				2A325CDE200D997500EAEF52 /* Custom */,
-				2A9EB0322016B89D005FA408 /* Organization */,
 				2AC638A22001680100144AD6 /* UI */,
 				2AC638A1200167E900144AD6 /* Resources */,
 				2A325C7F200D199100EAEF52 /* Fonts */,
@@ -485,6 +493,7 @@
 				"${BUILT_PRODUCTS_DIR}/GeoFire/GeoFire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/PostalAddressRow/PostalAddressRow.framework",
+				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -498,6 +507,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GeoFire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PostalAddressRow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -515,7 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A325CE5200DA3E900EAEF52 /* ProfileContainerController.swift in Sources */,
-				2A9EB0342016B8BC005FA408 /* AddEventViewController.swift in Sources */,
+				2A9EB0342016B8BC005FA408 /* AddEventController.swift in Sources */,
 				2AC638912001560800144AD6 /* Event.swift in Sources */,
 				2A3EFB922016D7A8004EBC20 /* CheckInController.swift in Sources */,
 				2AC638A62001710700144AD6 /* CameraController.swift in Sources */,
@@ -526,18 +536,18 @@
 				2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */,
 				2AC6389D200165E900144AD6 /* SignupInformationController.swift in Sources */,
 				2A325CED200EA9FE00EAEF52 /* ForgotPasswordController.swift in Sources */,
+				2AD8E628201B7B8D00384A36 /* CheckInConfirmationController.swift in Sources */,
 				2A099ED3200460F9007B519F /* EventCell.swift in Sources */,
 				2A9EB03E2016B919005FA408 /* Organization.swift in Sources */,
 				2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */,
 				2AC638932001588600144AD6 /* ProfileController.swift in Sources */,
-				2AC63895200160B900144AD6 /* WelcomeController.swift in Sources */,
-				2A325CF1200EBC6C00EAEF52 /* SearchListCollectionViewControllerWithSearchDelegate.swift in Sources */,
+				2A325CF1200EBC6C00EAEF52 /* BarSearchController.swift in Sources */,
 				2A099ED12004575A007B519F /* BarFilterController.swift in Sources */,
-				2AF8ADF52010465A00A75683 /* CompletedViewController.swift in Sources */,
+				2AF8ADF52010465A00A75683 /* CompletedController.swift in Sources */,
 				2A325CEA200E569D00EAEF52 /* SkyFloatingLabelTextField.swift in Sources */,
 				2A3EFB962016D97A004EBC20 /* VolunteerController.swift in Sources */,
-				2A325CDD200D8AC800EAEF52 /* SearchListCollectionViewController.swift in Sources */,
-				2A325CE1200D99D900EAEF52 /* UpcomingViewController.swift in Sources */,
+				2A325CDD200D8AC800EAEF52 /* SearchListController.swift in Sources */,
+				2A325CE1200D99D900EAEF52 /* UpcomingController.swift in Sources */,
 				2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */,
 				2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */,
 				2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */,

@@ -199,7 +199,4 @@ extension BarFilterController: CZPickerViewDelegate, CZPickerViewDataSource {
         } else { fatalError() }
     }
     
-    
-    
-    
 }

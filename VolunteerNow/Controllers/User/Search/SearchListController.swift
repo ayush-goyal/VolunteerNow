@@ -1,16 +1,17 @@
 //
-//  CompletedViewController.swift
+//  SearchListController.swift
 //  VolunteerNow
 //
-//  Created by Ayush Goyal on 1/17/18.
+//  Created by Ayush Goyal on 1/15/18.
 //  Copyright © 2018 Summit Labs. All rights reserved.
 //
 
 import UIKit
+import CoreLocation
 
 private let eventCellReuseIdentifier = "eventId"
 
-class CompletedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SearchListController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -21,39 +22,40 @@ class CompletedViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadData()
-        
+
         // Register cell classes
         self.collectionView!.register(EventCell.self, forCellWithReuseIdentifier: eventCellReuseIdentifier)
         collectionView!.backgroundColor = UIColor.Custom.backgroundGray
-        
+
         self.collectionView?.alwaysBounceVertical = true
         self.collectionView?.addSubview(refresher)
-        
     }
-    
+
     @objc func loadData() {
-        User.retrieveCompletedEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
+        Event.retrieveClosestEventsFromDatabase()
     }
-    
+
+    func stopRefresher() {
+        self.refresher.endRefreshing()
+    }
+
     // MARK: UICollectionViewDataSource
-    
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
-    
+
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return User.completedEvents.count
+        return Event.selectedEvents.count
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
-        let event = User.completedEvents[indexPath.row]
+        let event = Event.selectedEvents[indexPath.row]
         
         cell.setEventProperties(event: event)
-        
+    
         return cell
     }
     
@@ -73,5 +75,5 @@ class CompletedViewController: UICollectionViewController, UICollectionViewDeleg
             navigator.pushViewController(viewController, animated: true)
         }
     }
-    
+
 }

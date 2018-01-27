@@ -14,6 +14,9 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     @IBOutlet weak var capturePreviewView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     
+    var eventId: Int!
+    private var idScanned = false
+    
     var cameraController = CameraController()
     
     // Initialize QR Code Frame to highlight the QR code
@@ -67,7 +70,38 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             qrCodeFrameView.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
+                guard let message = metadataObj.stringValue else { return }
+                messageLabel.text = message
+                if idScanned == true {
+                    return
+                } else {
+                    idScanned = true
+                }
+                App.shared.dbRef.child("users").child(message).observeSingleEvent(of: .value) { snapshot in
+                    if let value = snapshot.value as? NSDictionary {
+                        print(value["upcoming"] as? [Int])
+                        if var upcoming = value["upcoming"] as? [Int], let index = upcoming.index(of: self.eventId) {
+                            upcoming.remove(at: index)
+                            print(upcoming)
+                            App.shared.dbRef.child("users/\(message)/upcoming").setValue(upcoming)
+                            if var completed = value["completed"] as? [Int] {
+                                completed.append(self.eventId)
+                                print(completed)
+                                App.shared.dbRef.child("users/\(message)/completed").setValue(completed)
+                            } else {
+                                App.shared.dbRef.child("users/\(message)/completed").setValue([self.eventId])
+                            }
+                            self.performSegue(withIdentifier: "checkInConfirmationSegue", sender: nil)
+                        } else {
+                            print("USER IS NOT SIGNED UP FOR THIS EVENT")
+                            self.idScanned = false
+                            return
+                        }
+                        
+                    } else {
+                        self.idScanned = false
+                    }
+                }
                 
             }
         }

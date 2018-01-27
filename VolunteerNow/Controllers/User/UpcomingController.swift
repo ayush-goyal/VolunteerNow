@@ -1,8 +1,8 @@
 //
-//  CheckInController.swift
+//  UpcomingController.swift
 //  VolunteerNow
 //
-//  Created by Ayush Goyal on 1/22/18.
+//  Created by Ayush Goyal on 1/15/18.
 //  Copyright © 2018 Summit Labs. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 
 private let eventCellReuseIdentifier = "eventId"
 
-class CheckInController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class UpcomingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -21,7 +21,7 @@ class CheckInController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadData()
         
         // Register cell classes
@@ -33,8 +33,9 @@ class CheckInController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     @objc func loadData() {
-        Organization.retrieveUpcomingEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
+        User.retrieveUpcomingEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
     }
+    
     
     // MARK: UICollectionViewDataSource
     
@@ -44,12 +45,12 @@ class CheckInController: UICollectionViewController, UICollectionViewDelegateFlo
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Organization.upcomingEvents.count
+        return User.upcomingEvents.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
-        let event = Organization.upcomingEvents[indexPath.row]
+        let event = User.upcomingEvents[indexPath.row]
         
         cell.setEventProperties(event: event)
         
@@ -66,11 +67,11 @@ class CheckInController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let viewController = storyboard.instantiateViewController(withIdentifier: "qrScannerController")
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if let navigator = navigationController {
+            let viewController = EventDetailController()
+            viewController.setValues(withEvent: Event.selectedEvents[indexPath.row])
+            navigator.pushViewController(viewController, animated: true)
+        }
     }
     
 }
-

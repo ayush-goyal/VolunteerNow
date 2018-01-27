@@ -11,9 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-Bold</string>
-        </array>
         <array key="Nunito-SemiBold.ttf">
             <string>Nunito-SemiBold</string>
         </array>
@@ -264,11 +261,12 @@
                         <outlet property="signupButton" destination="rwh-i9-WmG" id="sfG-wW-nOy"/>
                         <outlet property="welcomeLabel" destination="6XA-CU-y0j" id="E7S-2j-mno"/>
                         <outlet property="welcomeSubLabel" destination="IlW-eK-agy" id="KT8-iv-ZcU"/>
+                        <segue destination="Ctg-Oa-aUr" kind="presentation" identifier="homeViewSegue" id="PsU-l3-03w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsp-hn-Rwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1332" y="1049.3253373313344"/>
+            <point key="canvasLocation" x="-1759" y="36"/>
         </scene>
         <!--Forgot Password Controller-->
         <scene sceneID="V7W-7H-ksh">
@@ -283,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3O-h8-BBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1332" y="1927"/>
+            <point key="canvasLocation" x="-1758" y="949"/>
         </scene>
         <!--Item-->
         <scene sceneID="LY1-RJ-WDF">
@@ -328,11 +326,69 @@
                     <connections>
                         <outlet property="capturePreviewView" destination="lHj-s3-CrB" id="Qb0-78-34L"/>
                         <outlet property="messageLabel" destination="Dp5-sp-sXs" id="zqw-Jq-kF4"/>
+                        <segue destination="AeV-AO-bOb" kind="show" identifier="checkInConfirmationSegue" id="apt-Cv-uiM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAt-j2-PGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3574" y="4155"/>
+            <point key="canvasLocation" x="2866" y="4397"/>
+        </scene>
+        <!--Check In Confirmation Controller-->
+        <scene sceneID="2hK-Zk-Bm0">
+            <objects>
+                <viewController id="AeV-AO-bOb" customClass="CheckInConfirmationController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f9R-tf-NzR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iF-37-o5a">
+                                <rect key="frame" x="30" y="167.5" width="315" height="36"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAx-aV-9dw">
+                                <rect key="frame" x="30" y="243" width="315" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="4Zi-ga-5o7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Medium" family="Sofia Pro" pointSize="20"/>
+                                <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2G-fA-wI7">
+                                <rect key="frame" x="60" y="483" width="255" height="61"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.30196078430000001" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="nF7-Fk-Xab"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Medium" family="Sofia Pro" pointSize="18"/>
+                                <state key="normal" title="Scan Again">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanAgain:" destination="AeV-AO-bOb" eventType="touchUpInside" id="oo2-OU-ohA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jAx-aV-9dw" firstAttribute="leading" secondItem="zGW-d4-re6" secondAttribute="leading" constant="30" id="4kD-wh-Qhk"/>
+                            <constraint firstItem="zGW-d4-re6" firstAttribute="trailing" secondItem="jAx-aV-9dw" secondAttribute="trailing" constant="30" id="6fI-qe-1yN"/>
+                            <constraint firstItem="A2G-fA-wI7" firstAttribute="top" secondItem="jAx-aV-9dw" secondAttribute="bottom" constant="170" id="K1V-bP-dYd"/>
+                            <constraint firstItem="zGW-d4-re6" firstAttribute="bottom" secondItem="A2G-fA-wI7" secondAttribute="bottom" constant="123" id="MR1-Bd-JtK"/>
+                            <constraint firstItem="jAx-aV-9dw" firstAttribute="top" secondItem="8iF-37-o5a" secondAttribute="bottom" constant="40" id="S1r-LJ-E5K"/>
+                            <constraint firstItem="A2G-fA-wI7" firstAttribute="leading" secondItem="zGW-d4-re6" secondAttribute="leading" constant="60" id="ZlD-k5-CoK"/>
+                            <constraint firstItem="8iF-37-o5a" firstAttribute="leading" secondItem="zGW-d4-re6" secondAttribute="leading" constant="30" id="bB8-zd-62z"/>
+                            <constraint firstItem="zGW-d4-re6" firstAttribute="trailing" secondItem="A2G-fA-wI7" secondAttribute="trailing" constant="60" id="leM-SM-Q4b"/>
+                            <constraint firstItem="zGW-d4-re6" firstAttribute="trailing" secondItem="8iF-37-o5a" secondAttribute="trailing" constant="30" id="vZy-DS-mRM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zGW-d4-re6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4YU-Oj-9c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3680.8000000000002" y="4396.5517241379312"/>
         </scene>
         <!--Events-->
         <scene sceneID="wAc-Dk-fI5">
@@ -370,15 +426,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Events" id="tKZ-MJ-JAG">
                         <barButtonItem key="leftBarButtonItem" image="filter" id="t0M-l9-UF9"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="3vz-aZ-EuG">
-                            <connections>
-                                <segue destination="wyp-Xg-PwG" kind="show" id="Qzw-jO-6rz"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="3vz-aZ-EuG"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchListContainerView" destination="LA8-Mn-XJi" id="0gj-mi-33e"/>
                         <outlet property="searchMapContainerView" destination="6YG-ZA-hsq" id="867-uu-2MU"/>
+                        <segue destination="jTJ-1x-sOK" kind="show" identifier="openSearchControllerSegue" id="tiB-kK-k0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YH5-KG-hMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -444,10 +497,10 @@
             </objects>
             <point key="canvasLocation" x="466" y="73"/>
         </scene>
-        <!--Search List Collection View Controller-->
+        <!--Search List Controller-->
         <scene sceneID="33i-cn-EYx">
             <objects>
-                <collectionViewController id="C2K-Lp-wYg" customClass="SearchListCollectionViewController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="C2K-Lp-wYg" customClass="SearchListController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0gs-LE-W9x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="495"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,41 +522,12 @@
             </objects>
             <point key="canvasLocation" x="2068" y="-1164"/>
         </scene>
-        <!--Bar Search Container Controller-->
-        <scene sceneID="sHz-ht-XLF">
-            <objects>
-                <viewController id="wyp-Xg-PwG" customClass="BarSearchContainerController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HYb-Ip-Nqk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axL-l3-W0I">
-                                <rect key="frame" x="0.0" y="131" width="375" height="487"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="jTJ-1x-sOK" kind="embed" id="CrN-iZ-gGh"/>
-                                </connections>
-                            </containerView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cjr-sy-u9T">
-                                <rect key="frame" x="0.0" y="75" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Zyi-ih-HY5"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FnG-Zh-OLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2943" y="-1530"/>
-        </scene>
-        <!--Search List Collection View Controller With Search Delegate-->
+        <!--Bar Search Controller-->
         <scene sceneID="0Oj-33-I9X">
             <objects>
-                <collectionViewController id="jTJ-1x-sOK" customClass="SearchListCollectionViewControllerWithSearchDelegate" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="jTJ-1x-sOK" customClass="BarSearchController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mqb-3H-6RU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eHh-Ll-F3J">
@@ -521,7 +545,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg7-6t-lbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3810" y="-1530"/>
+            <point key="canvasLocation" x="3292" y="-1527"/>
         </scene>
         <!--Search Map Controller-->
         <scene sceneID="amp-ye-Cn6">
@@ -769,41 +793,6 @@
             </objects>
             <point key="canvasLocation" x="1399" y="1924"/>
         </scene>
-        <!--Welcome Controller-->
-        <scene sceneID="cEW-tY-14k">
-            <objects>
-                <viewController storyboardIdentifier="welcomeController" id="vcM-Ds-c6a" customClass="WelcomeController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Gz-VQ-7VR"/>
-                        <viewControllerLayoutGuide type="bottom" id="AdS-Jx-iOw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WZE-9P-Ops">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VolunteerNow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEu-2x-r3s">
-                                <rect key="frame" x="78.5" y="135" width="219" height="42.5"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="31"/>
-                                <color key="textColor" red="0.20784313730000001" green="0.33333333329999998" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="oEu-2x-r3s" firstAttribute="top" secondItem="0Gz-VQ-7VR" secondAttribute="bottom" constant="115" id="OIq-UQ-aAO"/>
-                            <constraint firstItem="oEu-2x-r3s" firstAttribute="centerX" secondItem="WZE-9P-Ops" secondAttribute="centerX" id="koQ-GW-p5c"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="7En-pf-I11"/>
-                    </view>
-                    <connections>
-                        <outlet property="welcomeLabel" destination="oEu-2x-r3s" id="5zV-8c-sii"/>
-                        <segue destination="Ctg-Oa-aUr" kind="show" identifier="homeViewSegue" id="x4d-sf-GA0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4gf-RQ-LSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1746" y="98"/>
-        </scene>
         <!--Signup Controller-->
         <scene sceneID="NM1-ka-boC">
             <objects>
@@ -1035,8 +1024,7 @@
         <!--Navigation Controller-->
         <scene sceneID="HXu-S1-TjB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VGX-Xf-z0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cPJ-ac-SLn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="signInController" automaticallyAdjustsScrollViewInsets="NO" id="cPJ-ac-SLn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="navigationBar:bg0-cH-5xd:backIndicatorImage" backIndicatorTransitionMaskImage="navigationBar:bg0-cH-5xd:backIndicatorImage" id="bg0-cH-5xd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1047,8 +1035,9 @@
                         <segue destination="WsC-sw-fbg" kind="relationship" relationship="rootViewController" id="pif-sC-CcD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGX-Xf-z0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2164" y="1050"/>
+            <point key="canvasLocation" x="-2590" y="72"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GIv-om-5Tl">
@@ -1205,6 +1194,67 @@ Roswell, GA, 30075</string>
             </objects>
             <point key="canvasLocation" x="4909.6000000000004" y="-564.01799100449784"/>
         </scene>
+        <!--Volunteer Controller-->
+        <scene sceneID="baX-Ez-V34">
+            <objects>
+                <viewController storyboardIdentifier="volunteerController" id="mrE-kf-XnO" customClass="VolunteerController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GJI-Ft-MP2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yk5-5J-7aN">
+                                <rect key="frame" x="16" y="210.5" width="343" height="35.5"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will receive an email soon with more information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH7-3A-YG6">
+                                <rect key="frame" x="33" y="286" width="308" height="40"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Medium" family="Sofia Pro" pointSize="20"/>
+                                <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amL-Ut-2aL">
+                                <rect key="frame" x="60" y="496" width="254" height="61"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.30196078430000001" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="hzj-Ac-p5k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Medium" family="Sofia Pro" pointSize="18"/>
+                                <state key="normal" title="Return to Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="popToContainerSearchController:" destination="mrE-kf-XnO" eventType="touchUpInside" id="MCu-XX-eSE"/>
+                                    <segue destination="89f-C0-wPg" kind="unwind" identifier="volunteerControllerUnwind" unwindAction="unwindToContainerSearchController:" id="lx1-ng-3mW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="amL-Ut-2aL" firstAttribute="top" secondItem="JH7-3A-YG6" secondAttribute="bottom" constant="170" id="0OB-aJ-rPD"/>
+                            <constraint firstItem="dqI-wA-IhB" firstAttribute="bottom" secondItem="amL-Ut-2aL" secondAttribute="bottom" constant="110" id="12I-06-SME"/>
+                            <constraint firstItem="dqI-wA-IhB" firstAttribute="trailing" secondItem="JH7-3A-YG6" secondAttribute="trailing" constant="34" id="21g-xE-rYz"/>
+                            <constraint firstItem="Yk5-5J-7aN" firstAttribute="leading" secondItem="dqI-wA-IhB" secondAttribute="leading" constant="16" id="YwQ-It-qBl"/>
+                            <constraint firstItem="amL-Ut-2aL" firstAttribute="leading" secondItem="dqI-wA-IhB" secondAttribute="leading" constant="60" id="dPc-5i-QaB"/>
+                            <constraint firstItem="dqI-wA-IhB" firstAttribute="trailing" secondItem="amL-Ut-2aL" secondAttribute="trailing" constant="61" id="oLx-hW-VGb"/>
+                            <constraint firstItem="JH7-3A-YG6" firstAttribute="top" secondItem="Yk5-5J-7aN" secondAttribute="bottom" constant="40" id="vQy-4V-VRx"/>
+                            <constraint firstItem="JH7-3A-YG6" firstAttribute="leading" secondItem="dqI-wA-IhB" secondAttribute="leading" constant="33" id="woa-04-VrS"/>
+                            <constraint firstItem="dqI-wA-IhB" firstAttribute="trailing" secondItem="Yk5-5J-7aN" secondAttribute="trailing" constant="16" id="zdt-mr-coc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dqI-wA-IhB"/>
+                    </view>
+                    <connections>
+                        <outlet property="headerLabel" destination="Yk5-5J-7aN" id="Cix-BT-zB5"/>
+                        <outlet property="returnButton" destination="amL-Ut-2aL" id="8aJ-uf-iky"/>
+                        <outlet property="subLabel" destination="JH7-3A-YG6" id="Xew-J5-YWQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FdR-E1-A1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="89f-C0-wPg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5866.3999999999996" y="-539.28035982008998"/>
+        </scene>
         <!--Completed-->
         <scene sceneID="8lR-BD-7t6">
             <objects>
@@ -1350,7 +1400,7 @@ Roswell, GA, 30075</string>
         <!--Add Event-->
         <scene sceneID="9fo-xg-ClW">
             <objects>
-                <viewController id="Mnz-7s-SAO" customClass="AddEventViewController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Mnz-7s-SAO" customClass="AddEventController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y6t-eD-qfq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1619,7 +1669,7 @@ Roswell, GA, 30075</string>
         <!--Upcoming-->
         <scene sceneID="2xw-jU-9ve">
             <objects>
-                <collectionViewController id="RQ8-Gn-ldI" customClass="UpcomingViewController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="RQ8-Gn-ldI" customClass="UpcomingController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="oCC-5N-YTG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1645,7 +1695,7 @@ Roswell, GA, 30075</string>
         <!--Completed-->
         <scene sceneID="KIY-zC-YeF">
             <objects>
-                <collectionViewController id="Aw8-DK-Jur" customClass="CompletedViewController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Aw8-DK-Jur" customClass="CompletedController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="uHC-Dv-G2q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -15,5 +15,6 @@ target 'VolunteerNow' do
   pod "CZPicker"
   pod 'Eureka'
   pod 'PostalAddressRow'
+  pod 'Presentr'
 
 end

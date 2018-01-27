@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class SignInController: UIViewController {
+class SignInController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var welcomeSubLabel: UILabel!
@@ -18,6 +20,12 @@ class SignInController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var newUserLabel: UILabel!
     @IBOutlet weak var signupButton: UIButton!
+    
+    var googleButton: GIDSignInButton = {
+        let button = GIDSignInButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +45,9 @@ class SignInController: UIViewController {
         addShadowToBar()
         changeBackNavigationButton()
         setupViews()
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
-
-    
     
     func setupViews() {
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +59,8 @@ class SignInController: UIViewController {
         newUserLabel.translatesAutoresizingMaskIntoConstraints = false
         signupButton.translatesAutoresizingMaskIntoConstraints = false
         
+        view.addSubview(googleButton)
+        
         NSLayoutConstraint.activate([
             welcomeLabel.topAnchor.constraint(greaterThanOrEqualTo: view.topAnchor, constant: 120), // Variable
             welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -61,7 +71,7 @@ class SignInController: UIViewController {
             welcomeSubLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             welcomeSubLabel.heightAnchor.constraint(equalToConstant: 27),
             
-            emailTextField.topAnchor.constraint(lessThanOrEqualTo: welcomeSubLabel.bottomAnchor, constant: 80),
+            emailTextField.topAnchor.constraint(lessThanOrEqualTo: welcomeSubLabel.bottomAnchor, constant: 100),
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
@@ -71,26 +81,30 @@ class SignInController: UIViewController {
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
             forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             forgotPasswordButton.heightAnchor.constraint(equalToConstant: 23),
             
-            loginButton.bottomAnchor.constraint(equalTo: newUserLabel.topAnchor, constant: -30),
-            loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 80),
+            loginButton.bottomAnchor.constraint(equalTo: newUserLabel.topAnchor, constant: -15),
+            loginButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 40),
             loginButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: -125),
             loginButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: 125),
             loginButton.heightAnchor.constraint(equalToConstant: 60),
             
-            newUserLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
+            newUserLabel.bottomAnchor.constraint(equalTo: googleButton.topAnchor, constant: -35),
             newUserLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             newUserLabel.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -6),
             newUserLabel.heightAnchor.constraint(equalToConstant: 23),
             
-            signupButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
+            signupButton.bottomAnchor.constraint(equalTo: googleButton.topAnchor, constant: -35),
             signupButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 6),
             signupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             signupButton.heightAnchor.constraint(equalToConstant: 23),
+            
+            googleButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: -150),
+            googleButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: 150),
+            googleButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
         ])
     }
 

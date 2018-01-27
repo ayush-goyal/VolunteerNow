@@ -14,8 +14,12 @@ class ContainerSearchController: UIViewController {
     @IBOutlet weak var searchListContainerView: UIView!
     @IBOutlet weak var searchMapContainerView: UIView!
     
-    var searchListController: SearchListCollectionViewController!
-    var searchMapController: SearchMapController!
+    var searchListController: SearchListController?
+    var searchMapController: SearchMapController? {
+        didSet {
+            populateDataInControllers()
+        }
+    }
     
     var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -26,16 +30,16 @@ class ContainerSearchController: UIViewController {
     
     var currentLocation: CLLocation? {
         didSet {
-            searchMapController.currentLocation = self.currentLocation
+            searchMapController?.currentLocation = self.currentLocation
             App.shared.currentLocation = self.currentLocation
-            searchListController.collectionView?.reloadData()
             
-            //Event.setEventInDatabase(withId: "3939943", location: self.currentLocation!)
-            Event.retrieveClosestEventsFromDatabase()
+            populateDataInControllers()
+            Event.setEventInDatabase(withId: "3939943", location: self.currentLocation!)
         }
     }
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         
         locationManager.delegate = self
@@ -50,6 +54,16 @@ class ContainerSearchController: UIViewController {
         addShadowToTabBar()
         changeBackNavigationButton()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openEventSearch))
+        
+    }
+    
+    func populateDataInControllers() {
+        guard let _ = self.currentLocation, let searchListController = self.searchListController, let _ = self.searchMapController else { return }
+        
+        searchListController.collectionView?.reloadData()
+        
+        Event.retrieveClosestEventsFromDatabase()
     }
     
     func addSelectorSegmentedView() {
@@ -88,19 +102,19 @@ class ContainerSearchController: UIViewController {
     }
     
     @objc func zoomMap() {
-        searchMapController.zoomMap()
+        searchMapController?.zoomMap()
     }
     
     @objc func openEventSearch() {
-        
+        performSegue(withIdentifier: "openSearchControllerSegue", sender: self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         switch segue.destination {
             
-        case let viewController as SearchListCollectionViewController:
+            
+        case let viewController as SearchListController:
             self.searchListController = viewController
             App.shared.searchListController = viewController
             

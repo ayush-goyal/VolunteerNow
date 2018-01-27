@@ -1,5 +1,5 @@
 //
-//  BarSearchContainerController.swift
+//  ForgotPasswordController.swift
 //  VolunteerNow
 //
 //  Created by Ayush Goyal on 1/16/18.
@@ -8,16 +8,13 @@
 
 import UIKit
 
-class BarSearchContainerController: UIViewController {
-    
-    
+class ForgotPasswordController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Search"
+        
+        navigationItem.title = "Forgot Password"
+        
         addShadowToBar()
-        addShadowToTabBar()
     }
-
 }
