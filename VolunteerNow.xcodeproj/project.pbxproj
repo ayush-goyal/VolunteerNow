@@ -68,6 +68,7 @@
 		2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */; };
 		2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD3120014B6A00756696 /* SearchMapController.swift */; };
 		2AEEDD112044D5B000A087F1 /* OrganizationEventActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEDD102044D5B000A087F1 /* OrganizationEventActionsController.swift */; };
+		2AEEDD132044FF0300A087F1 /* EventMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEDD122044FF0300A087F1 /* EventMessageController.swift */; };
 		2AF8ADF52010465A00A75683 /* CompletedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8ADF42010465A00A75683 /* CompletedController.swift */; };
 		2AFC34DA20110D4D008568CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC34D920110D4D008568CA /* GoogleService-Info.plist */; };
 		81DE77ED67D23CBA34113DB2 /* Pods_VolunteerNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */; };
@@ -139,6 +140,7 @@
 		2AEDBD2D20014B3800756696 /* ContainerSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerSearchController.swift; sourceTree = "<group>"; };
 		2AEDBD3120014B6A00756696 /* SearchMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
 		2AEEDD102044D5B000A087F1 /* OrganizationEventActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationEventActionsController.swift; sourceTree = "<group>"; };
+		2AEEDD122044FF0300A087F1 /* EventMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMessageController.swift; sourceTree = "<group>"; };
 		2AF8ADF42010465A00A75683 /* CompletedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedController.swift; sourceTree = "<group>"; };
 		2AFC34D920110D4D008568CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				2AEEDD102044D5B000A087F1 /* OrganizationEventActionsController.swift */,
 				2AC638A32001687D00144AD6 /* QRScannerController.swift */,
 				2AD8E627201B7B8D00384A36 /* CheckInConfirmationController.swift */,
+				2AEEDD122044FF0300A087F1 /* EventMessageController.swift */,
 				2A9EB0332016B8BC005FA408 /* AddEventController.swift */,
 				2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */,
 				2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */,
@@ -553,6 +556,7 @@
 				2A099ED12004575A007B519F /* BarFilterController.swift in Sources */,
 				2AF8ADF52010465A00A75683 /* CompletedController.swift in Sources */,
 				2A325CEA200E569D00EAEF52 /* SkyFloatingLabelTextField.swift in Sources */,
+				2AEEDD132044FF0300A087F1 /* EventMessageController.swift in Sources */,
 				2A3EFB962016D97A004EBC20 /* VolunteerController.swift in Sources */,
 				2A325CDD200D8AC800EAEF52 /* SearchListController.swift in Sources */,
 				2A325CE1200D99D900EAEF52 /* UpcomingController.swift in Sources */,

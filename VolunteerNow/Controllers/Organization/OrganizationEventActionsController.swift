@@ -31,6 +31,7 @@ class OrganizationEventActionsController: UIViewController {
         view.backgroundColor = .white
         addShadowToBar()
         addShadowToTabBar()
+        changeBackNavigationButton()
         
         navigationItem.title = "Actions"
 
@@ -63,13 +64,18 @@ class OrganizationEventActionsController: UIViewController {
     }
     
     @objc func checkInButtonPressed() {
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "qrScannerController") as! QRScannerController
+        print("pressed")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let viewController = storyboard.instantiateViewController(withIdentifier: "qrScannerController") as! QRScannerController
         viewController.eventId = eventId
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func sendMessageButtonPressed() {
-        print("Send Message Button")
+        let viewController = EventMessageController()
+        //viewController.eventId = Organization.upcomingEvents[indexPath.row].id
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func viewSignupListButtonPressed() {

@@ -66,7 +66,6 @@ class OrganizationEventController: UICollectionViewController, UICollectionViewD
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let viewController = OrganizationEventActionsController()
         viewController.eventId = Organization.upcomingEvents[indexPath.row].id
