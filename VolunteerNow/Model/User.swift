@@ -22,6 +22,12 @@ struct User {
                         refresher.endRefreshing()
                     }
                 }
+            } else {
+                self.upcomingEvents = []
+                collectionView.reloadData()
+                if let refresher = refresher {
+                    refresher.endRefreshing()
+                }
             }
         }
     }
@@ -34,6 +40,12 @@ struct User {
                     if let refresher = refresher {
                         refresher.endRefreshing()
                     }
+                }
+            } else {
+                self.completedEvents = []
+                collectionView.reloadData()
+                if let refresher = refresher {
+                    refresher.endRefreshing()
                 }
             }
         }

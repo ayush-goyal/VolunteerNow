@@ -1,5 +1,5 @@
 //
-//  CheckInContainerController.swift
+//  OrganizationEventContainerController.swift
 //  VolunteerNow
 //
 //  Created by Ayush Goyal on 1/22/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheckInContainerController: UIViewController {
+class OrganizationEventContainerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         

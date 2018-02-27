@@ -8,11 +8,33 @@
 
 import UIKit
 import AVFoundation
+import Presentr
 
 class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var capturePreviewView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
+    
+    var presenter: Presentr = {
+        let presenter = Presentr(presentationType: .alert)
+        presenter.presentationType = .alert
+        
+        let animation = CoverVerticalAnimation(options: .spring(duration: 1.0, delay: 0, damping: 0.7, velocity: 0))
+        let coverVerticalWithSpring = TransitionType.custom(animation)
+        presenter.transitionType = coverVerticalWithSpring
+        presenter.dismissTransitionType = coverVerticalWithSpring
+        presenter.backgroundOpacity = 0.5
+        
+        return presenter
+    }()
+    
+    func presentError(text: String) {
+        let alertController = Presentr.alertViewController(title: "Error", body: text)
+        let okAction = AlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        
+        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+    }
     
     var eventId: Int!
     private var idScanned = false
@@ -86,14 +108,13 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                             App.shared.dbRef.child("users/\(message)/upcoming").setValue(upcoming)
                             if var completed = value["completed"] as? [Int] {
                                 completed.append(self.eventId)
-                                print(completed)
-                                App.shared.dbRef.child("users/\(message)/completed").setValue(completed)
+                                App.shared.dbRef.child("users/\(message)/completed").setValue(NSArray(array: completed))
                             } else {
-                                App.shared.dbRef.child("users/\(message)/completed").setValue([self.eventId])
+                                App.shared.dbRef.child("users/\(message)/completed").setValue(NSArray(array: [self.eventId]))
                             }
                             self.performSegue(withIdentifier: "checkInConfirmationSegue", sender: nil)
                         } else {
-                            print("USER IS NOT SIGNED UP FOR THIS EVENT")
+                            self.presentError(text: "User is not signed up for this event.")
                             self.idScanned = false
                             return
                         }

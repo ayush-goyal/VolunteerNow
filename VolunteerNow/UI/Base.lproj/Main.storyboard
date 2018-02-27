@@ -283,7 +283,7 @@
             </objects>
             <point key="canvasLocation" x="-1758" y="949"/>
         </scene>
-        <!--Item-->
+        <!--Scanner Controller-->
         <scene sceneID="LY1-RJ-WDF">
             <objects>
                 <viewController storyboardIdentifier="qrScannerController" id="Reb-Qb-RYY" customClass="QRScannerController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
@@ -322,7 +322,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h1Y-o2-jtY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="NRI-jz-4Ek"/>
                     <connections>
                         <outlet property="capturePreviewView" destination="lHj-s3-CrB" id="Qb0-78-34L"/>
                         <outlet property="messageLabel" destination="Dp5-sp-sXs" id="zqw-Jq-kF4"/>
@@ -331,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAt-j2-PGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2866" y="4397"/>
+            <point key="canvasLocation" x="4094" y="4397"/>
         </scene>
         <!--Check In Confirmation Controller-->
         <scene sceneID="2hK-Zk-Bm0">
@@ -388,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4YU-Oj-9c3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3680.8000000000002" y="4396.5517241379312"/>
+            <point key="canvasLocation" x="4910" y="4397"/>
         </scene>
         <!--Events-->
         <scene sceneID="wAc-Dk-fI5">
@@ -764,6 +763,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-0X-JTK">
                                                     <rect key="frame" x="24" y="10" width="55" height="30"/>
                                                     <state key="normal" title="Log Out"/>
+                                                    <connections>
+                                                        <action selector="signOut:" destination="sJ6-Cc-3XV" eventType="touchUpInside" id="QIa-3w-gWH"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1343,7 +1345,7 @@ Roswell, GA, 30075</string>
         <!--Check In-->
         <scene sceneID="jaC-wG-xFj">
             <objects>
-                <viewController id="MkA-eL-39N" customClass="CheckInContainerController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MkA-eL-39N" customClass="OrganizationEventContainerController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1nW-vY-K1I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1413,10 +1415,25 @@ Roswell, GA, 30075</string>
             </objects>
             <point key="canvasLocation" x="1076" y="5131"/>
         </scene>
-        <!--Upcoming-->
+        <!--View Controller-->
+        <scene sceneID="0QG-Yn-GS1">
+            <objects>
+                <viewController id="amd-Jw-oYa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Txu-DG-Q0T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xUd-9C-yeE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGI-qv-MjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2993" y="4397"/>
+        </scene>
+        <!--Organization Event Controller-->
         <scene sceneID="4Fc-fF-9cb">
             <objects>
-                <collectionViewController id="GsS-2T-0rF" customClass="CheckInController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="GsS-2T-0rF" customClass="OrganizationEventController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kNi-uG-Dpy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1433,7 +1450,6 @@ Roswell, GA, 30075</string>
                             <outlet property="delegate" destination="GsS-2T-0rF" id="cve-SD-eOD"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Upcoming" id="vs0-4b-Ugk"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RH9-lu-5Jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

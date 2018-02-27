@@ -1,5 +1,5 @@
 //
-//  CheckInController.swift
+//  OrganizationEventController.swift
 //  VolunteerNow
 //
 //  Created by Ayush Goyal on 1/22/18.
@@ -10,7 +10,7 @@ import UIKit
 
 private let eventCellReuseIdentifier = "eventId"
 
-class CheckInController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class OrganizationEventController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -68,7 +68,7 @@ class CheckInController: UICollectionViewController, UICollectionViewDelegateFlo
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let viewController = storyboard.instantiateViewController(withIdentifier: "qrScannerController") as! QRScannerController
+        let viewController = OrganizationEventActionsController()
         viewController.eventId = Organization.upcomingEvents[indexPath.row].id
         self.navigationController?.pushViewController(viewController, animated: true)
     }

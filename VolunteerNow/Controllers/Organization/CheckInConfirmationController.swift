@@ -9,6 +9,7 @@
 import UIKit
 
 class CheckInConfirmationController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -31,10 +31,13 @@ class VolunteerController: UIViewController {
         App.shared.dbRef.child("users").child(User.uid).observeSingleEvent(of: .value) { snapshot in
             if let value = snapshot.value as? NSDictionary {
                 if var upcoming = value["upcoming"] as? [Int] {
-                    App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue(upcoming.append(eventId))
+                    upcoming.append(eventId)
+                    App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue(NSArray(array: upcoming))
                 } else {
-                    App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue([eventId])
+                    App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue(NSArray(array: [eventId]))
                 }
+            } else {
+                App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue(NSArray(array: [eventId]))
             }
         }
     }

@@ -42,13 +42,15 @@ class OrganizationSignInController: UIViewController {
         let defaults = UserDefaults.standard
         
         if let organizationCode = defaults.string(forKey: "organizationCode") {
-            App.shared.dbRef.child("organizations").child(organizationCode).observeSingleEvent(of: .value) { snapshot in
-                let value = snapshot.value as? NSDictionary
-                if let organizer = value?["organizer"] as? String, let website = value?["organizer"] as? String {
-                    Organization.organizer = organizer
-                    Organization.webste = website
-                    Organization.id = organizationCode
-                    self.performSegue(withIdentifier: "organizationHomeSegue", sender: nil)
+            if organizationCode != "" {
+                App.shared.dbRef.child("organizations").child(organizationCode).observeSingleEvent(of: .value) { snapshot in
+                    let value = snapshot.value as? NSDictionary
+                    if let organizer = value?["organizer"] as? String, let website = value?["organizer"] as? String {
+                        Organization.organizer = organizer
+                        Organization.webste = website
+                        Organization.id = organizationCode
+                        self.performSegue(withIdentifier: "organizationHomeSegue", sender: nil)
+                    }
                 }
             }
         }

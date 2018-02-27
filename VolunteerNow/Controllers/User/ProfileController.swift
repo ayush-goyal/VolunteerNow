@@ -51,5 +51,16 @@ class ProfileController: UITableViewController {
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    @IBAction func signOut(_ sender: Any) {
+        try! Auth.auth().signOut()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "signInController")
+        
+        present(initialViewController, animated: true, completion: nil)
+    }
+    
 
 }

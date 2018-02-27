@@ -124,7 +124,7 @@ class Event: NSObject, MKAnnotation {
         
         if type == "ongoing" {
             self.type = .ongoing
-            self.date = dateFormatter.date(from: "2018-01-18 23:22:35 +0000")! // TODO: Fix this line for ongoing events
+            self.date = dateFormatter.date(from: "2018-01-30 23:22:35 +0000")! // TODO: Fix this line for ongoing events
         } else if type == "once" {
             guard
                 let startDateString = data["startDate"] as? String,
@@ -217,7 +217,16 @@ extension Event {
         for event in allEvents {
             if let distance = event.distance {
                 if distance <= Event.selectedDistanceType.rawValue {
-                    events.append(event)
+                    switch event.type {
+                    case .ongoing:
+                        events.append(event)
+                    case .once(let startDate, let endDate):
+                        if startDate < Date() {
+                            break
+                        } else {
+                            events.append(event)
+                        }
+                    }
                 }
             }
         }

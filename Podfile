@@ -16,5 +16,6 @@ target 'VolunteerNow' do
   pod 'Eureka'
   pod 'PostalAddressRow'
   pod 'Presentr'
+  pod 'TGPControls'
 
 end

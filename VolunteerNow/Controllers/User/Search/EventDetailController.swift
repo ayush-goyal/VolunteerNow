@@ -21,14 +21,6 @@ class EventDetailController: UIViewController {
         return sv
     }()
     
-    var organizationLogoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.blue
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
     var nameHeadingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -188,7 +180,6 @@ class EventDetailController: UIViewController {
         
         view.sendSubview(toBack: scrollView) // Allows nav bar shadow to be seen
         
-        scrollView.addSubview(organizationLogoImageView)
         scrollView.addSubview(nameHeadingLabel)
         scrollView.addSubview(organizerHeadingLabel)
         scrollView.addSubview(descriptionLabel)
@@ -202,12 +193,8 @@ class EventDetailController: UIViewController {
         scrollView.addSubview(locationMapView)
         
         NSLayoutConstraint.activate([
-            organizationLogoImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            organizationLogoImageView.heightAnchor.constraint(equalToConstant: 110),
-            organizationLogoImageView.widthAnchor.constraint(equalToConstant: 110),
-            organizationLogoImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             
-            nameHeadingLabel.topAnchor.constraint(equalTo: organizationLogoImageView.bottomAnchor, constant: 30),
+            nameHeadingLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             nameHeadingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leftRightMargin),
             nameHeadingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -leftRightMargin),
             

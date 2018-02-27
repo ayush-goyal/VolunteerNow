@@ -84,6 +84,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 presentError(text: "User name, id, or email not set")
             }
         }
+        
+        // Reset Organization Code
+        let defaults = UserDefaults.standard
+        defaults.set("", forKey: "organizationCode")
+        
         return true
     }
 

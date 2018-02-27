@@ -19,6 +19,14 @@ class UpcomingController: UICollectionViewController, UICollectionViewDelegateFl
         return refreshControl
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let _ = collectionView {
+            loadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
