@@ -11,33 +11,11 @@ import CoreData
 import Firebase
 import GoogleSignIn
 import CoreLocation
-import Presentr
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
-    
-    var presenter: Presentr = {
-        let presenter = Presentr(presentationType: .alert)
-        presenter.presentationType = .alert
-        
-        let animation = CoverVerticalAnimation(options: .spring(duration: 1.0, delay: 0, damping: 0.7, velocity: 0))
-        let coverVerticalWithSpring = TransitionType.custom(animation)
-        presenter.transitionType = coverVerticalWithSpring
-        presenter.dismissTransitionType = coverVerticalWithSpring
-        presenter.backgroundOpacity = 0.5
-        
-        return presenter
-    }()
-    
-    func presentError(text: String) {
-        let alertController = Presentr.alertViewController(title: "Error", body: text)
-        let okAction = AlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(okAction)
-        
-        self.window?.rootViewController?.customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
-    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Set fonts
@@ -81,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 User.name = displayName
                 User.email = email
             } else {
-                presentError(text: "User name, id, or email not set")
+                Popup.presentError(text: "User name, id, or email not set", viewController: nil, appDelegateWindow: self.window)
             }
         }
         
@@ -125,11 +103,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
         if let error = error {
-            presentError(text: error.localizedDescription)
+            Popup.presentError(text: error.localizedDescription, viewController: nil, appDelegateWindow: window)
         }
         
         guard let authentication = user?.authentication else {
-            presentError(text: "Failed to sign in")
+            Popup.presentError(text: "Failed to sign in", viewController: nil, appDelegateWindow: window)
             return
         }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
@@ -137,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         Auth.auth().signIn(with: credential) { (user, error) in
             if let error = error {
-                self.presentError(text: error.localizedDescription)
+                Popup.presentError(text: error.localizedDescription, viewController: nil, appDelegateWindow: self.window)
             }
             // User is signed in
    
@@ -146,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 User.name = displayName
                 User.email = email
             } else {
-                self.presentError(text: "User name, id, or email not set")
+                Popup.presentError(text: "User name, id, or email not set", viewController: nil, appDelegateWindow: self.window)
             }
             print("User successfully signed into firebase")
             let navigationController = self.window?.rootViewController as? UINavigationController
@@ -155,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        presentError(text: error.localizedDescription)
+        Popup.presentError(text: error.localizedDescription, viewController: nil, appDelegateWindow: window)
     }
 
     // MARK: - Core Data stack

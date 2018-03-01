@@ -9,31 +9,9 @@
 import UIKit
 import Eureka
 import PostalAddressRow
-import Presentr
 import CoreLocation
 
 class AddEventController: FormViewController {
-    
-    var presenter: Presentr = {
-        let presenter = Presentr(presentationType: .alert)
-        presenter.presentationType = .alert
-        
-        let animation = CoverVerticalAnimation(options: .spring(duration: 1.0, delay: 0, damping: 0.7, velocity: 0))
-        let coverVerticalWithSpring = TransitionType.custom(animation)
-        presenter.transitionType = coverVerticalWithSpring
-        presenter.dismissTransitionType = coverVerticalWithSpring
-        presenter.backgroundOpacity = 0.5
-        
-        return presenter
-    }()
-    
-    func presentError(text: String) {
-        let alertController = Presentr.alertViewController(title: "Error", body: text)
-        let okAction = AlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(okAction)
-        
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,7 +113,7 @@ class AddEventController: FormViewController {
             let contactNumber = values["contact-number"] as? String,
             let details = values["details"] as? String,
             let imageUrl = values["imageUrl"] as? String
-        else { presentError(text: "Please fill out all fields"); return }
+        else { Popup.presentError(text: "Please fill out all fields", viewController: self); return }
         
         let formattedAddress = "\(street), \(city), \(state) \(zip)"
         
@@ -145,7 +123,7 @@ class AddEventController: FormViewController {
                 let placemarks = placemarks,
                 let location = placemarks.first?.location
                 else {
-                    self.presentError(text: "Address not found")
+                    Popup.presentError(text: "Address not found", viewController: self)
                     return
             }
             

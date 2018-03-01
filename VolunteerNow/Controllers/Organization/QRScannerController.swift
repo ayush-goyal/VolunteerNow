@@ -8,33 +8,11 @@
 
 import UIKit
 import AVFoundation
-import Presentr
 
 class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var capturePreviewView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
-    
-    var presenter: Presentr = {
-        let presenter = Presentr(presentationType: .alert)
-        presenter.presentationType = .alert
-        
-        let animation = CoverVerticalAnimation(options: .spring(duration: 1.0, delay: 0, damping: 0.7, velocity: 0))
-        let coverVerticalWithSpring = TransitionType.custom(animation)
-        presenter.transitionType = coverVerticalWithSpring
-        presenter.dismissTransitionType = coverVerticalWithSpring
-        presenter.backgroundOpacity = 0.5
-        
-        return presenter
-    }()
-    
-    func presentError(text: String) {
-        let alertController = Presentr.alertViewController(title: "Error", body: text)
-        let okAction = AlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(okAction)
-        
-        customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
-    }
     
     var eventId: Int!
     private var idScanned = false
@@ -114,7 +92,7 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                             }
                             self.performSegue(withIdentifier: "checkInConfirmationSegue", sender: nil)
                         } else {
-                            self.presentError(text: "User is not signed up for this event.")
+                            Popup.presentError(text: "User is not signed up for this event.", viewController: nil)
                             self.idScanned = false
                             return
                         }

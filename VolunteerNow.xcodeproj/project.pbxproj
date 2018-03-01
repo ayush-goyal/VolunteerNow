@@ -10,6 +10,7 @@
 		2A099ED12004575A007B519F /* BarFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED02004575A007B519F /* BarFilterController.swift */; };
 		2A099ED3200460F9007B519F /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED2200460F9007B519F /* EventCell.swift */; };
 		2A099ED520046333007B519F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED420046333007B519F /* APIManager.swift */; };
+		2A14CCD120485308001307CC /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CCD020485308001307CC /* Popup.swift */; };
 		2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325C7B200CFE4000EAEF52 /* Extensions.swift */; };
 		2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325C7D200D164300EAEF52 /* SignInController.swift */; };
 		2A325CB5200D1C1600EAEF52 /* BrandonText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CB0200D1C0F00EAEF52 /* BrandonText-Bold.otf */; };
@@ -78,6 +79,7 @@
 		2A099ED02004575A007B519F /* BarFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarFilterController.swift; sourceTree = "<group>"; };
 		2A099ED2200460F9007B519F /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		2A099ED420046333007B519F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		2A14CCD020485308001307CC /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		2A325C7B200CFE4000EAEF52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2A325C7D200D164300EAEF52 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		2A325CB0200D1C0F00EAEF52 /* BrandonText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Bold.otf"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				2A325CE6200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift */,
 				2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */,
 				2AC638A52001710700144AD6 /* CameraController.swift */,
+				2A14CCD020485308001307CC /* Popup.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				2A325CDD200D8AC800EAEF52 /* SearchListController.swift in Sources */,
 				2A325CE1200D99D900EAEF52 /* UpcomingController.swift in Sources */,
 				2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */,
+				2A14CCD120485308001307CC /* Popup.swift in Sources */,
 				2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */,
 				2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */,
 				2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */,

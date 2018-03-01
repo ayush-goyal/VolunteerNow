@@ -142,6 +142,7 @@ class Event: NSObject, MKAnnotation {
         super.init()
         
         Event.addEvent(self)
+        Event.loadedEventIds.append(String(id))
     }
 }
 
@@ -197,18 +198,18 @@ enum CategoryType: String {
     case advocacy
 }
 
+
 extension Event {
     static var selectedSortType: SortType = .relevance
     static var selectedCategoryType: [CategoryType] = [.children, .seniors, .animals, .education, .advocacy]
     static var selectedDistanceType: DistanceType = .ten
     
     static var allEvents: [Event] = []
-    static var selectedEvents: [Event] = []
     static var loadedEventIds: [String] = []
+    static var selectedEvents: [Event] = []
     
     static func addEvent(_ event : Event) {
         allEvents.append(event)
-        //selectedEvents.append(event) // TODO: Remove this line
     }
     
     static func updateSelectedEventsList() {
@@ -290,7 +291,6 @@ extension Event {
             
             for key in events {
                 if !Event.loadedEventIds.contains(key) { // Checks if key has already been loaded
-                    Event.loadedEventIds.append(key)
                     group.enter()
                     App.shared.dbRef.child("events").child(key).observeSingleEvent(of: .value) { snapshot in
                         let value = snapshot.value as! NSDictionary
@@ -318,11 +318,14 @@ extension Event {
                 group.enter()
                 App.shared.dbRef.child("events").child(key).observeSingleEvent(of: .value) { snapshot in
                     let value = snapshot.value as! NSDictionary
-                    Event.loadedEventIds.append(key)
                     events.append(Event(data: value)!)
                     group.leave()
                 }
             } else {
+                print("Index of loaded event:")
+                print(loadedEventIds.index(of: key)!)
+                print("loaded events:")
+                print(loadedEventIds)
                 events.append(allEvents[loadedEventIds.index(of: key)!])
             }
         }
