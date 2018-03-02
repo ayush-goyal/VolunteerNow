@@ -11,6 +11,8 @@
 		2A099ED3200460F9007B519F /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED2200460F9007B519F /* EventCell.swift */; };
 		2A099ED520046333007B519F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A099ED420046333007B519F /* APIManager.swift */; };
 		2A14CCD120485308001307CC /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CCD020485308001307CC /* Popup.swift */; };
+		2A14CCD32049C8AE001307CC /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CCD22049C8AE001307CC /* Reachability.swift */; };
+		2A14CCD52049CBB7001307CC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14CCD42049CBB7001307CC /* NetworkManager.swift */; };
 		2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325C7B200CFE4000EAEF52 /* Extensions.swift */; };
 		2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A325C7D200D164300EAEF52 /* SignInController.swift */; };
 		2A325CB5200D1C1600EAEF52 /* BrandonText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A325CB0200D1C0F00EAEF52 /* BrandonText-Bold.otf */; };
@@ -80,6 +82,8 @@
 		2A099ED2200460F9007B519F /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		2A099ED420046333007B519F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2A14CCD020485308001307CC /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		2A14CCD22049C8AE001307CC /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2A14CCD42049CBB7001307CC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2A325C7B200CFE4000EAEF52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2A325C7D200D164300EAEF52 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		2A325CB0200D1C0F00EAEF52 /* BrandonText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BrandonText-Bold.otf"; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */,
 				2AC638A52001710700144AD6 /* CameraController.swift */,
 				2A14CCD020485308001307CC /* Popup.swift */,
+				2A14CCD22049C8AE001307CC /* Reachability.swift */,
+				2A14CCD42049CBB7001307CC /* NetworkManager.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -555,6 +561,7 @@
 				2A9EB03E2016B919005FA408 /* Organization.swift in Sources */,
 				2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */,
 				2AC638932001588600144AD6 /* ProfileController.swift in Sources */,
+				2A14CCD52049CBB7001307CC /* NetworkManager.swift in Sources */,
 				2A325CF1200EBC6C00EAEF52 /* BarSearchController.swift in Sources */,
 				2A099ED12004575A007B519F /* BarFilterController.swift in Sources */,
 				2AF8ADF52010465A00A75683 /* CompletedController.swift in Sources */,
@@ -575,6 +582,7 @@
 				2A3EFB9C20183425004EBC20 /* OrganizationProfileController.swift in Sources */,
 				2A099ED520046333007B519F /* APIManager.swift in Sources */,
 				2AC638A42001687D00144AD6 /* QRScannerController.swift in Sources */,
+				2A14CCD32049C8AE001307CC /* Reachability.swift in Sources */,
 				2AEDBD2E20014B3800756696 /* ContainerSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

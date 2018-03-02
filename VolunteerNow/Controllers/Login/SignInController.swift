@@ -47,6 +47,10 @@ class SignInController: UIViewController, GIDSignInUIDelegate {
         setupViews()
         
         GIDSignIn.sharedInstance().uiDelegate = self
+        
+        NetworkManager.isUnreachable() { _ in
+            Popup.presentError(text: "No Internet Connection", viewController: self)
+        }
     }
     
     func setupViews() {

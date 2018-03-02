@@ -10,6 +10,8 @@ import Presentr
 import UIKit
 
 class Popup {
+    private init() {}
+    
     static private var presenter: Presentr = {
         let presenter = Presentr(presentationType: .alert)
         presenter.presentationType = .alert
