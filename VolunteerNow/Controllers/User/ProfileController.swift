@@ -43,6 +43,13 @@ class ProfileController: UITableViewController {
         qrImageView.image = UIImage(ciImage: transformedImage)
     }
     
+    @IBAction func signOut(_ sender: Any) {
+        try! Auth.auth().signOut()
+        
+        //navigationController?.popToRootViewController(animated: true)
+        view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func switchToOrganizationView(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -51,16 +58,7 @@ class ProfileController: UITableViewController {
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    @IBAction func signOut(_ sender: Any) {
-        try! Auth.auth().signOut()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "signInController")
-        
-        present(initialViewController, animated: true, completion: nil)
-    }
+
     
 
 }
