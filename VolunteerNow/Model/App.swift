@@ -9,7 +9,6 @@
 import Foundation
 import CoreLocation
 import Firebase
-import Presentr
 
 struct App {
     
@@ -33,26 +32,5 @@ struct App {
         searchListController.stopRefresher()
         searchMapController.addAnnotations()
         
-    }
-    static func presentrError(text: String, viewController: UIViewController) {
-        let presentr = Presentr(presentationType: .alert)
-        presentr.presentationType = .alert
-        
-        /*let animation = CoverVerticalAnimation(options: .spring(duration: 1.0,
-                                                                delay: 0,
-                                                                damping: 0.7,
-                                                                velocity: 0))
-        let coverVerticalWithSpring = TransitionType.custom(animation)
-        presentr.transitionType = coverVerticalWithSpring
-        presentr.dismissTransitionType = coverVerticalWithSpring
-        presentr.backgroundOpacity = 0.5
-        presentr.dismissOnSwipe = true
-        presentr.dismissOnSwipeDirection = .top*/
-        
-        let alertController = Presentr.alertViewController(title: "Error", body: text)
-        let okAction = AlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(okAction)
-        
-        viewController.customPresentViewController(presentr, viewController: alertController, animated: true, completion: nil)
     }
 }

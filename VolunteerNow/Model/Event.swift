@@ -283,7 +283,9 @@ extension Event {
         geoQuery?.observe(.keyEntered) { key, location in
             guard let key = key, let location = location else { fatalError() }
             print("\nKey '\(key)' entered the search area and is at location '\(location)'")
-            events.append(key)
+            if !events.contains(key) {
+                events.append(key)
+            }
         }
         
         geoQuery?.observeReady {
