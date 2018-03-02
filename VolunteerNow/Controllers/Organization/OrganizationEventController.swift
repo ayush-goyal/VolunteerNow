@@ -33,7 +33,7 @@ class OrganizationEventController: UICollectionViewController, UICollectionViewD
     }
     
     @objc func loadData() {
-        Organization.retrieveUpcomingEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
+        App.Organization.retrieveEventsFromDatabase(withKey: .upcoming, array: &App.Organization.upcomingEvents, collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource
@@ -44,12 +44,12 @@ class OrganizationEventController: UICollectionViewController, UICollectionViewD
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Organization.upcomingEvents.count
+        return App.Organization.upcomingEvents.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
-        let event = Organization.upcomingEvents[indexPath.row]
+        let event = App.Organization.upcomingEvents[indexPath.row]
         
         cell.setEventProperties(event: event)
         
@@ -68,7 +68,7 @@ class OrganizationEventController: UICollectionViewController, UICollectionViewD
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let viewController = OrganizationEventActionsController()
-        viewController.eventId = Organization.upcomingEvents[indexPath.row].id
+        viewController.eventId = App.Organization.upcomingEvents[indexPath.row].id
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

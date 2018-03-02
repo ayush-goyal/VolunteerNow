@@ -15,8 +15,8 @@ class OrganizationProfileController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        organizerLabel.text = Organization.organizer
-        websiteLabel.text = Organization.webste
+        organizerLabel.text = App.Organization.organizer
+        websiteLabel.text = App.Organization.webste
     }
     
     @IBAction func switchToUserView(_ sender: Any) {

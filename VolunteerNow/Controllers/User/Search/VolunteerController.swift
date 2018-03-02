@@ -28,16 +28,16 @@ class VolunteerController: UIViewController {
     }
     
     func setEventToFirebase(eventId: Int) {
-        App.shared.dbRef.child("users").child(User.uid).observeSingleEvent(of: .value) { snapshot in
+        App.shared.dbRef.child("users").child(App.User.uid).observeSingleEvent(of: .value) { snapshot in
             if let value = snapshot.value as? NSDictionary {
                 if var upcoming = value["upcoming"] as? [Int] {
                     upcoming.append(eventId)
-                    App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue(NSArray(array: upcoming))
+                    App.shared.dbRef.child("users/\(App.User.uid!)/upcoming").setValue(NSArray(array: upcoming))
                 } else {
-                    App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue(NSArray(array: [eventId]))
+                    App.shared.dbRef.child("users/\(App.User.uid!)/upcoming").setValue(NSArray(array: [eventId]))
                 }
             } else {
-                App.shared.dbRef.child("users/\(User.uid!)/upcoming").setValue(NSArray(array: [eventId]))
+                App.shared.dbRef.child("users/\(App.User.uid!)/upcoming").setValue(NSArray(array: [eventId]))
             }
         }
     }

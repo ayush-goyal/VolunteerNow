@@ -33,4 +33,60 @@ struct App {
         searchMapController.addAnnotations()
         
     }
+    
+    static func snapshotToEvents(snapshot: DataSnapshot) -> [Event] {
+        if let value = snapshot.value as? NSArray {
+            Event.retrieveEventsFromDatabase(keys: value) { events in
+                return events
+            }
+        }
+        return []
+    }
+    
+    enum DatabaseDirectory: String {
+        case upcoming
+        case completed
+    }
+    
+    struct User {
+        static var upcomingEvents: [Event] = []
+        static var completedEvents: [Event] = []
+        
+        static func retrieveEventsFromDatabase(withKey key: DatabaseDirectory, array eventArray: inout [Event], collectionView: UICollectionView, refresher: UIRefreshControl?) {
+            var array: [Event] = []
+            App.shared.dbRef.child("users").child(User.uid).child(key.rawValue).observeSingleEvent(of: .value) { snapshot in
+                array = snapshotToEvents(snapshot: snapshot)
+                collectionView.reloadData()
+                if let refresher = refresher {
+                    refresher.endRefreshing()
+                }
+            }
+            eventArray = array
+        }
+        
+        static var name: String!
+        static var email: String!
+        static var uid: String!
+    }
+    
+    struct Organization {
+        static var upcomingEvents: [Event] = []
+        static var completedEvents: [Event] = []
+        
+        static func retrieveEventsFromDatabase(withKey key: DatabaseDirectory, array eventArray: inout [Event], collectionView: UICollectionView, refresher: UIRefreshControl?) {
+            var array: [Event] = []
+            App.shared.dbRef.child("organizations").child(Organization.id).child(key.rawValue).observeSingleEvent(of: .value) { snapshot in
+                array = snapshotToEvents(snapshot: snapshot)
+                collectionView.reloadData()
+                if let refresher = refresher {
+                    refresher.endRefreshing()
+                }
+            }
+            eventArray = array
+        }
+        
+        static var organizer: String!
+        static var webste: String!
+        static var id: String!
+    }
 }

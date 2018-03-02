@@ -46,9 +46,9 @@ class OrganizationSignInController: UIViewController {
                 App.shared.dbRef.child("organizations").child(organizationCode).observeSingleEvent(of: .value) { snapshot in
                     let value = snapshot.value as? NSDictionary
                     if let organizer = value?["organizer"] as? String, let website = value?["organizer"] as? String {
-                        Organization.organizer = organizer
-                        Organization.webste = website
-                        Organization.id = organizationCode
+                        App.Organization.organizer = organizer
+                        App.Organization.webste = website
+                        App.Organization.id = organizationCode
                         self.performSegue(withIdentifier: "organizationHomeSegue", sender: nil)
                     }
                 }
@@ -61,9 +61,9 @@ class OrganizationSignInController: UIViewController {
         App.shared.dbRef.child("organizations").child(text).observeSingleEvent(of: .value) { snapshot in
             let value = snapshot.value as? NSDictionary
             if let organizer = value?["organizer"] as? String, let website = value?["organizer"] as? String {
-                Organization.organizer = organizer
-                Organization.webste = website
-                Organization.id = text
+                App.Organization.organizer = organizer
+                App.Organization.webste = website
+                App.Organization.id = text
                 let defaults = UserDefaults.standard
                 defaults.set(text, forKey: "organizationCode")
                 self.performSegue(withIdentifier: "organizationHomeSegue", sender: nil)

@@ -27,7 +27,7 @@ class ProfileController: UITableViewController {
     func setupQrCode() {
         let filter: CIFilter = CIFilter(name: "CIQRCodeGenerator")!
         
-        guard let id = User.uid else { fatalError() }
+        guard let id = App.User.uid else { fatalError() }
         let data = id.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
         
         filter.setValue(data, forKey: "inputMessage")

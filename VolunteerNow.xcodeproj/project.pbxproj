@@ -52,10 +52,8 @@
 		2A3EFB962016D97A004EBC20 /* VolunteerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB952016D97A004EBC20 /* VolunteerController.swift */; };
 		2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */; };
 		2A3EFB9C20183425004EBC20 /* OrganizationProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */; };
-		2A9EB0312016B77B005FA408 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0302016B77B005FA408 /* User.swift */; };
 		2A9EB0342016B8BC005FA408 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0332016B8BC005FA408 /* AddEventController.swift */; };
 		2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */; };
-		2A9EB03E2016B919005FA408 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03D2016B919005FA408 /* Organization.swift */; };
 		2AC6388F2001520B00144AD6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6388E2001520B00144AD6 /* MapKit.framework */; };
 		2AC638912001560800144AD6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638902001560800144AD6 /* Event.swift */; };
 		2AC638932001588600144AD6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638922001588600144AD6 /* ProfileController.swift */; };
@@ -124,10 +122,8 @@
 		2A3EFB992017AFED004EBC20 /* OrganizationSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationSignInController.swift; sourceTree = "<group>"; };
 		2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationProfileController.swift; sourceTree = "<group>"; };
 		2A668B87201CD50F00FCA868 /* WheelerLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WheelerLocation.gpx; sourceTree = "<group>"; };
-		2A9EB0302016B77B005FA408 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A9EB0332016B8BC005FA408 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
 		2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrganizationController.swift; sourceTree = "<group>"; };
-		2A9EB03D2016B919005FA408 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VolunteerNow.entitlements; sourceTree = "<group>"; };
 		2AC6388E2001520B00144AD6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AC638902001560800144AD6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -288,8 +284,6 @@
 			children = (
 				2A3EC1AA20111319009E3345 /* App.swift */,
 				2AC638902001560800144AD6 /* Event.swift */,
-				2A9EB0302016B77B005FA408 /* User.swift */,
-				2A9EB03D2016B919005FA408 /* Organization.swift */,
 				2A099ED420046333007B519F /* APIManager.swift */,
 				2AEDBD1F200146EB00756696 /* VolunteerNow.xcdatamodeld */,
 			);
@@ -551,14 +545,12 @@
 				2AC638A62001710700144AD6 /* CameraController.swift in Sources */,
 				2A325CEF200EBC5700EAEF52 /* BarSearchContainerController.swift in Sources */,
 				2AEDBD19200146EB00756696 /* AppDelegate.swift in Sources */,
-				2A9EB0312016B77B005FA408 /* User.swift in Sources */,
 				2A3EC1AB20111319009E3345 /* App.swift in Sources */,
 				2A325CDB200D645200EAEF52 /* SelectorSegmentedView.swift in Sources */,
 				2AC6389D200165E900144AD6 /* SignupInformationController.swift in Sources */,
 				2A325CED200EA9FE00EAEF52 /* ForgotPasswordController.swift in Sources */,
 				2AD8E628201B7B8D00384A36 /* CheckInConfirmationController.swift in Sources */,
 				2A099ED3200460F9007B519F /* EventCell.swift in Sources */,
-				2A9EB03E2016B919005FA408 /* Organization.swift in Sources */,
 				2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */,
 				2AC638932001588600144AD6 /* ProfileController.swift in Sources */,
 				2A14CCD52049CBB7001307CC /* NetworkManager.swift in Sources */,

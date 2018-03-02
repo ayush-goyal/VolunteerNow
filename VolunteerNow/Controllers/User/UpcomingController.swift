@@ -41,7 +41,7 @@ class UpcomingController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     @objc func loadData() {
-        User.retrieveUpcomingEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
+        App.User.retrieveEventsFromDatabase(withKey: .upcoming, array: &App.User.upcomingEvents, collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     
@@ -53,12 +53,12 @@ class UpcomingController: UICollectionViewController, UICollectionViewDelegateFl
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return User.upcomingEvents.count
+        return App.User.upcomingEvents.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
-        let event = User.upcomingEvents[indexPath.row]
+        let event = App.User.upcomingEvents[indexPath.row]
         
         cell.setEventProperties(event: event)
         

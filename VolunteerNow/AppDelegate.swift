@@ -55,9 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("User is logged into firebase")
          
             if let displayName = Auth.auth().currentUser?.displayName, let uid = Auth.auth().currentUser?.uid, let email = Auth.auth().currentUser?.email {
-                User.uid = uid
-                User.name = displayName
-                User.email = email
+                App.User.uid = uid
+                App.User.name = displayName
+                App.User.email = email
             } else {
                 Popup.presentError(text: "User name, id, or email not set", viewController: nil, appDelegateWindow: self.window)
             }
@@ -120,9 +120,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             // User is signed in
    
             if let displayName = user?.displayName, let uid = user?.uid, let email = user?.email {
-                User.uid = uid
-                User.name = displayName
-                User.email = email
+                App.User.uid = uid
+                App.User.name = displayName
+                App.User.email = email
             } else {
                 Popup.presentError(text: "User name, id, or email not set", viewController: nil, appDelegateWindow: self.window)
             }

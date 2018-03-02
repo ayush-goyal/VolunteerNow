@@ -34,7 +34,7 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     @objc func loadData() {
-        User.retrieveCompletedEventsFromDatabase(collectionView: self.collectionView!, refresher: self.refresher)
+        App.User.retrieveEventsFromDatabase(withKey: .completed, array: &App.User.upcomingEvents, collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource
@@ -45,12 +45,12 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return User.completedEvents.count
+        return App.User.completedEvents.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
-        let event = User.completedEvents[indexPath.row]
+        let event = App.User.completedEvents[indexPath.row]
         
         cell.setEventProperties(event: event)
         
