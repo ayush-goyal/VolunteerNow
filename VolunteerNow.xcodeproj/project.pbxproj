@@ -70,6 +70,8 @@
 		2AEDBD3220014B6A00756696 /* SearchMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEDBD3120014B6A00756696 /* SearchMapController.swift */; };
 		2AEEDD112044D5B000A087F1 /* OrganizationEventActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEDD102044D5B000A087F1 /* OrganizationEventActionsController.swift */; };
 		2AEEDD132044FF0300A087F1 /* EventMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEDD122044FF0300A087F1 /* EventMessageController.swift */; };
+		2AF3958B204A63E4007B1971 /* OnboardingSwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3958A204A63E4007B1971 /* OnboardingSwipingController.swift */; };
+		2AF3958D204A6412007B1971 /* OnboardingPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3958C204A6412007B1971 /* OnboardingPageCell.swift */; };
 		2AF8ADF52010465A00A75683 /* CompletedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8ADF42010465A00A75683 /* CompletedController.swift */; };
 		2AFC34DA20110D4D008568CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC34D920110D4D008568CA /* GoogleService-Info.plist */; };
 		81DE77ED67D23CBA34113DB2 /* Pods_VolunteerNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A11E80A36312556DAD58F76 /* Pods_VolunteerNow.framework */; };
@@ -143,6 +145,8 @@
 		2AEDBD3120014B6A00756696 /* SearchMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapController.swift; sourceTree = "<group>"; };
 		2AEEDD102044D5B000A087F1 /* OrganizationEventActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationEventActionsController.swift; sourceTree = "<group>"; };
 		2AEEDD122044FF0300A087F1 /* EventMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMessageController.swift; sourceTree = "<group>"; };
+		2AF3958A204A63E4007B1971 /* OnboardingSwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipingController.swift; sourceTree = "<group>"; };
+		2AF3958C204A6412007B1971 /* OnboardingPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageCell.swift; sourceTree = "<group>"; };
 		2AF8ADF42010465A00A75683 /* CompletedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedController.swift; sourceTree = "<group>"; };
 		2AFC34D920110D4D008568CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C80AB10AF48A9EFE8313932 /* Pods-VolunteerNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VolunteerNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-VolunteerNow/Pods-VolunteerNow.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 		2AC6389E200167B900144AD6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				2AF3958A204A63E4007B1971 /* OnboardingSwipingController.swift */,
+				2AF3958C204A6412007B1971 /* OnboardingPageCell.swift */,
 				2A325C7D200D164300EAEF52 /* SignInController.swift */,
 				2A325CEC200EA9FE00EAEF52 /* ForgotPasswordController.swift */,
 				2AC6389C200165E900144AD6 /* SignupInformationController.swift */,
@@ -565,7 +571,9 @@
 				2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */,
 				2A14CCD120485308001307CC /* Popup.swift in Sources */,
 				2A3EFB9A2017AFED004EBC20 /* OrganizationSignInController.swift in Sources */,
+				2AF3958B204A63E4007B1971 /* OnboardingSwipingController.swift in Sources */,
 				2AEDBD21200146EB00756696 /* VolunteerNow.xcdatamodeld in Sources */,
+				2AF3958D204A6412007B1971 /* OnboardingPageCell.swift in Sources */,
 				2A325C7C200CFE4000EAEF52 /* Extensions.swift in Sources */,
 				2A325CE9200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				2A325CF6200ED20800EAEF52 /* EventDetailController.swift in Sources */,
