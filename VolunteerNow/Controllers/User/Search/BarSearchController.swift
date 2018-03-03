@@ -83,7 +83,8 @@ class BarSearchController: UICollectionViewController, UICollectionViewDelegateF
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let navigator = navigationController {
             let viewController = EventDetailController()
-            viewController.setValues(withEvent: Event.selectedEvents[indexPath.row])
+            viewController.event = Event.selectedEvents[indexPath.row]
+            viewController.setValues()
             navigator.pushViewController(viewController, animated: true)
         }
     }

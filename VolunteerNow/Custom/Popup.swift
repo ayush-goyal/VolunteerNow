@@ -25,8 +25,8 @@ class Popup {
         return presenter
     }()
     
-    static func presentError(text: String, viewController: UIViewController?, appDelegateWindow: UIWindow? = nil) {
-        let alertController = Presentr.alertViewController(title: "Error", body: text)
+    static func presentError(text: String, viewController: UIViewController?, title: String = "Error", appDelegateWindow: UIWindow? = nil) {
+        let alertController = Presentr.alertViewController(title: title, body: text)
         let okAction = AlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(okAction)
         

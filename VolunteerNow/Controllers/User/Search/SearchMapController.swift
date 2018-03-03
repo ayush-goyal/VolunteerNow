@@ -74,7 +74,8 @@ extension SearchMapController: MKMapViewDelegate {
         
         if let navigator = navigationController {
             let viewController = EventDetailController()
-            viewController.setValues(withEvent: event)
+            viewController.event = event
+            viewController.setValues()
             navigator.pushViewController(viewController, animated: true)
         }
     }

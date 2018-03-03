@@ -129,6 +129,7 @@ class EventDetailController: UIViewController {
     var isVolunteerButton: Bool = true
     
     private var eventID: Int!
+    var event: Event!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +138,7 @@ class EventDetailController: UIViewController {
         
         addShadowToBar()
         addShadowToTabBar()
+        changeBackNavigationButton()
         setupViews()
         
         if isVolunteerButton {
@@ -151,7 +153,9 @@ class EventDetailController: UIViewController {
     @objc func volunteerButtonPressed() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "volunteerController") as! VolunteerController
-        viewController.setEventToFirebase(eventId: eventID)
+        viewController.eventId = eventID
+        viewController.event = event
+        viewController.setEventToFirebase()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -247,7 +251,7 @@ class EventDetailController: UIViewController {
         
     }
     
-    func setValues(withEvent event: Event) {
+    func setValues() {
         nameHeadingLabel.setTextandHeight(text: event.name, lineSpacing: 13, font: UIFont.Custom.mainTitle, alignment: .center, leftRightMargin: leftRightMargin)
         organizerHeadingLabel.setTextandHeight(text: event.organizer, lineSpacing: 0, font: UIFont.Custom.subTitle, alignment: .center, leftRightMargin: leftRightMargin)
         
