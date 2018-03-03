@@ -323,11 +323,13 @@ extension Event {
                     group.leave()
                 }
             } else {
+                group.enter()
                 print("Index of loaded event:")
                 print(loadedEventIds.index(of: key)!)
                 print("loaded events:")
                 print(loadedEventIds)
                 events.append(allEvents[loadedEventIds.index(of: key)!])
+                group.leave()
             }
         }
         // We ask to be notified when every block left the group

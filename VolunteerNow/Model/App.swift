@@ -34,13 +34,14 @@ struct App {
         
     }
     
-    static func snapshotToEvents(snapshot: DataSnapshot) -> [Event] {
+    static func snapshotToEvents(snapshot: DataSnapshot, completionHandler: @escaping ([Event]) -> Void) {
         if let value = snapshot.value as? NSArray {
             Event.retrieveEventsFromDatabase(keys: value) { events in
-                return events
+                completionHandler(events)
             }
+        } else {
+            completionHandler([])
         }
-        return []
     }
     
     enum DatabaseDirectory: String {
@@ -52,16 +53,24 @@ struct App {
         static var upcomingEvents: [Event] = []
         static var completedEvents: [Event] = []
         
-        static func retrieveEventsFromDatabase(withKey key: DatabaseDirectory, array eventArray: inout [Event], collectionView: UICollectionView, refresher: UIRefreshControl?) {
-            var array: [Event] = []
+        static func retrieveEventsFromDatabase(withKey key: DatabaseDirectory, collectionView: UICollectionView, refresher: UIRefreshControl?) {
             App.shared.dbRef.child("users").child(User.uid).child(key.rawValue).observeSingleEvent(of: .value) { snapshot in
-                array = snapshotToEvents(snapshot: snapshot)
-                collectionView.reloadData()
-                if let refresher = refresher {
-                    refresher.endRefreshing()
+                snapshotToEvents(snapshot: snapshot) { array in
+                    switch key {
+                    case .upcoming:
+                        User.upcomingEvents = array
+                        break
+                    case .completed:
+                        User.completedEvents = array
+                        break
+                    }
+
+                    collectionView.reloadData()
+                    if let refresher = refresher {
+                        refresher.endRefreshing()
+                    }
                 }
             }
-            eventArray = array
         }
         
         static var name: String!
@@ -73,16 +82,24 @@ struct App {
         static var upcomingEvents: [Event] = []
         static var completedEvents: [Event] = []
         
-        static func retrieveEventsFromDatabase(withKey key: DatabaseDirectory, array eventArray: inout [Event], collectionView: UICollectionView, refresher: UIRefreshControl?) {
-            var array: [Event] = []
+        static func retrieveEventsFromDatabase(withKey key: DatabaseDirectory, collectionView: UICollectionView, refresher: UIRefreshControl?) {
             App.shared.dbRef.child("organizations").child(Organization.id).child(key.rawValue).observeSingleEvent(of: .value) { snapshot in
-                array = snapshotToEvents(snapshot: snapshot)
-                collectionView.reloadData()
-                if let refresher = refresher {
-                    refresher.endRefreshing()
+                snapshotToEvents(snapshot: snapshot) { array in
+                    switch key {
+                    case .upcoming:
+                        Organization.upcomingEvents = array
+                        break
+                    case .completed:
+                        Organization.completedEvents = array
+                        break
+                    }
+                    
+                    collectionView.reloadData()
+                    if let refresher = refresher {
+                        refresher.endRefreshing()
+                    }
                 }
             }
-            eventArray = array
         }
         
         static var organizer: String!

@@ -34,7 +34,7 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     @objc func loadData() {
-        App.User.retrieveEventsFromDatabase(withKey: .completed, array: &App.User.upcomingEvents, collectionView: self.collectionView!, refresher: self.refresher)
+        App.User.retrieveEventsFromDatabase(withKey: .completed, collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource

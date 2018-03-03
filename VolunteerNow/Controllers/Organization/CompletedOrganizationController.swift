@@ -37,7 +37,7 @@ class CompletedOrganizationController: UICollectionViewController, UICollectionV
     }
     
     @objc func loadData() {
-        App.Organization.retrieveEventsFromDatabase(withKey: .completed, array: &App.Organization.completedEvents, collectionView: self.collectionView!, refresher: self.refresher)
+        App.Organization.retrieveEventsFromDatabase(withKey: .completed, collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource

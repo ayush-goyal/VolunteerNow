@@ -33,7 +33,7 @@ class OrganizationEventController: UICollectionViewController, UICollectionViewD
     }
     
     @objc func loadData() {
-        App.Organization.retrieveEventsFromDatabase(withKey: .upcoming, array: &App.Organization.upcomingEvents, collectionView: self.collectionView!, refresher: self.refresher)
+        App.Organization.retrieveEventsFromDatabase(withKey: .upcoming, collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     // MARK: UICollectionViewDataSource
@@ -44,6 +44,7 @@ class OrganizationEventController: UICollectionViewController, UICollectionViewD
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(App.Organization.upcomingEvents.count)
         return App.Organization.upcomingEvents.count
     }
     

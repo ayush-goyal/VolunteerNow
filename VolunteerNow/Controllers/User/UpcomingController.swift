@@ -41,7 +41,7 @@ class UpcomingController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     @objc func loadData() {
-        App.User.retrieveEventsFromDatabase(withKey: .upcoming, array: &App.User.upcomingEvents, collectionView: self.collectionView!, refresher: self.refresher)
+        App.User.retrieveEventsFromDatabase(withKey: .upcoming, collectionView: self.collectionView!, refresher: self.refresher)
     }
     
     
