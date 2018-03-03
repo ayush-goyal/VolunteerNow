@@ -288,6 +288,7 @@ extension Event {
         }
         
         geoQuery.observeReady {
+            print(events)
             let group = DispatchGroup()
             
             for key in events {

@@ -37,6 +37,8 @@ class ContainerSearchController: UIViewController {
         }
     }
     
+    var loadedData = false
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -58,9 +60,12 @@ class ContainerSearchController: UIViewController {
     }
     
     func populateDataInControllers() {
-        guard let _ = self.currentLocation, let searchListController = self.searchListController, let _ = self.searchMapController else { return }
-                
-        Event.retrieveClosestEventsFromDatabase()
+        guard let _ = self.currentLocation, let _ = self.searchListController, let _ = self.searchMapController else { return }
+        if !loadedData {
+            loadedData = true
+            Event.retrieveClosestEventsFromDatabase()
+        }
+        
     }
     
     func addSelectorSegmentedView() {

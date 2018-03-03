@@ -514,9 +514,6 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="C2K-Lp-wYg" id="vQR-tc-2zO"/>
                             <outlet property="delegate" destination="C2K-Lp-wYg" id="Aay-PQ-uIE"/>
