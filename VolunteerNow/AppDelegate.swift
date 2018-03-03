@@ -11,14 +11,31 @@ import CoreData
 import Firebase
 import GoogleSignIn
 import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Set fonts
+        
+        setAppearance()
+        
+        FirebaseApp.configure()
+        App.shared.dbRef = Database.database().reference()
+
+        setupNotifications(application)
+        setupAuthentication()
+        
+        // Reset Organization Code
+        //let defaults = UserDefaults.standard
+        //defaults.set("", forKey: "organizationCode")
+        
+        return true
+    }
+    
+    private func setAppearance() {
         UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedStringKey.foregroundColor: UIColor.Custom.purple,
             NSAttributedStringKey.font: UIFont(name: "SofiaPro-Medium", size: 20)!
@@ -31,12 +48,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         UITabBar.appearance().barTintColor = UIColor.white
         UITabBar.appearance().layer.borderWidth = 0.0
         UITabBar.appearance().clipsToBounds = true
+    }
+    
+    private func setupNotifications(_ application: UIApplication) {
+        UNUserNotificationCenter.current().delegate = self
         
-        // Use Firebase library to configure APIs
-        FirebaseApp.configure()
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_, _ in })
         
-        App.shared.dbRef = Database.database().reference()
+        application.registerForRemoteNotifications()
+        Messaging.messaging().delegate = self
         
+        App.shared.fcmToken = Messaging.messaging().fcmToken
+    }
+    
+    private func setupAuthentication() {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
@@ -53,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             
         } else {
             print("User is logged into firebase")
-         
+            
             if let displayName = Auth.auth().currentUser?.displayName, let uid = Auth.auth().currentUser?.uid, let email = Auth.auth().currentUser?.email {
                 App.User.uid = uid
                 App.User.name = displayName
@@ -62,15 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 Popup.presentError(text: "User name, id, or email not set", viewController: nil, appDelegateWindow: self.window)
             }
         }
-        
-        // Reset Organization Code
-        let defaults = UserDefaults.standard
-        defaults.set("", forKey: "organizationCode")
-        
-        return true
     }
     
-    // MARK: - Firebase
+}
+
+
+extension AppDelegate: GIDSignInDelegate {
+    // MARK: - Firebase Sign In
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
@@ -112,50 +136,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         Popup.presentError(text: error.localizedDescription, viewController: nil, appDelegateWindow: window)
     }
 
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "VolunteerNow")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
 }
 
+
+
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+    // MARK: - Firebase Messaging
+    
+    // If registration token is refreshed, update FCM token global variable
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("FCM Token: \(fcmToken)")
+        App.shared.fcmToken = fcmToken
+    }
+    
+}

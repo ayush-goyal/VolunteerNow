@@ -20,6 +20,7 @@ struct App {
     
     var currentLocation: CLLocation?
     var dbRef: DatabaseReference!
+    var fcmToken: String?
     
     var searchListController: SearchListController!
     var searchMapController: SearchMapController!
