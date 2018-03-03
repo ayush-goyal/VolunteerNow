@@ -53,7 +53,6 @@ class SearchListController: UICollectionViewController, UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventCell
         let event = Event.selectedEvents[indexPath.row]
-        
         cell.setEventProperties(event: event)
     
         return cell

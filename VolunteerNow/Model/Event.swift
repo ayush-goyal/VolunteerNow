@@ -248,7 +248,7 @@ extension Event {
 
 extension Event {
     static func setEventLocationInDatabase(withId eventId: String, location: CLLocation) {
-        let geoFire = GeoFire(firebaseRef: App.shared.dbRef.child("event-locations"))!
+        let geoFire = GeoFire(firebaseRef: App.shared.dbRef.child("event-locations"))
         geoFire.setLocation(location, forKey: eventId) { (error) in
             if let error = error {
                 print("An error occured: \(error)")
@@ -271,7 +271,7 @@ extension Event {
     
     static func retrieveClosestEventsFromDatabase() {
         guard let currentLocation = App.shared.currentLocation else { return }
-        let geoFire = GeoFire(firebaseRef: App.shared.dbRef.child("event-locations"))!
+        let geoFire = GeoFire(firebaseRef: App.shared.dbRef.child("event-locations"))
         // Query locations at currentLocation with a radius of km
         let center = currentLocation
         print("\n" + String(Event.selectedDistanceType.rawValue))
@@ -280,15 +280,14 @@ extension Event {
         
         var events: [String] = []
         
-        geoQuery?.observe(.keyEntered) { key, location in
-            guard let key = key, let location = location else { fatalError() }
+        geoQuery.observe(.keyEntered) { key, location in
             print("\nKey '\(key)' entered the search area and is at location '\(location)'")
             if !events.contains(key) {
                 events.append(key)
             }
         }
         
-        geoQuery?.observeReady {
+        geoQuery.observeReady {
             let group = DispatchGroup()
             
             for key in events {

@@ -514,6 +514,9 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="C2K-Lp-wYg" id="vQR-tc-2zO"/>
                             <outlet property="delegate" destination="C2K-Lp-wYg" id="Aay-PQ-uIE"/>
@@ -1044,6 +1047,35 @@
             </objects>
             <point key="canvasLocation" x="1252" y="-2159"/>
         </scene>
+        <!--Onboarding Swiping Controller-->
+        <scene sceneID="dea-Ne-zkm">
+            <objects>
+                <collectionViewController id="njT-wd-j42" customClass="OnboardingSwipingController" customModule="VolunteerNow" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="I5O-FG-kku">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MrQ-iA-rUr">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="njT-wd-j42" id="A9D-pj-2aH"/>
+                            <outlet property="delegate" destination="njT-wd-j42" id="MGw-J7-ryN"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="85o-oJ-pfP"/>
+                    <connections>
+                        <segue destination="WsC-sw-fbg" kind="show" identifier="showSignInSegue" id="ln6-OM-Edj"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hg-XS-JDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2633" y="36"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HXu-S1-TjB">
             <objects>
@@ -1055,12 +1087,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WsC-sw-fbg" kind="relationship" relationship="rootViewController" id="pif-sC-CcD"/>
+                        <segue destination="njT-wd-j42" kind="relationship" relationship="rootViewController" id="8qp-Rt-BZq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGX-Xf-z0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2590" y="72"/>
+            <point key="canvasLocation" x="-3530" y="36"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GIv-om-5Tl">
