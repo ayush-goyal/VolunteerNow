@@ -221,7 +221,7 @@ extension Event {
                     switch event.type {
                     case .ongoing:
                         events.append(event)
-                    case .once(let startDate, let endDate):
+                    case .once(let startDate, _):
                         if startDate < Date() {
                             break
                         } else {
@@ -281,7 +281,7 @@ extension Event {
         var events: [String] = []
         
         geoQuery.observe(.keyEntered) { key, location in
-            print("\nKey '\(key)' entered the search area and is at location '\(location)'")
+            //print("\nKey '\(key)' entered the search area and is at location '\(location)'")
             if !events.contains(key) {
                 events.append(key)
             }
@@ -325,10 +325,10 @@ extension Event {
                 }
             } else {
                 group.enter()
-                print("Index of loaded event:")
-                print(loadedEventIds.index(of: key)!)
-                print("loaded events:")
-                print(loadedEventIds)
+                //print("Index of loaded event:")
+                //print(loadedEventIds.index(of: key)!)
+                //print("loaded events:")
+                //print(loadedEventIds)
                 events.append(allEvents[loadedEventIds.index(of: key)!])
                 group.leave()
             }

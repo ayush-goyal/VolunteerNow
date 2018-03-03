@@ -54,6 +54,9 @@
 		2A3EFB9C20183425004EBC20 /* OrganizationProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFB9B20183425004EBC20 /* OrganizationProfileController.swift */; };
 		2A9EB0342016B8BC005FA408 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB0332016B8BC005FA408 /* AddEventController.swift */; };
 		2A9EB03C2016B90A005FA408 /* CompletedOrganizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */; };
+		2AA63AB7204B2D0300151C19 /* PostalAddressRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA63AB4204B2D0200151C19 /* PostalAddressRow.swift */; };
+		2AA63AB8204B2D0300151C19 /* PostalAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA63AB5204B2D0200151C19 /* PostalAddressCell.swift */; };
+		2AA63AB9204B2D0300151C19 /* PostalAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA63AB6204B2D0300151C19 /* PostalAddressCell.xib */; };
 		2AC6388F2001520B00144AD6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC6388E2001520B00144AD6 /* MapKit.framework */; };
 		2AC638912001560800144AD6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638902001560800144AD6 /* Event.swift */; };
 		2AC638932001588600144AD6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC638922001588600144AD6 /* ProfileController.swift */; };
@@ -126,6 +129,9 @@
 		2A668B87201CD50F00FCA868 /* WheelerLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WheelerLocation.gpx; sourceTree = "<group>"; };
 		2A9EB0332016B8BC005FA408 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
 		2A9EB03B2016B90A005FA408 /* CompletedOrganizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedOrganizationController.swift; sourceTree = "<group>"; };
+		2AA63AB4204B2D0200151C19 /* PostalAddressRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostalAddressRow.swift; sourceTree = "<group>"; };
+		2AA63AB5204B2D0200151C19 /* PostalAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostalAddressCell.swift; sourceTree = "<group>"; };
+		2AA63AB6204B2D0300151C19 /* PostalAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostalAddressCell.xib; sourceTree = "<group>"; };
 		2AC6388C2001520200144AD6 /* VolunteerNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VolunteerNow.entitlements; sourceTree = "<group>"; };
 		2AC6388E2001520B00144AD6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2AC638902001560800144AD6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -198,6 +204,9 @@
 		2A325CDE200D997500EAEF52 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				2AA63AB5204B2D0200151C19 /* PostalAddressCell.swift */,
+				2AA63AB6204B2D0300151C19 /* PostalAddressCell.xib */,
+				2AA63AB4204B2D0200151C19 /* PostalAddressRow.swift */,
 				2A325CE7200E569D00EAEF52 /* SkyFloatingLabelTextField.swift */,
 				2A325CE6200E569D00EAEF52 /* SkyFloatingLabelTextFieldWithIcon.swift */,
 				2A325CDA200D645200EAEF52 /* SelectorSegmentedView.swift */,
@@ -452,6 +461,7 @@
 				2A325CCD200D206500EAEF52 /* Sofia Pro Italic.otf in Resources */,
 				2A325CD4200D206500EAEF52 /* Sofia Pro Light.otf in Resources */,
 				2A325CD8200D206500EAEF52 /* Sofia Pro Bold.otf in Resources */,
+				2AA63AB9204B2D0300151C19 /* PostalAddressCell.xib in Resources */,
 				2A325CD9200D206500EAEF52 /* Sofia Pro Medium.otf in Resources */,
 				2A325CD2200D206500EAEF52 /* Sofia Pro Ultra Light Italic.otf in Resources */,
 			);
@@ -509,7 +519,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GeoFire/GeoFire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/PostalAddressRow/PostalAddressRow.framework",
 				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/TGPControls/TGPControls.framework",
@@ -524,7 +533,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GeoFire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PostalAddressRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TGPControls.framework",
@@ -546,6 +554,7 @@
 				2AEEDD112044D5B000A087F1 /* OrganizationEventActionsController.swift in Sources */,
 				2A325CE5200DA3E900EAEF52 /* ProfileContainerController.swift in Sources */,
 				2A9EB0342016B8BC005FA408 /* AddEventController.swift in Sources */,
+				2AA63AB8204B2D0300151C19 /* PostalAddressCell.swift in Sources */,
 				2AC638912001560800144AD6 /* Event.swift in Sources */,
 				2A3EFB922016D7A8004EBC20 /* OrganizationEventController.swift in Sources */,
 				2AC638A62001710700144AD6 /* CameraController.swift in Sources */,
@@ -559,6 +568,7 @@
 				2A099ED3200460F9007B519F /* EventCell.swift in Sources */,
 				2A325C7E200D164300EAEF52 /* SignInController.swift in Sources */,
 				2AC638932001588600144AD6 /* ProfileController.swift in Sources */,
+				2AA63AB7204B2D0300151C19 /* PostalAddressRow.swift in Sources */,
 				2A14CCD52049CBB7001307CC /* NetworkManager.swift in Sources */,
 				2A325CF1200EBC6C00EAEF52 /* BarSearchController.swift in Sources */,
 				2A099ED12004575A007B519F /* BarFilterController.swift in Sources */,

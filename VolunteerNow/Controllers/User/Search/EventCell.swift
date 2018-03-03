@@ -120,7 +120,7 @@ class EventCell: UICollectionViewCell {
         switch event.type {
         case .ongoing:
             dateLabel.text = "Ongoing Event"
-        case .once(let startDate, let endDate):
+        case .once(let startDate, _):
             let formatter = DateFormatter()
             formatter.dateFormat = "E, MMM dd"
             dateLabel.text = formatter.string(from: startDate)

@@ -13,8 +13,7 @@ target 'VolunteerNow' do
   pod 'GoogleSignIn'
   pod 'GeoFire'
   pod "CZPicker"
-  pod 'Eureka'
-  pod 'PostalAddressRow'
+  pod 'Eureka', '~> 4.1.0'
   pod 'Presentr'
   pod 'TGPControls'
 

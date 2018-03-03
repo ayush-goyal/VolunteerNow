@@ -79,7 +79,6 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                 }
                 App.shared.dbRef.child("users").child(message).observeSingleEvent(of: .value) { snapshot in
                     if let value = snapshot.value as? NSDictionary {
-                        print(value["upcoming"] as? [Int])
                         if var upcoming = value["upcoming"] as? [Int], let index = upcoming.index(of: self.eventId) {
                             upcoming.remove(at: index)
                             print(upcoming)

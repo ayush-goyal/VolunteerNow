@@ -1,6 +1,6 @@
 PODS:
   - CZPicker (0.4.3)
-  - Eureka (4.0.0)
+  - Eureka (4.1.0)
   - Firebase/Auth (4.9.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.3)
@@ -68,28 +68,25 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - PostalAddressRow (2.0.0):
-    - Eureka (= 4.0)
   - Presentr (1.3)
   - Protobuf (3.5.0)
   - TGPControls (4.0.0)
 
 DEPENDENCIES:
   - CZPicker
-  - Eureka
+  - Eureka (~> 4.1.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
   - GeoFire
   - GoogleSignIn
-  - PostalAddressRow
   - Presentr
   - TGPControls
 
 SPEC CHECKSUMS:
   CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
-  Eureka: c0b55d2aec82050c1400c7d65960b700be8d10ef
+  Eureka: 5770ef95bbbbe52f8abbc0d9bea6ee8282c50209
   Firebase: 632216af3ed7f31e3be34776947fdc7546cfb572
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
   FirebaseAuth: aaaf68d5064a6c8fec435758f83a43b8db26ccaa
@@ -104,11 +101,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PostalAddressRow: 55556c09526d699d2e16c96033577e577397272e
   Presentr: 3f0825a42cb32ecd8fc6b6d0b0de87d7d0b42482
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   TGPControls: d7ab5a338746c100b2ae57f6b6cedee7151f116a
 
-PODFILE CHECKSUM: 15f96348e122152b64b5fd1da5d1d4a95be0d844
+PODFILE CHECKSUM: 78adeb9bb7ca3dbc98974e3cb4c8570998f1b9de
 
 COCOAPODS: 1.3.1

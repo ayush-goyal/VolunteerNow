@@ -8,7 +8,6 @@
 
 import UIKit
 import Eureka
-import PostalAddressRow
 import CoreLocation
 
 class AddEventController: FormViewController {
