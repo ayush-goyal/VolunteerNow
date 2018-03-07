@@ -24,6 +24,10 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
         
         loadData()
         
+        addShadowToTabBar()
+        addShadowToBar()
+        changeBackNavigationButton()
+        
         // Register cell classes
         self.collectionView!.register(EventCell.self, forCellWithReuseIdentifier: eventCellReuseIdentifier)
         collectionView!.backgroundColor = UIColor.Custom.backgroundGray
@@ -69,9 +73,10 @@ class CompletedController: UICollectionViewController, UICollectionViewDelegateF
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let navigator = navigationController {
             let viewController = EventDetailController()
-            viewController.event = Event.selectedEvents[indexPath.row]
+            viewController.event = App.User.completedEvents[indexPath.row]
             viewController.setValues()
             navigator.pushViewController(viewController, animated: true)
+            
         }
     }
     

@@ -72,9 +72,10 @@ class CompletedOrganizationController: UICollectionViewController, UICollectionV
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let navigator = navigationController {
             let viewController = EventDetailController()
-            viewController.event = Event.selectedEvents[indexPath.row]
+            viewController.event = App.Organization.completedEvents[indexPath.row]
             viewController.setValues()
             navigator.pushViewController(viewController, animated: true)
+            
         }
     }
     

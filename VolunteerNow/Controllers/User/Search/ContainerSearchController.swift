@@ -152,7 +152,7 @@ extension ContainerSearchController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        fatalError(error.localizedDescription)
+        Popup.presentError(text: error.localizedDescription, viewController: self)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

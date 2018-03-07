@@ -30,6 +30,10 @@ class UpcomingController: UICollectionViewController, UICollectionViewDelegateFl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addShadowToTabBar()
+        addShadowToBar()
+        changeBackNavigationButton()
+        
         loadData()
         
         // Register cell classes
@@ -77,9 +81,10 @@ class UpcomingController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let navigator = navigationController {
             let viewController = EventDetailController()
-            viewController.event = Event.selectedEvents[indexPath.row]
+            viewController.event = App.User.upcomingEvents[indexPath.row]
             viewController.setValues()
             navigator.pushViewController(viewController, animated: true)
+        
         }
     }
     
