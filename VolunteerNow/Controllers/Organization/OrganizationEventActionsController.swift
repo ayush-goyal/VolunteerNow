@@ -80,6 +80,11 @@ class OrganizationEventActionsController: UIViewController {
     
     @objc func viewSignupListButtonPressed() {
         print("View Signup List")
+        let layout = UICollectionViewFlowLayout()
+        let eventSignupListController = EventSignupListController(collectionViewLayout: layout)
+        eventSignupListController.eventId = eventId
+        
+        self.navigationController?.pushViewController(eventSignupListController, animated: true)
     }
 
 }

@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         
-        App.shared.fcmToken = Messaging.messaging().fcmToken
+        App.User.fcmToken = Messaging.messaging().fcmToken
     }
     
     private func setupAuthentication() {
@@ -147,7 +147,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("FCM Token: \(fcmToken)")
-        App.shared.fcmToken = fcmToken
+        App.User.fcmToken = fcmToken
     }
     
 }

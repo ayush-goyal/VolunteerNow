@@ -44,6 +44,24 @@ class VolunteerController: UIViewController {
                 App.shared.dbRef.child("users/\(App.User.uid!)/upcoming").setValue(NSArray(array: [self.eventId]))
             }
         }
+        
+        App.shared.dbRef.child("event-users").child(String(eventId)).observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? NSDictionary {
+                if var fcm = value["fcm"] as? [String], var uid = value["uid"] as? [String] {
+                    fcm.append(App.User.fcmToken ?? " ")
+                    uid.append(App.User.uid)
+                    
+                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("uid").setValue(NSArray(array: uid))
+                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("fcm").setValue(NSArray(array: fcm))
+                } else {
+                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("uid").setValue(NSArray(array: [App.User.uid]))
+                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("fcm").setValue(NSArray(array: [App.User.fcmToken ?? " "]))
+                }
+            } else {
+                App.shared.dbRef.child("event-users").child(String(self.eventId)).child("uid").setValue(NSArray(array: [App.User.uid]))
+                App.shared.dbRef.child("event-users").child(String(self.eventId)).child("fcm").setValue(NSArray(array: [App.User.fcmToken ?? " "]))
+            }
+        }
     }
 
     @IBAction func popToContainerSearchController(_ sender: Any) {

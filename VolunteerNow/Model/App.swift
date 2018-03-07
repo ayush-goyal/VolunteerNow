@@ -20,7 +20,6 @@ struct App {
     
     var currentLocation: CLLocation?
     var dbRef: DatabaseReference!
-    var fcmToken: String?
     
     var searchListController: SearchListController!
     var searchMapController: SearchMapController!
@@ -77,6 +76,7 @@ struct App {
         static var name: String!
         static var email: String!
         static var uid: String!
+        static var fcmToken: String?
     }
     
     struct Organization {
