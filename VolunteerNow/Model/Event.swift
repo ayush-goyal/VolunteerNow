@@ -198,6 +198,20 @@ enum CategoryType: String {
     case advocacy
 }
 
+extension MutableCollection {
+    /// Shuffles the contents of this collection.
+    mutating func shuffle() {
+        let c = count
+        guard c > 1 else { return }
+        
+        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+            let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let i = index(firstUnshuffled, offsetBy: d)
+            swapAt(firstUnshuffled, i)
+        }
+    }
+}
+
 
 extension Event {
     static var selectedSortType: SortType = .relevance
@@ -216,19 +230,23 @@ extension Event {
         print("Updated selected events based on category and sort")
         var events: [Event] = []
         for event in allEvents {
-            if let distance = event.distance {
-                if distance <= Event.selectedDistanceType.rawValue {
-                    switch event.type {
-                    case .ongoing:
-                        events.append(event)
-                    case .once(let startDate, _):
-                        if startDate < Date() {
-                            break
-                        } else {
+            if let distance = event.distance, distance <= Event.selectedDistanceType.rawValue {
+                for tag in event.tags {
+                    if let newTag = CategoryType(rawValue: tag), Event.selectedCategoryType.contains(newTag) {
+                        switch event.type {
+                        case .ongoing:
                             events.append(event)
+                        case .once(let startDate, _):
+                            if startDate < Date() {
+                                break
+                            } else {
+                                events.append(event)
+                            }
                         }
+                        break
                     }
                 }
+                
             }
         }
         switch Event.selectedSortType {
@@ -238,8 +256,8 @@ extension Event {
         case .upcoming:
             events = events.sorted(by: { $0.date < $1.date })
             break
-        default:
-            break
+        case .popularity, .relevance:
+            events.shuffle()
         }
         Event.selectedEvents = events
     }
