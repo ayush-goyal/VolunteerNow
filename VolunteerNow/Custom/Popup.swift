@@ -31,9 +31,13 @@ class Popup {
         alertController.addAction(okAction)
         
         if let window = appDelegateWindow {
-            window.rootViewController?.customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                window.rootViewController?.customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+            }
         } else {
-            viewController?.customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                viewController?.customPresentViewController(presenter, viewController: alertController, animated: true, completion: nil)
+            }
         }
     }
 }

@@ -123,6 +123,8 @@ extension AppDelegate: GIDSignInDelegate {
                 App.User.uid = uid
                 App.User.name = displayName
                 App.User.email = email
+                
+                App.shared.dbRef.child("users/\(uid)/name").setValue(displayName)
             } else {
                 Popup.presentError(text: "User name, id, or email not set", viewController: nil, appDelegateWindow: self.window)
             }

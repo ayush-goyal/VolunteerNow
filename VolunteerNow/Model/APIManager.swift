@@ -15,7 +15,7 @@ enum HTTPMethod : String {
 
 typealias JSON = [String: AnyObject]
 
-enum APIRequestError {
+enum APIRequestError: String {
     case requestFailed
     case jsonConversionFailure
     case invalidData

@@ -58,6 +58,8 @@ class EventMessageController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    var eventId: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +112,20 @@ class EventMessageController: UIViewController {
     }
     
     @objc func sendMessage() {
-        print("sending message")
+        print("Sending message")
+        APIManager.jsonTaskWithRoute("https://us-central1-volunteernowios.cloudfunctions.net/sendMessage", usingHTTPMethod: .post, postData: ["event": eventId, "title": messageTitleTextView.text, "message": messageBodyTextView.text]) { json, error in
+            if let error = error {
+                Popup.presentError(text: error.rawValue, viewController: self)
+            } else {
+                if let json = json, json["result"] as? String == "success" {
+                    Popup.presentError(text: "Message sent successfully.", viewController: self, title: "Success")
+                } else {
+                    Popup.presentError(text: "Message sending failed.", viewController: self)
+                }
+            }
+        }
+        
+            
     }
 
 }

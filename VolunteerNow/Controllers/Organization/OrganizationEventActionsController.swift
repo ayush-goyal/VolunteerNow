@@ -74,6 +74,7 @@ class OrganizationEventActionsController: UIViewController {
     
     @objc func sendMessageButtonPressed() {
         let viewController = EventMessageController()
+        viewController.eventId = eventId
         //viewController.eventId = Organization.upcomingEvents[indexPath.row].id
         self.navigationController?.pushViewController(viewController, animated: true)
     }
