@@ -1454,6 +1454,7 @@ Roswell, GA, 30075</string>
                                                         <color key="titleColor" red="0.93547368050000002" green="0.39199810670000002" blue="0.42359416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="logOut:" destination="xfj-eJ-DHm" eventType="touchUpInside" id="7cb-4b-6rb"/>
                                                         <action selector="signOut:" destination="sJ6-Cc-3XV" eventType="touchUpInside" id="Mwo-9A-Okq"/>
                                                     </connections>
                                                 </button>

@@ -19,6 +19,13 @@ class OrganizationProfileController: UITableViewController {
         websiteLabel.text = App.Organization.webste
     }
     
+    
+    @IBAction func logOut(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.set("", forKey: "organizationCode")
+        switchToUserView(self)
+    }
+    
     @IBAction func switchToUserView(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
