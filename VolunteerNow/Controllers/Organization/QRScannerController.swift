@@ -91,13 +91,47 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                             }
                             self.performSegue(withIdentifier: "checkInConfirmationSegue", sender: nil)
                         } else {
-                            Popup.presentError(text: "User is not signed up for this event.", viewController: nil)
-                            self.idScanned = false
-                            return
+                            if let completed = value["completed"] as? [Int], let _ = completed.index(of: self.eventId) {
+                                Popup.presentError(text: "User has already checked in for this event.", viewController: self)
+                                self.idScanned = false
+                                return
+                            } else {
+                                Popup.presentError(text: "User is not signed up for this event.", viewController: self)
+                                self.idScanned = false
+                                return
+                            }
+                            
                         }
                         
                     } else {
                         self.idScanned = false
+                    }
+                }
+                
+                App.shared.dbRef.child("event-users").child(String(eventId)).observeSingleEvent(of: .value) { snapshot in
+                    if let value = snapshot.value as? NSDictionary {
+                        if var fcm = value["fcm"] as? [String], var uid = value["uid"] as? [String] {
+                            if let index = uid.index(of: message) {
+                                let userUid = uid.remove(at: index)
+                                let userFcm = fcm.remove(at: index)
+                                
+                                if var fcmChecked = value["fcm-checked"] as? [String], var uidChecked = value["uid-checked"] as? [String] {
+                                    uidChecked.append(userUid)
+                                    fcmChecked.append(userFcm)
+                                    
+                                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("uid-checked").setValue(NSArray(array: uidChecked))
+                                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("fcm-checked").setValue(NSArray(array: fcmChecked))
+                                } else {
+                                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("uid-checked").setValue(NSArray(array: [userUid]))
+                                    App.shared.dbRef.child("event-users").child(String(self.eventId)).child("fcm-checked").setValue(NSArray(array: [userFcm]))
+                                }
+                                
+                                App.shared.dbRef.child("event-users").child(String(self.eventId)).child("uid").setValue(NSArray(array: uid))
+                                App.shared.dbRef.child("event-users").child(String(self.eventId)).child("fcm").setValue(NSArray(array: fcm))
+                            }
+                            
+                            
+                        }
                     }
                 }
                 

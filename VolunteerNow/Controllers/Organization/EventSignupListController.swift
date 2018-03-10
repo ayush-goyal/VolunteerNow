@@ -20,6 +20,7 @@ class EventSignupListController: UICollectionViewController, UICollectionViewDel
     }()
     
     var signupNames: [String] = []
+    var checkInSignupNames: [String] = []
     
     var eventId: Int!
 
@@ -41,34 +42,59 @@ class EventSignupListController: UICollectionViewController, UICollectionViewDel
         collectionView?.addSubview(refresher)
     }
     
+    enum CheckedInStatus {
+        case no
+        case yes
+    }
+    
     @objc func loadData() {
-        App.shared.dbRef.child("event-users").child(String(eventId)).child("uid").observeSingleEvent(of: .value) { snapshot in
-            if let value = snapshot.value as? NSArray {
-                self.retrieveNames(keys: value) { names in
-                    self.signupNames = names
-                    self.collectionView?.reloadData()
-                    self.refresher.endRefreshing()
+        
+        App.shared.dbRef.child("event-users").child(String(eventId)).observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? NSDictionary {
+                var uid = value["uid"] as? [String]
+                var uidChecked = value["uid-checked"] as? [String]
+                
+                if (uid != nil && uidChecked != nil) {
+                    self.retrieveNames(sections: [uid!, uidChecked!]) {
+                        self.collectionView?.reloadData()
+                        self.refresher.endRefreshing()
+                    }
+                } else if (uid != nil) {
+                    self.retrieveNames(sections: [uid!]) {
+                        self.collectionView?.reloadData()
+                        self.refresher.endRefreshing()
+                    }
+                } else if (uidChecked != nil) {
+                    self.retrieveNames(sections: [[], uidChecked!]) {
+                        self.collectionView?.reloadData()
+                        self.refresher.endRefreshing()
+                    }
                 }
+                
             }
         }
     }
     
-    func retrieveNames(keys: NSArray, completionHandler: @escaping ([String]) -> Void) {
+    func retrieveNames(sections: [[String]], completionHandler: @escaping () -> Void) {
         let group = DispatchGroup()
-        var names: [String] = []
-        print(keys)
-        for key in keys {
-            let key = String(describing: key)
-            group.enter()
-            App.shared.dbRef.child("users").child(key).child("name").observeSingleEvent(of: .value) { snapshot in
-                let value = snapshot.value as! String
-                names.append(value)
-                group.leave()
+        for index in 0..<sections.count {
+            for key in sections[index] {
+                let key = String(describing: key)
+                group.enter()
+                App.shared.dbRef.child("users").child(key).child("name").observeSingleEvent(of: .value) { snapshot in
+                    let value = snapshot.value as! String
+                    self.signupNames.append(value)
+                    if index == 1 {
+                        self.checkInSignupNames.append(value)
+                    }
+                    group.leave()
+                }
             }
         }
         
+        
         group.notify(queue: .main) {
-            completionHandler(names)
+            completionHandler()
         }
     }
 
@@ -87,6 +113,10 @@ class EventSignupListController: UICollectionViewController, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventSignupCell
         
         cell.nameLabel.text = signupNames[indexPath.row]
+        
+        if (checkInSignupNames.contains(signupNames[indexPath.row])) {
+            cell.nameLabel.textColor = .green
+        }
     
         return cell
     }

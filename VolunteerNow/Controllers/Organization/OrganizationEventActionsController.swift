@@ -64,7 +64,6 @@ class OrganizationEventActionsController: UIViewController {
     }
     
     @objc func checkInButtonPressed() {
-        print("pressed")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let viewController = storyboard.instantiateViewController(withIdentifier: "qrScannerController") as! QRScannerController
