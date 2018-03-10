@@ -68,22 +68,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Check to see if user is signed in
         
-        if Auth.auth().currentUser == nil {
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "signInController")
-            
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
-            
-        } else {
+        if Auth.auth().currentUser != nil {
             print("User is logged into firebase")
             
             if let displayName = Auth.auth().currentUser?.displayName, let uid = Auth.auth().currentUser?.uid, let email = Auth.auth().currentUser?.email {
                 App.User.uid = uid
                 App.User.name = displayName
                 App.User.email = email
+                
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "userTabBarController")
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
             } else {
                 Popup.presentError(text: "User name, id, or email not set", viewController: nil, appDelegateWindow: self.window)
             }
@@ -130,7 +129,7 @@ extension AppDelegate: GIDSignInDelegate {
             }
             print("User successfully signed into firebase")
             let navigationController = self.window?.rootViewController as? UINavigationController
-            navigationController?.topViewController?.performSegue(withIdentifier: "homeViewSegue", sender: nil)
+            navigationController?.performSegue(withIdentifier: "homeViewSegue", sender: nil)
         }
     }
     

@@ -46,8 +46,11 @@ class ProfileController: UITableViewController {
     @IBAction func signOut(_ sender: Any) {
         try! Auth.auth().signOut()
         
-        //navigationController?.popToRootViewController(animated: true)
-        view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "signInController") as! UINavigationController
+        UIApplication.shared.keyWindow?.rootViewController = initialViewController
+        
+        
     }
     
     @IBAction func switchToOrganizationView(_ sender: Any) {
